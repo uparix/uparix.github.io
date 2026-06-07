@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sokoban by Cronos</title>
+    <style>
+      body {
+        background: #f0f8ff;
+        color: #000080;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+        margin: 1.5rem;
+      }
+      canvas {
+        background: #f0f8ff;
+        image-rendering: pixelated;
+      }
+      .controls {
+        margin-top: 0.75rem;
+      }
+      #status {
+        min-height: 1.2em;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sokoban</h1>
+    <p>Push every ball (H) onto a hole (o) with the arrow keys.</p>
+    <canvas id="board"></canvas>
+
+    <div class="controls">
+      <label>Level: <select id="level"></select></label>
+      <button id="restart" type="button">Restart Level</button>
+    </div>
+    <div id="status">&nbsp;</div>
+
+    <script src="sokoban.js"></script>
+  </body>
+</html>
