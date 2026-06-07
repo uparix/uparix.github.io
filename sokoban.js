@@ -71,7 +71,7 @@ function goToLevel(index) {
   levelSelect.selectedIndex = levelIndex;
   decodeLevel(LEVELS[levelIndex]);
   moveCount = 0;
-  setStatus("Level " + (levelIndex + 1) + " — use the arrow keys.");
+  setStatus("Level " + (levelIndex + 1) + " — use the arrow keys to move.");
   render();
 }
 
