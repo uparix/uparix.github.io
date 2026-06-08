@@ -33,67 +33,73 @@ function setup() {
 
 function draw() {
     background(0, 150);
-    streams.forEach(function (stream) {
-        stream.render();
-    });
+    streams.forEach((stream) => stream.render());
 }
 
-function Glyph(x, y, speed, isLeading, opacity) {
-    this.x = x;
-    this.y = y;
-    this.value = '';
+// A single falling character. It periodically swaps to a new random glyph
+// and resets to the top once it falls past the bottom edge.
+class Glyph {
+    constructor(x, y, speed, isLeading, opacity) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.isLeading = isLeading;
+        this.opacity = opacity;
 
-    this.speed = speed;
-    this.isLeading = isLeading;
-    this.opacity = opacity;
+        this.switchInterval = round(random(2, 25));
+        this.value = Glyph.randomValue();
+    }
 
-    this.switchInterval = round(random(2, 25));
-
-    this.setToRandomSymbol = function () {
-        if (frameCount % this.switchInterval !== 0) return;
-
-        const roll = round(random(0, KATAKANA_ROLL_MAX));
-        if (roll > KATAKANA_ROLL_THRESHOLD) {
-            this.value = String.fromCharCode(
+    // A random Katakana character most of the time, otherwise a digit.
+    static randomValue() {
+        if (round(random(0, KATAKANA_ROLL_MAX)) > KATAKANA_ROLL_THRESHOLD) {
+            return String.fromCharCode(
                 KATAKANA_START + floor(random(0, KATAKANA_COUNT))
             );
-        } else {
-            this.value = floor(random(0, 10));
         }
-    };
+        return floor(random(0, 10));
+    }
 
-    this.rain = function () {
+    // Swap to a new glyph on the glyph's own cadence.
+    maybeSwitch() {
+        if (frameCount % this.switchInterval === 0) {
+            this.value = Glyph.randomValue();
+        }
+    }
+
+    fall() {
         this.y = this.y >= height ? 0 : this.y + this.speed;
-    };
+    }
 }
 
-function Stream() {
-    this.symbols = [];
-    this.totalSymbols = round(random(5, 35));
-    this.speed = random(5, 22);
+// A vertical column of glyphs that share a speed and fade out down the trail.
+class Stream {
+    constructor() {
+        this.symbols = [];
+        this.totalSymbols = round(random(5, 35));
+        this.speed = random(5, 22);
+    }
 
-    this.generateSymbols = function (x, y) {
+    generateSymbols(x, y) {
         let opacity = 255;
         let isLeading = round(random(0, 4)) === 1;
 
         for (let i = 0; i <= this.totalSymbols; i++) {
-            const symbol = new Glyph(x, y, this.speed, isLeading, opacity);
-            symbol.setToRandomSymbol();
-            this.symbols.push(symbol);
+            this.symbols.push(new Glyph(x, y, this.speed, isLeading, opacity));
 
             opacity -= (255 / this.totalSymbols) / FADE_INTERVAL;
             y -= SYMBOL_SIZE;
             isLeading = false;
         }
-    };
+    }
 
-    this.render = function () {
-        this.symbols.forEach(function (symbol) {
-            const color = symbol.isLeading ? LEADING_COLOR : TRAIL_COLOR;
-            fill(color[0], color[1], color[2], symbol.opacity);
+    render() {
+        this.symbols.forEach((symbol) => {
+            const [r, g, b] = symbol.isLeading ? LEADING_COLOR : TRAIL_COLOR;
+            fill(r, g, b, symbol.opacity);
             text(symbol.value, symbol.x, symbol.y);
-            symbol.rain();
-            symbol.setToRandomSymbol();
+            symbol.fall();
+            symbol.maybeSwitch();
         });
-    };
+    }
 }
