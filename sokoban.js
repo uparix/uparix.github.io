@@ -113,7 +113,7 @@ function afterMove() {
   if (ballsLeft === 0) {
     setStatus("Completed in " + moveCount + " steps!");
   } else {
-    setStatus("Moves: " + moveCount + ",  Balls Left: " + ballsLeft);
+    setStatus("Moves: " + moveCount + ",  Moves Left: " + (MAX_MOVES - moveCount) + ",  Balls Left: " + ballsLeft);
   }
   render();
   if (moveCount === MAX_MOVES) goToLevel(levelIndex);
