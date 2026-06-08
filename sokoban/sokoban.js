@@ -15,7 +15,8 @@ const PLAYER_ON_HOLE = 5;
 const BALL = 6;
 const BALL_ON_HOLE = 7;
 const HIGHEST_TILE = 8;
-const MAX_MOVES = 200;
+// Move limit per level (index 0 = level 1).
+const MAX_MOVES = [200, 200, 1000, 230, 260, 470];
 
 // A level character maps to a tile code via CHAR_CODES.indexOf(ch) % 10.
 // A comma yields 9, which exceeds HIGHEST_TILE and so marks a row break.
@@ -110,13 +111,14 @@ function tryMove(dx, dy) {
 
 function afterMove() {
   const ballsLeft = board.flat().filter((t) => t === BALL).length;
+  const maxMoves = MAX_MOVES[levelIndex];
   if (ballsLeft === 0) {
     setStatus("Completed in " + moveCount + " steps!");
   } else {
-    setStatus("Moves: " + moveCount + ",  Moves Left: " + (MAX_MOVES - moveCount));
+    setStatus("Moves: " + moveCount + ",  Moves Left: " + (maxMoves - moveCount));
   }
   render();
-  if (moveCount === MAX_MOVES) goToLevel(levelIndex);
+  if (moveCount === maxMoves) goToLevel(levelIndex);
 }
 
 // --- Rendering ------------------------------------------------------
