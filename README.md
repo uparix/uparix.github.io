@@ -15,18 +15,25 @@ of self-contained browser experiments — no build step, no dependencies to inst
 ## Quick start
 
 Everything is plain HTML, CSS, and vanilla JavaScript, so a static file server is
-all you need:
+all you need. The repo ships with a self-contained `server` binary that serves
+the current directory:
 
 ```bash
 git clone https://github.com/uparix/uparix.github.io.git
 cd uparix.github.io
 
-# serve with any static server, e.g.
-python3 -m http.server 8000
+# serve the current directory (defaults to port 8000)
+./server
+
+# or pick a port
+./server 3000
 ```
 
 Then open <http://localhost:8000> in your browser. The sub-pages live at
 `/matrix/` and `/sokoban/`.
+
+> Prefer not to use the bundled binary? Any static server works just as well,
+> e.g. `python3 -m http.server 8000`.
 
 > The Matrix page loads p5.js from a CDN, so it needs an internet connection.
 > The landing page and Sokoban run fully offline.
@@ -45,6 +52,7 @@ Then open <http://localhost:8000> in your browser. The sub-pages live at
 │   ├── index.html
 │   ├── sokoban.js      # Game logic and rendering
 │   └── images.gif      # Tile sprite sheet
+├── server              # Static file server binary (serves the current dir)
 ├── CNAME               # Custom domain (www.uparix.com)
 └── LICENSE
 ```
