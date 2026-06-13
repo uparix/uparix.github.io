@@ -23,10 +23,7 @@ git clone https://github.com/uparix/uparix.github.io.git
 cd uparix.github.io
 
 # serve the current directory (defaults to port 8000)
-./server
-
-# or pick a port
-./server 3000
+./server [8000]
 ```
 
 Then open <http://localhost:8000> in your browser. The sub-pages live at
