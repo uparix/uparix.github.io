@@ -47,6 +47,12 @@ let playerRow = 0;
 let levelIndex = 0;
 let moveCount = 0;
 
+// --- Move recording / replay ---------------------------------------
+let recordedMoves = []; // sequence of [dx, dy] for the current level
+let isReplaying = false; // true while a replay is animating
+let replayTimer = null; // setTimeout handle for the running replay
+const REPLAY_DELAY = 250; // ms between replayed moves
+
 // --- Level loading --------------------------------------------------
 function decodeLevel(description) {
   board = Array.from({ length: ROWS }, () => new Array(COLS).fill(EMPTY));
@@ -72,6 +78,7 @@ function goToLevel(index) {
   levelSelect.selectedIndex = levelIndex;
   decodeLevel(LEVELS[levelIndex]);
   moveCount = 0;
+  if (!isReplaying) recordedMoves = [];
   setStatus("Level " + (levelIndex + 1) + " — use the arrow keys to move.");
   render();
 }
@@ -106,6 +113,7 @@ function tryMove(dx, dy) {
   playerCol = targetCol;
   playerRow = targetRow;
   moveCount++;
+  if (!isReplaying) recordedMoves.push([dx, dy]);
   afterMove();
 }
 
@@ -139,6 +147,40 @@ function render() {
 
 const setStatus = (text) => (statusEl.textContent = text);
 
+// --- Replay ---------------------------------------------------------
+function stopReplay() {
+  if (replayTimer !== null) {
+    clearTimeout(replayTimer);
+    replayTimer = null;
+  }
+  isReplaying = false;
+}
+
+function startReplay() {
+  if (recordedMoves.length === 0) {
+    setStatus("Nothing to replay yet — make some moves first.");
+    return;
+  }
+  stopReplay();
+  // Keep a copy: goToLevel only clears recordedMoves when not replaying.
+  const moves = recordedMoves.slice();
+  isReplaying = true;
+  goToLevel(levelIndex); // reset the board to the level's start
+  let i = 0;
+  const step = () => {
+    if (i >= moves.length) {
+      stopReplay();
+      setStatus("Replay finished — " + moves.length + " moves.");
+      return;
+    }
+    const [dx, dy] = moves[i++];
+    tryMove(dx, dy);
+    setStatus("Replaying move " + i + " / " + moves.length);
+    replayTimer = setTimeout(step, REPLAY_DELAY);
+  };
+  step();
+}
+
 // --- Wiring ---------------------------------------------------------
 const KEY_MOVES = {
   ArrowUp: [0, -1],
@@ -151,6 +193,7 @@ document.addEventListener("keydown", (event) => {
   const move = KEY_MOVES[event.key];
   if (move) {
     event.preventDefault();
+    if (isReplaying) return; // ignore manual input during a replay
     tryMove(move[0], move[1]);
   }
 });
@@ -160,8 +203,15 @@ LEVELS.forEach((_, i) => {
   option.textContent = "Level " + (i + 1);
   levelSelect.appendChild(option);
 });
-levelSelect.addEventListener("change", () => goToLevel(levelSelect.selectedIndex));
-document.getElementById("restart").addEventListener("click", () => goToLevel(levelIndex));
+levelSelect.addEventListener("change", () => {
+  stopReplay();
+  goToLevel(levelSelect.selectedIndex);
+});
+document.getElementById("restart").addEventListener("click", () => {
+  stopReplay();
+  goToLevel(levelIndex);
+});
+document.getElementById("replay").addEventListener("click", startReplay);
 
 sheet.onload = () => goToLevel(0);
 sheet.onerror = () => setStatus("Could not load images.gif (serve over http, not file://).");
