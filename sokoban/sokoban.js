@@ -1,3 +1,5 @@
+import { encode, decode } from "@toon-format/toon";
+
 // --- Board geometry -------------------------------------------------
 const COLS = 18;
 const ROWS = 14;
@@ -167,20 +169,18 @@ function renderMoves() {
   movesList.scrollTop = movesList.scrollHeight;
 }
 
-// Serialize the recorded moves as TOON (Token-Oriented Object Notation): a
-// compact, tabular format that lists the columns once and one row per move.
-function toToon() {
-  const header = "moves[" + recordedMoves.length + "]{dx,dy}:";
-  const rows = recordedMoves.map(([dx, dy]) => "  " + dx + "," + dy);
-  return ["level: " + (levelIndex + 1), header, ...rows].join("\n");
-}
-
 function downloadMoves() {
   if (recordedMoves.length === 0) {
     setStatus("Nothing to download yet — make some moves first.");
     return;
   }
-  const blob = new Blob([toToon()], { type: "text/plain" });
+  // encode() produces TOON (Token-Oriented Object Notation): a compact, tabular
+  // format that lists the columns once and one row per move.
+  const text = encode({
+    level: levelIndex + 1,
+    moves: recordedMoves.map(([dx, dy]) => ({ dx, dy })),
+  });
+  const blob = new Blob([text], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -189,33 +189,15 @@ function downloadMoves() {
   URL.revokeObjectURL(url);
 }
 
-// Parse a TOON file produced by toToon() back into { level, moves }. Reads the
-// "level:" line and every "dx,dy" data row, ignoring the header line.
-function parseToon(text) {
-  let level = 1;
-  const moves = [];
-  for (const line of text.split("\n")) {
-    const trimmed = line.trim();
-    const levelMatch = trimmed.match(/^level:\s*(\d+)$/);
-    const moveMatch = trimmed.match(/^(-?\d+),(-?\d+)$/);
-    if (levelMatch) {
-      level = Number(levelMatch[1]);
-    } else if (moveMatch) {
-      moves.push([Number(moveMatch[1]), Number(moveMatch[2])]);
-    }
-  }
-  return { level, moves };
-}
-
 function loadMoves(text) {
-  const { level, moves } = parseToon(text);
-  if (moves.length === 0) {
+  const { level, moves } = decode(text);
+  if (!moves || moves.length === 0) {
     setStatus("No moves found in that file.");
     return;
   }
   stopReplay();
   goToLevel(level - 1); // resets the board and clears recordedMoves
-  recordedMoves = moves;
+  recordedMoves = moves.map(({ dx, dy }) => [dx, dy]);
   renderMoves();
   startReplay();
 }
