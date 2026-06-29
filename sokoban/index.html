@@ -23,12 +23,48 @@
         min-height: 1.2em;
         margin-top: 0.5rem;
       }
+      .game {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      #moves-panel {
+        text-align: left;
+        width: 9rem;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+      }
+      #moves-panel h2 {
+        font-size: 1rem;
+        margin: 0 0 0.5rem;
+      }
+      #moves-list {
+        flex: 1;
+        max-height: 600px;
+        overflow-y: auto;
+        border: 1px solid #000080;
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+        margin: 0 0 0.5rem;
+        list-style-position: inside;
+        font-variant-numeric: tabular-nums;
+      }
     </style>
   </head>
   <body>
     <h1>Sokoban</h1>
     <p>Hit Start Problem to Start the problem or to restart the problem when stuck.</p>
-    <canvas id="board"></canvas>
+    <div class="game">
+      <canvas id="board"></canvas>
+      <div id="moves-panel">
+        <h2>Moves</h2>
+        <ol id="moves-list"></ol>
+        <button id="download" type="button">Download Moves</button>
+        <button id="upload" type="button">Load Moves</button>
+        <input id="upload-file" type="file" accept=".toon" hidden />
+      </div>
+    </div>
     <div class="controls">
       <label>Level: <select id="level"></select></label>
       <button id="restart" type="button">Restart Level</button>

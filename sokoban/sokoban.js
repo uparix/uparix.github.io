@@ -39,7 +39,12 @@ canvas.height = ORIGIN_Y * 2 + ROWS * TILE;
 const ctx = canvas.getContext("2d");
 const statusEl = document.getElementById("status");
 const levelSelect = document.getElementById("level");
+const movesList = document.getElementById("moves-list");
 const sheet = new Image();
+
+// Human-readable name for a [dx, dy] move, used in the panel and JSON export.
+const moveName = (dx, dy) =>
+  dy < 0 ? "Up" : dy > 0 ? "Down" : dx < 0 ? "Left" : "Right";
 
 let board = [];
 let playerCol = 0;
@@ -81,6 +86,7 @@ function goToLevel(index) {
   if (!isReplaying) recordedMoves = [];
   setStatus("Level " + (levelIndex + 1) + " — use the arrow keys to move.");
   render();
+  renderMoves();
 }
 
 // --- Game logic -----------------------------------------------------
@@ -113,7 +119,10 @@ function tryMove(dx, dy) {
   playerCol = targetCol;
   playerRow = targetRow;
   moveCount++;
-  if (!isReplaying) recordedMoves.push([dx, dy]);
+  if (!isReplaying) {
+    recordedMoves.push([dx, dy]);
+    renderMoves();
+  }
   afterMove();
 }
 
@@ -146,6 +155,70 @@ function render() {
 }
 
 const setStatus = (text) => (statusEl.textContent = text);
+
+// --- Moves panel / export -------------------------------------------
+function renderMoves() {
+  movesList.innerHTML = "";
+  for (const [dx, dy] of recordedMoves) {
+    const item = document.createElement("li");
+    item.textContent = moveName(dx, dy);
+    movesList.appendChild(item);
+  }
+  movesList.scrollTop = movesList.scrollHeight;
+}
+
+// Serialize the recorded moves as TOON (Token-Oriented Object Notation): a
+// compact, tabular format that lists the columns once and one row per move.
+function toToon() {
+  const header = "moves[" + recordedMoves.length + "]{dx,dy}:";
+  const rows = recordedMoves.map(([dx, dy]) => "  " + dx + "," + dy);
+  return ["level: " + (levelIndex + 1), header, ...rows].join("\n");
+}
+
+function downloadMoves() {
+  if (recordedMoves.length === 0) {
+    setStatus("Nothing to download yet — make some moves first.");
+    return;
+  }
+  const blob = new Blob([toToon()], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "sokoban-level" + (levelIndex + 1) + "-moves.toon";
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+// Parse a TOON file produced by toToon() back into { level, moves }. Reads the
+// "level:" line and every "dx,dy" data row, ignoring the header line.
+function parseToon(text) {
+  let level = 1;
+  const moves = [];
+  for (const line of text.split("\n")) {
+    const trimmed = line.trim();
+    const levelMatch = trimmed.match(/^level:\s*(\d+)$/);
+    const moveMatch = trimmed.match(/^(-?\d+),(-?\d+)$/);
+    if (levelMatch) {
+      level = Number(levelMatch[1]);
+    } else if (moveMatch) {
+      moves.push([Number(moveMatch[1]), Number(moveMatch[2])]);
+    }
+  }
+  return { level, moves };
+}
+
+function loadMoves(text) {
+  const { level, moves } = parseToon(text);
+  if (moves.length === 0) {
+    setStatus("No moves found in that file.");
+    return;
+  }
+  stopReplay();
+  goToLevel(level - 1); // resets the board and clears recordedMoves
+  recordedMoves = moves;
+  renderMoves();
+  startReplay();
+}
 
 // --- Replay ---------------------------------------------------------
 function stopReplay() {
@@ -212,6 +285,16 @@ document.getElementById("restart").addEventListener("click", () => {
   goToLevel(levelIndex);
 });
 document.getElementById("replay").addEventListener("click", startReplay);
+document.getElementById("download").addEventListener("click", downloadMoves);
+
+const uploadInput = document.getElementById("upload-file");
+document.getElementById("upload").addEventListener("click", () => uploadInput.click());
+uploadInput.addEventListener("change", () => {
+  const file = uploadInput.files[0];
+  if (!file) return;
+  file.text().then(loadMoves);
+  uploadInput.value = ""; // allow re-loading the same file
+});
 
 sheet.onload = () => goToLevel(0);
 sheet.onerror = () => setStatus("Could not load images.gif (serve over http, not file://).");
