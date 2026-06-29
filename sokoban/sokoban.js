@@ -188,7 +188,7 @@ function downloadMoves() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "sokoban-level" + (levelIndex + 1) + "-moves.toon";
+  link.download = `sokoban-level${levelIndex + 1}-moves.toon`;
   link.click();
   URL.revokeObjectURL(url);
 }
@@ -229,12 +229,12 @@ function startReplay() {
   const step = () => {
     if (i >= moves.length) {
       stopReplay();
-      setStatus("Replay finished — " + moves.length + " moves.");
+      setStatus(`Replay finished — ${moves.length} moves.`);
       return;
     }
     const [dx, dy] = moves[i++];
     tryMove(dx, dy);
-    setStatus("Replaying move " + i + " / " + moves.length);
+    setStatus(`Replaying move ${i} / ${moves.length}`);
     replayTimer = setTimeout(step, REPLAY_DELAY);
   };
   step();
@@ -259,7 +259,7 @@ document.addEventListener("keydown", (event) => {
 
 LEVELS.forEach((_, i) => {
   const option = document.createElement("option");
-  option.textContent = "Level " + (i + 1);
+  option.textContent = `Level ${i + 1}`;
   levelSelect.appendChild(option);
 });
 levelSelect.addEventListener("change", () => {
