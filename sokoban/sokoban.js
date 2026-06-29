@@ -86,13 +86,19 @@ function goToLevel(index) {
   decodeLevel(LEVELS[levelIndex]);
   moveCount = 0;
   if (!isReplaying) recordedMoves = [];
-  setStatus("Level " + (levelIndex + 1) + " — use the arrow keys to move.");
+  setStatus(`Level ${levelIndex + 1} — use the arrow keys to move.`);
   render();
   renderMoves();
 }
 
 // --- Game logic -----------------------------------------------------
 const isWalkable = (tile) => tile === FLOOR || tile === HOLE;
+
+// Tile transitions (derived from the tile-code values above).
+const addPlayer = (tile) => tile + 3; // FLOOR→PLAYER, HOLE→PLAYER_ON_HOLE
+const removePlayer = (tile) => tile - 3; // reverse
+const ballToPlayer = (tile) => tile - 2; // BALL→PLAYER, BALL_ON_HOLE→PLAYER_ON_HOLE
+const addBall = (tile) => tile + 5; // FLOOR→BALL, HOLE→BALL_ON_HOLE
 
 function canPushBall(tile, col, row, dx, dy) {
   if (tile !== BALL && tile !== BALL_ON_HOLE) return false;
@@ -106,15 +112,13 @@ function tryMove(dx, dy) {
   const hereTile = board[playerRow][playerCol];
   const targetTile = board[targetRow][targetCol];
 
-  // +3 puts a player on floor/hole, -3 removes one; -2 turns a ball into a
-  // player, +5 turns the floor/hole beyond it into a ball (see tile codes).
   if (isWalkable(targetTile)) {
-    board[playerRow][playerCol] = hereTile - 3;
-    board[targetRow][targetCol] = targetTile + 3;
+    board[playerRow][playerCol] = removePlayer(hereTile);
+    board[targetRow][targetCol] = addPlayer(targetTile);
   } else if (canPushBall(targetTile, targetCol, targetRow, dx, dy)) {
-    board[playerRow][playerCol] = hereTile - 3;
-    board[targetRow][targetCol] = targetTile - 2;
-    board[targetRow + dy][targetCol + dx] += 5;
+    board[playerRow][playerCol] = removePlayer(hereTile);
+    board[targetRow][targetCol] = ballToPlayer(targetTile);
+    board[targetRow + dy][targetCol + dx] = addBall(board[targetRow + dy][targetCol + dx]);
   } else {
     return;
   }
@@ -132,9 +136,9 @@ function afterMove() {
   const ballsLeft = board.flat().filter((t) => t === BALL).length;
   const maxMoves = MAX_MOVES[levelIndex];
   if (ballsLeft === 0) {
-    setStatus("Completed in " + moveCount + " steps!");
+    setStatus(`Completed in ${moveCount} steps!`);
   } else {
-    setStatus("Moves: " + moveCount + ",  Moves Left: " + (maxMoves - moveCount));
+    setStatus(`Moves: ${moveCount},  Moves Left: ${maxMoves - moveCount}`);
   }
   render();
   if (moveCount === maxMoves) goToLevel(levelIndex);
