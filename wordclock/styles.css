@@ -15,14 +15,33 @@
     align-items: center;
     margin-bottom: 18px;
   }
+  .control-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .control-row label {
+    color: #999;
+    width: 70px;
+    text-align: right;
+  }
   .grid {
     display: grid;
-    grid-template-columns: repeat(11, 44px);
-    grid-template-rows: repeat(10, 44px);
+    grid-template-columns: repeat(12, 44px);
+    grid-template-rows: repeat(11, 44px);
     gap: 4px;
     background: #000;
     padding: 6px;
     border-radius: 6px;
+  }
+  .grid-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    color: #666;
+    font-size: 12px;
+    user-select: none;
   }
   .cell {
     display: flex;

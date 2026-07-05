@@ -67,7 +67,24 @@ function selectIndices(indices) {
 function buildGrid() {
   grid.innerHTML = '';
   cellsByIndex.clear();
+
+  const corner = document.createElement('div');
+  corner.className = 'grid-label';
+  grid.appendChild(corner);
+
+  for (let c = 0; c < 11; c++) {
+    const colLabel = document.createElement('div');
+    colLabel.className = 'grid-label';
+    colLabel.textContent = c;
+    grid.appendChild(colLabel);
+  }
+
   for (let r = 0; r < 10; r++) {
+    const rowLabel = document.createElement('div');
+    rowLabel.className = 'grid-label';
+    rowLabel.textContent = r;
+    grid.appendChild(rowLabel);
+
     for (let c = 0; c < 11; c++) {
       const letter = rows[r][c];
       const index = r * 11 + c; // row-major, 0-indexed

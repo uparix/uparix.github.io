@@ -12,11 +12,17 @@
   <body>
     <h1>Word Clock Editor</h1>
     <div class="controls">
-      <label for="langSelect"></label><select id="langSelect">
-        <option value="de">German</option>
-        <option value="en">English</option>
-      </select>
-      <label for="timeSelect">Time</label><select id="timeSelect"></select>
+      <div class="control-row">
+        <label for="langSelect">Language</label>
+        <select id="langSelect">
+          <option value="de">German</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+      <div class="control-row">
+        <label for="timeSelect">Time</label>
+        <select id="timeSelect"></select>
+      </div>
     </div>
     <div class="grid" id="grid"></div>
     <div class="output">
