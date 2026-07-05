@@ -63,6 +63,11 @@
     color: #f5c518;
     word-break: break-all;
   }
+  .warning {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 8px;
+  }
   button {
     margin-top: 10px;
     background: #333;

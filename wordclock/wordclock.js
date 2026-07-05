@@ -15,6 +15,7 @@ const grid = document.getElementById('grid');
 const outLetters = document.getElementById('outLetters');
 const outHex = document.getElementById('outHex');
 const outIdx = document.getElementById('outIdx');
+const outWarning = document.getElementById('outWarning');
 const timeSelect = document.getElementById('timeSelect');
 const langSelect = document.getElementById('langSelect');
 
@@ -22,6 +23,7 @@ let currentLang = 'de';
 let rows = [];
 let selection = []; // array of {row, col, letter, index}
 const cellsByIndex = new Map(); // index -> cell element
+let isDragging = false;
 
 function toHex(index) {
   return index.toString(16).toUpperCase().padStart(2, '0');
@@ -31,6 +33,7 @@ function render() {
   outLetters.textContent = selection.length ? selection.map(s => s.letter).join(' ') : '—';
   outHex.textContent = selection.length ? selection.map(s => toHex(s.index)).join(' ') : '—';
   outIdx.textContent = selection.length ? selection.map(s => s.index).join(' ') : '—';
+  outWarning.hidden = selection.length <= 32;
 }
 
 function clearSelection() {
@@ -74,10 +77,19 @@ function buildGrid() {
       cell.dataset.row = r;
       cell.dataset.col = c;
 
-      cell.addEventListener('click', () => {
+      cell.addEventListener('mousedown', (e) => {
+        e.preventDefault(); // avoid text-selection while dragging across cells
+        isDragging = true;
         toggleCell(r, c);
         render();
         timeSelect.value = ''; // manual edit no longer matches a preset
+      });
+
+      cell.addEventListener('mouseenter', () => {
+        if (!isDragging) return;
+        toggleCell(r, c);
+        render();
+        timeSelect.value = '';
       });
 
       cellsByIndex.set(index, cell);
@@ -156,6 +168,10 @@ async function switchLanguage(lang) {
   populateHexDump();
   render();
 }
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
 
 document.getElementById('clearBtn').addEventListener('click', () => {
   clearSelection();
