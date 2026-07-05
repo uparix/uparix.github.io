@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>WordClock Grid</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+      { "imports": { "@toon-format/toon": "https://esm.sh/@toon-format/toon" } }
+    </script>
+    <script type="module" src="wordclock.js"></script>
+  </head>
+  <body>
+    <h1>Word Clock Editor</h1>
+    <div class="controls">
+      <label for="langSelect"></label><select id="langSelect">
+        <option value="de">German</option>
+        <option value="en">English</option>
+      </select>
+      <label for="timeSelect">Time</label><select id="timeSelect"></select>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="output">
+      <div class="row"><span class="label">Letters</span><span class="value" id="outLetters">—</span></div>
+      <div class="row"><span class="label">Hex</span><span class="value" id="outHex">—</span></div>
+      <div class="row"><span class="label">Indices</span><span class="value" id="outIdx">—</span></div>
+    </div>
+    <button id="clearBtn">Clear selection</button>
+    <div class="table-wrap">
+      <h2>All 288 entries — hex codes (<span id="tableLangLabel">German</span>)</h2>
+      <label for="hexTable"></label><textarea id="hexTable" readonly spellcheck="false"></textarea>
+    </div>
+    <div class="table-wrap">
+      <h2>v 3.0 hex words addressed (<span id="dumpLangLabel">German</span>)</h2>
+      <label for="hexDump"></label><textarea id="hexDump" readonly spellcheck="false"></textarea>
+    </div>
+  </body>
+</html>

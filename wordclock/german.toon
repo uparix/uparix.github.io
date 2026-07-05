@@ -1,0 +1,1155 @@
+rows[10]: ESKISTAFÜNF,ZEHNZWANZIG,DREIVIERTEL,VORWIFINACH,HALBAELFÜNF,EINSXAMZWEI,DREIAUJVIER,SECHSNLACHT,SIEBENZWÖLF,ZEHNEUNKUHR
+presets[144]:
+  - phrase: ES IST ZWOLF UHR
+    indices[13]: 0,1,3,4,5,94,95,96,97,98,107,108,109
+  - phrase: ES IST FUNF NACH ZWOLF
+    indices[18]: 0,1,3,4,5,7,8,9,10,40,41,42,43,94,95,96,97,98
+  - phrase: ES IST ZEHN NACH ZWOLF
+    indices[18]: 0,1,3,4,5,11,12,13,14,40,41,42,43,94,95,96,97,98
+  - phrase: ES IST VIERTEL NACH ZWOLF
+    indices[21]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,94,95,96,97,98
+  - phrase: ES IST ZWANZIG NACH ZWOLF
+    indices[21]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,94,95,96,97,98
+  - phrase: ES IST FUNF VOR HALB EINS
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,55,56,57,58
+  - phrase: ES IST HALB EINS
+    indices[13]: 0,1,3,4,5,44,45,46,47,55,56,57,58
+  - phrase: ES IST FUNF NACH HALB EINS
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,55,56,57,58
+  - phrase: ES IST ZWANZIG VOR EINS
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,55,56,57,58
+  - phrase: ES IST VIERTEL VOR EINS
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,55,56,57,58
+  - phrase: ES IST ZEHN VOR EINS
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,55,56,57,58
+  - phrase: ES IST FUNF VOR EINS
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,55,56,57,58
+  - phrase: ES IST EIN UHR
+    indices[11]: 0,1,3,4,5,55,56,57,107,108,109
+  - phrase: ES IST FUNF NACH EINS
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,55,56,57,58
+  - phrase: ES IST ZEHN NACH EINS
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,55,56,57,58
+  - phrase: ES IST VIERTEL NACH EINS
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,55,56,57,58
+  - phrase: ES IST ZWANZIG NACH EINS
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,55,56,57,58
+  - phrase: ES IST FUNF VOR HALB ZWEI
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,62,63,64,65
+  - phrase: ES IST HALB ZWEI
+    indices[13]: 0,1,3,4,5,44,45,46,47,62,63,64,65
+  - phrase: ES IST FUNF NACH HALB ZWEI
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,62,63,64,65
+  - phrase: ES IST ZWANZIG VOR ZWEI
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,62,63,64,65
+  - phrase: ES IST VIERTEL VOR ZWEI
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,62,63,64,65
+  - phrase: ES IST ZEHN VOR ZWEI
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,62,63,64,65
+  - phrase: ES IST FUNF VOR ZWEI
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,62,63,64,65
+  - phrase: ES IST ZWEI UHR
+    indices[12]: 0,1,3,4,5,62,63,64,65,107,108,109
+  - phrase: ES IST FUNF NACH ZWEI
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,62,63,64,65
+  - phrase: ES IST ZEHN NACH ZWEI
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,62,63,64,65
+  - phrase: ES IST VIERTEL NACH ZWEI
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,62,63,64,65
+  - phrase: ES IST ZWANZIG NACH ZWEI
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,62,63,64,65
+  - phrase: ES IST FUNF VOR HALB DREI
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,66,67,68,69
+  - phrase: ES IST HALB DREI
+    indices[13]: 0,1,3,4,5,44,45,46,47,66,67,68,69
+  - phrase: ES IST FUNF NACH HALB DREI
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,66,67,68,69
+  - phrase: ES IST ZWANZIG VOR DREI
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,66,67,68,69
+  - phrase: ES IST VIERTEL VOR DREI
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,66,67,68,69
+  - phrase: ES IST ZEHN VOR DREI
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,66,67,68,69
+  - phrase: ES IST FUNF VOR DREI
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,66,67,68,69
+  - phrase: ES IST DREI UHR
+    indices[12]: 0,1,3,4,5,66,67,68,69,107,108,109
+  - phrase: ES IST FUNF NACH DREI
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,66,67,68,69
+  - phrase: ES IST ZEHN NACH DREI
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,66,67,68,69
+  - phrase: ES IST VIERTEL NACH DREI
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,66,67,68,69
+  - phrase: ES IST ZWANZIG NACH DREI
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,66,67,68,69
+  - phrase: ES IST FUNF VOR HALB VIER
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,73,74,75,76
+  - phrase: ES IST HALB VIER
+    indices[13]: 0,1,3,4,5,44,45,46,47,73,74,75,76
+  - phrase: ES IST FUNF NACH HALB VIER
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,73,74,75,76
+  - phrase: ES IST ZWANZIG VOR VIER
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,73,74,75,76
+  - phrase: ES IST VIERTEL VOR VIER
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,73,74,75,76
+  - phrase: ES IST ZEHN VOR VIER
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,73,74,75,76
+  - phrase: ES IST FUNF VOR VIER
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,73,74,75,76
+  - phrase: ES IST VIER UHR
+    indices[12]: 0,1,3,4,5,73,74,75,76,107,108,109
+  - phrase: ES IST FUNF NACH VIER
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,73,74,75,76
+  - phrase: ES IST ZEHN NACH VIER
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,73,74,75,76
+  - phrase: ES IST VIERTEL NACH VIER
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,73,74,75,76
+  - phrase: ES IST ZWANZIG NACH VIER
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,73,74,75,76
+  - phrase: ES IST FUNF VOR HALB FUNF
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,51,52,53,54
+  - phrase: ES IST HALB FUNF
+    indices[13]: 0,1,3,4,5,44,45,46,47,51,52,53,54
+  - phrase: ES IST FUNF NACH HALB FUNF
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,51,52,53,54
+  - phrase: ES IST ZWANZIG VOR FUNF
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,51,52,53,54
+  - phrase: ES IST VIERTEL VOR FUNF
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,51,52,53,54
+  - phrase: ES IST ZEHN VOR FUNF
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,51,52,53,54
+  - phrase: ES IST FUNF VOR FUNF
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,51,52,53,54
+  - phrase: ES IST FUNF UHR
+    indices[12]: 0,1,3,4,5,51,52,53,54,107,108,109
+  - phrase: ES IST FUNF NACH FUNF
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,51,52,53,54
+  - phrase: ES IST ZEHN NACH FUNF
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,51,52,53,54
+  - phrase: ES IST VIERTEL NACH FUNF
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,51,52,53,54
+  - phrase: ES IST ZWANZIG NACH FUNF
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,51,52,53,54
+  - phrase: ES IST FUNF VOR HALB SECHS
+    indices[21]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,77,78,79,80,81
+  - phrase: ES IST HALB SECHS
+    indices[14]: 0,1,3,4,5,44,45,46,47,77,78,79,80,81
+  - phrase: ES IST FUNF NACH HALB SECHS
+    indices[22]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,77,78,79,80,81
+  - phrase: ES IST ZWANZIG VOR SECHS
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,77,78,79,80,81
+  - phrase: ES IST VIERTEL VOR SECHS
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,77,78,79,80,81
+  - phrase: ES IST ZEHN VOR SECHS
+    indices[17]: 0,1,3,4,5,11,12,13,14,33,34,35,77,78,79,80,81
+  - phrase: ES IST FUNF VOR SECHS
+    indices[17]: 0,1,3,4,5,7,8,9,10,33,34,35,77,78,79,80,81
+  - phrase: ES IST SECHS UHR
+    indices[13]: 0,1,3,4,5,77,78,79,80,81,107,108,109
+  - phrase: ES IST FUNF NACH SECHS
+    indices[18]: 0,1,3,4,5,7,8,9,10,40,41,42,43,77,78,79,80,81
+  - phrase: ES IST ZEHN NACH SECHS
+    indices[18]: 0,1,3,4,5,11,12,13,14,40,41,42,43,77,78,79,80,81
+  - phrase: ES IST VIERTEL NACH SECHS
+    indices[21]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,77,78,79,80,81
+  - phrase: ES IST ZWANZIG NACH SECHS
+    indices[21]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,77,78,79,80,81
+  - phrase: ES IST FUNF VOR HALB SIEBEN
+    indices[22]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,88,89,90,91,92,93
+  - phrase: ES IST HALB SIEBEN
+    indices[15]: 0,1,3,4,5,44,45,46,47,88,89,90,91,92,93
+  - phrase: ES IST FUNF NACH HALB SIEBEN
+    indices[23]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,88,89,90,91,92,93
+  - phrase: ES IST ZWANZIG VOR SIEBEN
+    indices[21]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,88,89,90,91,92,93
+  - phrase: ES IST VIERTEL VOR SIEBEN
+    indices[21]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,88,89,90,91,92,93
+  - phrase: ES IST ZEHN VOR SIEBEN
+    indices[18]: 0,1,3,4,5,11,12,13,14,33,34,35,88,89,90,91,92,93
+  - phrase: ES IST FUNF VOR SIEBEN
+    indices[18]: 0,1,3,4,5,7,8,9,10,33,34,35,88,89,90,91,92,93
+  - phrase: ES IST SIEBEN UHR
+    indices[14]: 0,1,3,4,5,88,89,90,91,92,93,107,108,109
+  - phrase: ES IST FUNF NACH SIEBEN
+    indices[19]: 0,1,3,4,5,7,8,9,10,40,41,42,43,88,89,90,91,92,93
+  - phrase: ES IST ZEHN NACH SIEBEN
+    indices[19]: 0,1,3,4,5,11,12,13,14,40,41,42,43,88,89,90,91,92,93
+  - phrase: ES IST VIERTEL NACH SIEBEN
+    indices[22]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,88,89,90,91,92,93
+  - phrase: ES IST ZWANZIG NACH SIEBEN
+    indices[22]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,88,89,90,91,92,93
+  - phrase: ES IST FUNF VOR HALB ACHT
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,84,85,86,87
+  - phrase: ES IST HALB ACHT
+    indices[13]: 0,1,3,4,5,44,45,46,47,84,85,86,87
+  - phrase: ES IST FUNF NACH HALB ACHT
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,84,85,86,87
+  - phrase: ES IST ZWANZIG VOR ACHT
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,84,85,86,87
+  - phrase: ES IST VIERTEL VOR ACHT
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,84,85,86,87
+  - phrase: ES IST ZEHN VOR ACHT
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,84,85,86,87
+  - phrase: ES IST FUNF VOR ACHT
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,84,85,86,87
+  - phrase: ES IST ACHT UHR
+    indices[12]: 0,1,3,4,5,84,85,86,87,107,108,109
+  - phrase: ES IST FUNF NACH ACHT
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,84,85,86,87
+  - phrase: ES IST ZEHN NACH ACHT
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,84,85,86,87
+  - phrase: ES IST VIERTEL NACH ACHT
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,84,85,86,87
+  - phrase: ES IST ZWANZIG NACH ACHT
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,84,85,86,87
+  - phrase: ES IST FUNF VOR HALB NEUN
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,102,103,104,105
+  - phrase: ES IST HALB NEUN
+    indices[13]: 0,1,3,4,5,44,45,46,47,102,103,104,105
+  - phrase: ES IST FUNF NACH HALB NEUN
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,102,103,104,105
+  - phrase: ES IST ZWANZIG VOR NEUN
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,102,103,104,105
+  - phrase: ES IST VIERTEL VOR NEUN
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,102,103,104,105
+  - phrase: ES IST ZEHN VOR NEUN
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,102,103,104,105
+  - phrase: ES IST FUNF VOR NEUN
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,102,103,104,105
+  - phrase: ES IST NEUN UHR
+    indices[12]: 0,1,3,4,5,102,103,104,105,107,108,109
+  - phrase: ES IST FUNF NACH NEUN
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,102,103,104,105
+  - phrase: ES IST ZEHN NACH NEUN
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,102,103,104,105
+  - phrase: ES IST VIERTEL NACH NEUN
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,102,103,104,105
+  - phrase: ES IST ZWANZIG NACH NEUN
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,102,103,104,105
+  - phrase: ES IST FUNF VOR HALB ZEHN
+    indices[20]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,99,100,101,102
+  - phrase: ES IST HALB ZEHN
+    indices[13]: 0,1,3,4,5,44,45,46,47,99,100,101,102
+  - phrase: ES IST FUNF NACH HALB ZEHN
+    indices[21]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,99,100,101,102
+  - phrase: ES IST ZWANZIG VOR ZEHN
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,99,100,101,102
+  - phrase: ES IST VIERTEL VOR ZEHN
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,99,100,101,102
+  - phrase: ES IST ZEHN VOR ZEHN
+    indices[16]: 0,1,3,4,5,11,12,13,14,33,34,35,99,100,101,102
+  - phrase: ES IST FUNF VOR ZEHN
+    indices[16]: 0,1,3,4,5,7,8,9,10,33,34,35,99,100,101,102
+  - phrase: ES IST ZEHN UHR
+    indices[12]: 0,1,3,4,5,99,100,101,102,107,108,109
+  - phrase: ES IST FUNF NACH ZEHN
+    indices[17]: 0,1,3,4,5,7,8,9,10,40,41,42,43,99,100,101,102
+  - phrase: ES IST ZEHN NACH ZEHN
+    indices[17]: 0,1,3,4,5,11,12,13,14,40,41,42,43,99,100,101,102
+  - phrase: ES IST VIERTEL NACH ZEHN
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,99,100,101,102
+  - phrase: ES IST ZWANZIG NACH ZEHN
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,99,100,101,102
+  - phrase: ES IST FUNF VOR HALB ELF
+    indices[19]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,49,50,51
+  - phrase: ES IST HALB ELF
+    indices[12]: 0,1,3,4,5,44,45,46,47,49,50,51
+  - phrase: ES IST FUNF NACH HALB ELF
+    indices[20]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,49,50,51
+  - phrase: ES IST ZWANZIG VOR ELF
+    indices[18]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,49,50,51
+  - phrase: ES IST VIERTEL VOR ELF
+    indices[18]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,49,50,51
+  - phrase: ES IST ZEHN VOR ELF
+    indices[15]: 0,1,3,4,5,11,12,13,14,33,34,35,49,50,51
+  - phrase: ES IST FUNF VOR ELF
+    indices[15]: 0,1,3,4,5,7,8,9,10,33,34,35,49,50,51
+  - phrase: ES IST ELF UHR
+    indices[11]: 0,1,3,4,5,49,50,51,107,108,109
+  - phrase: ES IST FUNF NACH ELF
+    indices[16]: 0,1,3,4,5,7,8,9,10,40,41,42,43,49,50,51
+  - phrase: ES IST ZEHN NACH ELF
+    indices[16]: 0,1,3,4,5,11,12,13,14,40,41,42,43,49,50,51
+  - phrase: ES IST VIERTEL NACH ELF
+    indices[19]: 0,1,3,4,5,26,27,28,29,30,31,32,40,41,42,43,49,50,51
+  - phrase: ES IST ZWANZIG NACH ELF
+    indices[19]: 0,1,3,4,5,15,16,17,18,19,20,21,40,41,42,43,49,50,51
+  - phrase: ES IST FUNF VOR HALB ZWOLF
+    indices[21]: 0,1,3,4,5,7,8,9,10,33,34,35,44,45,46,47,94,95,96,97,98
+  - phrase: ES IST HALB ZWOLF
+    indices[14]: 0,1,3,4,5,44,45,46,47,94,95,96,97,98
+  - phrase: ES IST FUNF NACH HALB ZWOLF
+    indices[22]: 0,1,3,4,5,7,8,9,10,40,41,42,43,44,45,46,47,94,95,96,97,98
+  - phrase: ES IST ZWANZIG VOR ZWOLF
+    indices[20]: 0,1,3,4,5,15,16,17,18,19,20,21,33,34,35,94,95,96,97,98
+  - phrase: ES IST VIERTEL VOR ZWOLF
+    indices[20]: 0,1,3,4,5,26,27,28,29,30,31,32,33,34,35,94,95,96,97,98
+  - phrase: ES IST ZEHN VOR ZWOLF
+    indices[17]: 0,1,3,4,5,11,12,13,14,33,34,35,94,95,96,97,98
+  - phrase: ES IST FUNF VOR ZWOLF
+    indices[17]: 0,1,3,4,5,7,8,9,10,33,34,35,94,95,96,97,98
+entries[288]:
+  - time: "00:00"
+    phrase: ES IST ZWOLF UHR
+    hex[13]: "00","01","03","04","05",5E,5F,"60","61","62",6B,6C,6D
+  - time: "00:05"
+    phrase: ES IST FUNF NACH ZWOLF
+    hex[18]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "00:10"
+    phrase: ES IST ZEHN NACH ZWOLF
+    hex[18]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "00:15"
+    phrase: ES IST VIERTEL NACH ZWOLF
+    hex[21]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "00:20"
+    phrase: ES IST ZWANZIG NACH ZWOLF
+    hex[21]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "00:25"
+    phrase: ES IST FUNF VOR HALB EINS
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"37","38","39",3A
+  - time: "00:30"
+    phrase: ES IST HALB EINS
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"37","38","39",3A
+  - time: "00:35"
+    phrase: ES IST FUNF NACH HALB EINS
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"37","38","39",3A
+  - time: "00:40"
+    phrase: ES IST ZWANZIG VOR EINS
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","37","38","39",3A
+  - time: "00:45"
+    phrase: ES IST VIERTEL VOR EINS
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","37","38","39",3A
+  - time: "00:50"
+    phrase: ES IST ZEHN VOR EINS
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","37","38","39",3A
+  - time: "00:55"
+    phrase: ES IST FUNF VOR EINS
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","37","38","39",3A
+  - time: "01:00"
+    phrase: ES IST EIN UHR
+    hex[11]: "00","01","03","04","05","37","38","39",6B,6C,6D
+  - time: "01:05"
+    phrase: ES IST FUNF NACH EINS
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"37","38","39",3A
+  - time: "01:10"
+    phrase: ES IST ZEHN NACH EINS
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"37","38","39",3A
+  - time: "01:15"
+    phrase: ES IST VIERTEL NACH EINS
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"37","38","39",3A
+  - time: "01:20"
+    phrase: ES IST ZWANZIG NACH EINS
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"37","38","39",3A
+  - time: "01:25"
+    phrase: ES IST FUNF VOR HALB ZWEI
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,3E,3F,"40","41"
+  - time: "01:30"
+    phrase: ES IST HALB ZWEI
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,3E,3F,"40","41"
+  - time: "01:35"
+    phrase: ES IST FUNF NACH HALB ZWEI
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,3E,3F,"40","41"
+  - time: "01:40"
+    phrase: ES IST ZWANZIG VOR ZWEI
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23",3E,3F,"40","41"
+  - time: "01:45"
+    phrase: ES IST VIERTEL VOR ZWEI
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23",3E,3F,"40","41"
+  - time: "01:50"
+    phrase: ES IST ZEHN VOR ZWEI
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23",3E,3F,"40","41"
+  - time: "01:55"
+    phrase: ES IST FUNF VOR ZWEI
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23",3E,3F,"40","41"
+  - time: "02:00"
+    phrase: ES IST ZWEI UHR
+    hex[12]: "00","01","03","04","05",3E,3F,"40","41",6B,6C,6D
+  - time: "02:05"
+    phrase: ES IST FUNF NACH ZWEI
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,3E,3F,"40","41"
+  - time: "02:10"
+    phrase: ES IST ZEHN NACH ZWEI
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,3E,3F,"40","41"
+  - time: "02:15"
+    phrase: ES IST VIERTEL NACH ZWEI
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,3E,3F,"40","41"
+  - time: "02:20"
+    phrase: ES IST ZWANZIG NACH ZWEI
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,3E,3F,"40","41"
+  - time: "02:25"
+    phrase: ES IST FUNF VOR HALB DREI
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"42","43","44","45"
+  - time: "02:30"
+    phrase: ES IST HALB DREI
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"42","43","44","45"
+  - time: "02:35"
+    phrase: ES IST FUNF NACH HALB DREI
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"42","43","44","45"
+  - time: "02:40"
+    phrase: ES IST ZWANZIG VOR DREI
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","42","43","44","45"
+  - time: "02:45"
+    phrase: ES IST VIERTEL VOR DREI
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","42","43","44","45"
+  - time: "02:50"
+    phrase: ES IST ZEHN VOR DREI
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","42","43","44","45"
+  - time: "02:55"
+    phrase: ES IST FUNF VOR DREI
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","42","43","44","45"
+  - time: "03:00"
+    phrase: ES IST DREI UHR
+    hex[12]: "00","01","03","04","05","42","43","44","45",6B,6C,6D
+  - time: "03:05"
+    phrase: ES IST FUNF NACH DREI
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"42","43","44","45"
+  - time: "03:10"
+    phrase: ES IST ZEHN NACH DREI
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"42","43","44","45"
+  - time: "03:15"
+    phrase: ES IST VIERTEL NACH DREI
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"42","43","44","45"
+  - time: "03:20"
+    phrase: ES IST ZWANZIG NACH DREI
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"42","43","44","45"
+  - time: "03:25"
+    phrase: ES IST FUNF VOR HALB VIER
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"49",4A,4B,4C
+  - time: "03:30"
+    phrase: ES IST HALB VIER
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"49",4A,4B,4C
+  - time: "03:35"
+    phrase: ES IST FUNF NACH HALB VIER
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"49",4A,4B,4C
+  - time: "03:40"
+    phrase: ES IST ZWANZIG VOR VIER
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","49",4A,4B,4C
+  - time: "03:45"
+    phrase: ES IST VIERTEL VOR VIER
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","49",4A,4B,4C
+  - time: "03:50"
+    phrase: ES IST ZEHN VOR VIER
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","49",4A,4B,4C
+  - time: "03:55"
+    phrase: ES IST FUNF VOR VIER
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","49",4A,4B,4C
+  - time: "04:00"
+    phrase: ES IST VIER UHR
+    hex[12]: "00","01","03","04","05","49",4A,4B,4C,6B,6C,6D
+  - time: "04:05"
+    phrase: ES IST FUNF NACH VIER
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"49",4A,4B,4C
+  - time: "04:10"
+    phrase: ES IST ZEHN NACH VIER
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"49",4A,4B,4C
+  - time: "04:15"
+    phrase: ES IST VIERTEL NACH VIER
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"49",4A,4B,4C
+  - time: "04:20"
+    phrase: ES IST ZWANZIG NACH VIER
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"49",4A,4B,4C
+  - time: "04:25"
+    phrase: ES IST FUNF VOR HALB FUNF
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"33","34","35","36"
+  - time: "04:30"
+    phrase: ES IST HALB FUNF
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"33","34","35","36"
+  - time: "04:35"
+    phrase: ES IST FUNF NACH HALB FUNF
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"33","34","35","36"
+  - time: "04:40"
+    phrase: ES IST ZWANZIG VOR FUNF
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","33","34","35","36"
+  - time: "04:45"
+    phrase: ES IST VIERTEL VOR FUNF
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","33","34","35","36"
+  - time: "04:50"
+    phrase: ES IST ZEHN VOR FUNF
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","33","34","35","36"
+  - time: "04:55"
+    phrase: ES IST FUNF VOR FUNF
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","33","34","35","36"
+  - time: "05:00"
+    phrase: ES IST FUNF UHR
+    hex[12]: "00","01","03","04","05","33","34","35","36",6B,6C,6D
+  - time: "05:05"
+    phrase: ES IST FUNF NACH FUNF
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"33","34","35","36"
+  - time: "05:10"
+    phrase: ES IST ZEHN NACH FUNF
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"33","34","35","36"
+  - time: "05:15"
+    phrase: ES IST VIERTEL NACH FUNF
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"33","34","35","36"
+  - time: "05:20"
+    phrase: ES IST ZWANZIG NACH FUNF
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"33","34","35","36"
+  - time: "05:25"
+    phrase: ES IST FUNF VOR HALB SECHS
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "05:30"
+    phrase: ES IST HALB SECHS
+    hex[14]: "00","01","03","04","05",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "05:35"
+    phrase: ES IST FUNF NACH HALB SECHS
+    hex[22]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "05:40"
+    phrase: ES IST ZWANZIG VOR SECHS
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23",4D,4E,4F,"50","51"
+  - time: "05:45"
+    phrase: ES IST VIERTEL VOR SECHS
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23",4D,4E,4F,"50","51"
+  - time: "05:50"
+    phrase: ES IST ZEHN VOR SECHS
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23",4D,4E,4F,"50","51"
+  - time: "05:55"
+    phrase: ES IST FUNF VOR SECHS
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"21","22","23",4D,4E,4F,"50","51"
+  - time: "06:00"
+    phrase: ES IST SECHS UHR
+    hex[13]: "00","01","03","04","05",4D,4E,4F,"50","51",6B,6C,6D
+  - time: "06:05"
+    phrase: ES IST FUNF NACH SECHS
+    hex[18]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "06:10"
+    phrase: ES IST ZEHN NACH SECHS
+    hex[18]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "06:15"
+    phrase: ES IST VIERTEL NACH SECHS
+    hex[21]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "06:20"
+    phrase: ES IST ZWANZIG NACH SECHS
+    hex[21]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "06:25"
+    phrase: ES IST FUNF VOR HALB SIEBEN
+    hex[22]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"58","59",5A,5B,5C,5D
+  - time: "06:30"
+    phrase: ES IST HALB SIEBEN
+    hex[15]: "00","01","03","04","05",2C,2D,2E,2F,"58","59",5A,5B,5C,5D
+  - time: "06:35"
+    phrase: ES IST FUNF NACH HALB SIEBEN
+    hex[23]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"58","59",5A,5B,5C,5D
+  - time: "06:40"
+    phrase: ES IST ZWANZIG VOR SIEBEN
+    hex[21]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","58","59",5A,5B,5C,5D
+  - time: "06:45"
+    phrase: ES IST VIERTEL VOR SIEBEN
+    hex[21]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","58","59",5A,5B,5C,5D
+  - time: "06:50"
+    phrase: ES IST ZEHN VOR SIEBEN
+    hex[18]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","58","59",5A,5B,5C,5D
+  - time: "06:55"
+    phrase: ES IST FUNF VOR SIEBEN
+    hex[18]: "00","01","03","04","05","07","08","09",0A,"21","22","23","58","59",5A,5B,5C,5D
+  - time: "07:00"
+    phrase: ES IST SIEBEN UHR
+    hex[14]: "00","01","03","04","05","58","59",5A,5B,5C,5D,6B,6C,6D
+  - time: "07:05"
+    phrase: ES IST FUNF NACH SIEBEN
+    hex[19]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "07:10"
+    phrase: ES IST ZEHN NACH SIEBEN
+    hex[19]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "07:15"
+    phrase: ES IST VIERTEL NACH SIEBEN
+    hex[22]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "07:20"
+    phrase: ES IST ZWANZIG NACH SIEBEN
+    hex[22]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "07:25"
+    phrase: ES IST FUNF VOR HALB ACHT
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"54","55","56","57"
+  - time: "07:30"
+    phrase: ES IST HALB ACHT
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"54","55","56","57"
+  - time: "07:35"
+    phrase: ES IST FUNF NACH HALB ACHT
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"54","55","56","57"
+  - time: "07:40"
+    phrase: ES IST ZWANZIG VOR ACHT
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","54","55","56","57"
+  - time: "07:45"
+    phrase: ES IST VIERTEL VOR ACHT
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","54","55","56","57"
+  - time: "07:50"
+    phrase: ES IST ZEHN VOR ACHT
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","54","55","56","57"
+  - time: "07:55"
+    phrase: ES IST FUNF VOR ACHT
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","54","55","56","57"
+  - time: "08:00"
+    phrase: ES IST ACHT UHR
+    hex[12]: "00","01","03","04","05","54","55","56","57",6B,6C,6D
+  - time: "08:05"
+    phrase: ES IST FUNF NACH ACHT
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"54","55","56","57"
+  - time: "08:10"
+    phrase: ES IST ZEHN NACH ACHT
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"54","55","56","57"
+  - time: "08:15"
+    phrase: ES IST VIERTEL NACH ACHT
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"54","55","56","57"
+  - time: "08:20"
+    phrase: ES IST ZWANZIG NACH ACHT
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"54","55","56","57"
+  - time: "08:25"
+    phrase: ES IST FUNF VOR HALB NEUN
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"66","67","68","69"
+  - time: "08:30"
+    phrase: ES IST HALB NEUN
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"66","67","68","69"
+  - time: "08:35"
+    phrase: ES IST FUNF NACH HALB NEUN
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"66","67","68","69"
+  - time: "08:40"
+    phrase: ES IST ZWANZIG VOR NEUN
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","66","67","68","69"
+  - time: "08:45"
+    phrase: ES IST VIERTEL VOR NEUN
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","66","67","68","69"
+  - time: "08:50"
+    phrase: ES IST ZEHN VOR NEUN
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","66","67","68","69"
+  - time: "08:55"
+    phrase: ES IST FUNF VOR NEUN
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","66","67","68","69"
+  - time: "09:00"
+    phrase: ES IST NEUN UHR
+    hex[12]: "00","01","03","04","05","66","67","68","69",6B,6C,6D
+  - time: "09:05"
+    phrase: ES IST FUNF NACH NEUN
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"66","67","68","69"
+  - time: "09:10"
+    phrase: ES IST ZEHN NACH NEUN
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"66","67","68","69"
+  - time: "09:15"
+    phrase: ES IST VIERTEL NACH NEUN
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"66","67","68","69"
+  - time: "09:20"
+    phrase: ES IST ZWANZIG NACH NEUN
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"66","67","68","69"
+  - time: "09:25"
+    phrase: ES IST FUNF VOR HALB ZEHN
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"63","64","65","66"
+  - time: "09:30"
+    phrase: ES IST HALB ZEHN
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"63","64","65","66"
+  - time: "09:35"
+    phrase: ES IST FUNF NACH HALB ZEHN
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"63","64","65","66"
+  - time: "09:40"
+    phrase: ES IST ZWANZIG VOR ZEHN
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","63","64","65","66"
+  - time: "09:45"
+    phrase: ES IST VIERTEL VOR ZEHN
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","63","64","65","66"
+  - time: "09:50"
+    phrase: ES IST ZEHN VOR ZEHN
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","63","64","65","66"
+  - time: "09:55"
+    phrase: ES IST FUNF VOR ZEHN
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","63","64","65","66"
+  - time: "10:00"
+    phrase: ES IST ZEHN UHR
+    hex[12]: "00","01","03","04","05","63","64","65","66",6B,6C,6D
+  - time: "10:05"
+    phrase: ES IST FUNF NACH ZEHN
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"63","64","65","66"
+  - time: "10:10"
+    phrase: ES IST ZEHN NACH ZEHN
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"63","64","65","66"
+  - time: "10:15"
+    phrase: ES IST VIERTEL NACH ZEHN
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"63","64","65","66"
+  - time: "10:20"
+    phrase: ES IST ZWANZIG NACH ZEHN
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"63","64","65","66"
+  - time: "10:25"
+    phrase: ES IST FUNF VOR HALB ELF
+    hex[19]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"31","32","33"
+  - time: "10:30"
+    phrase: ES IST HALB ELF
+    hex[12]: "00","01","03","04","05",2C,2D,2E,2F,"31","32","33"
+  - time: "10:35"
+    phrase: ES IST FUNF NACH HALB ELF
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"31","32","33"
+  - time: "10:40"
+    phrase: ES IST ZWANZIG VOR ELF
+    hex[18]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","31","32","33"
+  - time: "10:45"
+    phrase: ES IST VIERTEL VOR ELF
+    hex[18]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","31","32","33"
+  - time: "10:50"
+    phrase: ES IST ZEHN VOR ELF
+    hex[15]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","31","32","33"
+  - time: "10:55"
+    phrase: ES IST FUNF VOR ELF
+    hex[15]: "00","01","03","04","05","07","08","09",0A,"21","22","23","31","32","33"
+  - time: "11:00"
+    phrase: ES IST ELF UHR
+    hex[11]: "00","01","03","04","05","31","32","33",6B,6C,6D
+  - time: "11:05"
+    phrase: ES IST FUNF NACH ELF
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"31","32","33"
+  - time: "11:10"
+    phrase: ES IST ZEHN NACH ELF
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"31","32","33"
+  - time: "11:15"
+    phrase: ES IST VIERTEL NACH ELF
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"31","32","33"
+  - time: "11:20"
+    phrase: ES IST ZWANZIG NACH ELF
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"31","32","33"
+  - time: "11:25"
+    phrase: ES IST FUNF VOR HALB ZWOLF
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,5E,5F,"60","61","62"
+  - time: "11:30"
+    phrase: ES IST HALB ZWOLF
+    hex[14]: "00","01","03","04","05",2C,2D,2E,2F,5E,5F,"60","61","62"
+  - time: "11:35"
+    phrase: ES IST FUNF NACH HALB ZWOLF
+    hex[22]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,5E,5F,"60","61","62"
+  - time: "11:40"
+    phrase: ES IST ZWANZIG VOR ZWOLF
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23",5E,5F,"60","61","62"
+  - time: "11:45"
+    phrase: ES IST VIERTEL VOR ZWOLF
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23",5E,5F,"60","61","62"
+  - time: "11:50"
+    phrase: ES IST ZEHN VOR ZWOLF
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23",5E,5F,"60","61","62"
+  - time: "11:55"
+    phrase: ES IST FUNF VOR ZWOLF
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"21","22","23",5E,5F,"60","61","62"
+  - time: "12:00"
+    phrase: ES IST ZWOLF UHR
+    hex[13]: "00","01","03","04","05",5E,5F,"60","61","62",6B,6C,6D
+  - time: "12:05"
+    phrase: ES IST FUNF NACH ZWOLF
+    hex[18]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "12:10"
+    phrase: ES IST ZEHN NACH ZWOLF
+    hex[18]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "12:15"
+    phrase: ES IST VIERTEL NACH ZWOLF
+    hex[21]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "12:20"
+    phrase: ES IST ZWANZIG NACH ZWOLF
+    hex[21]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,5E,5F,"60","61","62"
+  - time: "12:25"
+    phrase: ES IST FUNF VOR HALB EINS
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"37","38","39",3A
+  - time: "12:30"
+    phrase: ES IST HALB EINS
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"37","38","39",3A
+  - time: "12:35"
+    phrase: ES IST FUNF NACH HALB EINS
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"37","38","39",3A
+  - time: "12:40"
+    phrase: ES IST ZWANZIG VOR EINS
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","37","38","39",3A
+  - time: "12:45"
+    phrase: ES IST VIERTEL VOR EINS
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","37","38","39",3A
+  - time: "12:50"
+    phrase: ES IST ZEHN VOR EINS
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","37","38","39",3A
+  - time: "12:55"
+    phrase: ES IST FUNF VOR EINS
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","37","38","39",3A
+  - time: "13:00"
+    phrase: ES IST EIN UHR
+    hex[11]: "00","01","03","04","05","37","38","39",6B,6C,6D
+  - time: "13:05"
+    phrase: ES IST FUNF NACH EINS
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"37","38","39",3A
+  - time: "13:10"
+    phrase: ES IST ZEHN NACH EINS
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"37","38","39",3A
+  - time: "13:15"
+    phrase: ES IST VIERTEL NACH EINS
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"37","38","39",3A
+  - time: "13:20"
+    phrase: ES IST ZWANZIG NACH EINS
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"37","38","39",3A
+  - time: "13:25"
+    phrase: ES IST FUNF VOR HALB ZWEI
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,3E,3F,"40","41"
+  - time: "13:30"
+    phrase: ES IST HALB ZWEI
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,3E,3F,"40","41"
+  - time: "13:35"
+    phrase: ES IST FUNF NACH HALB ZWEI
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,3E,3F,"40","41"
+  - time: "13:40"
+    phrase: ES IST ZWANZIG VOR ZWEI
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23",3E,3F,"40","41"
+  - time: "13:45"
+    phrase: ES IST VIERTEL VOR ZWEI
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23",3E,3F,"40","41"
+  - time: "13:50"
+    phrase: ES IST ZEHN VOR ZWEI
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23",3E,3F,"40","41"
+  - time: "13:55"
+    phrase: ES IST FUNF VOR ZWEI
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23",3E,3F,"40","41"
+  - time: "14:00"
+    phrase: ES IST ZWEI UHR
+    hex[12]: "00","01","03","04","05",3E,3F,"40","41",6B,6C,6D
+  - time: "14:05"
+    phrase: ES IST FUNF NACH ZWEI
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,3E,3F,"40","41"
+  - time: "14:10"
+    phrase: ES IST ZEHN NACH ZWEI
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,3E,3F,"40","41"
+  - time: "14:15"
+    phrase: ES IST VIERTEL NACH ZWEI
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,3E,3F,"40","41"
+  - time: "14:20"
+    phrase: ES IST ZWANZIG NACH ZWEI
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,3E,3F,"40","41"
+  - time: "14:25"
+    phrase: ES IST FUNF VOR HALB DREI
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"42","43","44","45"
+  - time: "14:30"
+    phrase: ES IST HALB DREI
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"42","43","44","45"
+  - time: "14:35"
+    phrase: ES IST FUNF NACH HALB DREI
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"42","43","44","45"
+  - time: "14:40"
+    phrase: ES IST ZWANZIG VOR DREI
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","42","43","44","45"
+  - time: "14:45"
+    phrase: ES IST VIERTEL VOR DREI
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","42","43","44","45"
+  - time: "14:50"
+    phrase: ES IST ZEHN VOR DREI
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","42","43","44","45"
+  - time: "14:55"
+    phrase: ES IST FUNF VOR DREI
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","42","43","44","45"
+  - time: "15:00"
+    phrase: ES IST DREI UHR
+    hex[12]: "00","01","03","04","05","42","43","44","45",6B,6C,6D
+  - time: "15:05"
+    phrase: ES IST FUNF NACH DREI
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"42","43","44","45"
+  - time: "15:10"
+    phrase: ES IST ZEHN NACH DREI
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"42","43","44","45"
+  - time: "15:15"
+    phrase: ES IST VIERTEL NACH DREI
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"42","43","44","45"
+  - time: "15:20"
+    phrase: ES IST ZWANZIG NACH DREI
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"42","43","44","45"
+  - time: "15:25"
+    phrase: ES IST FUNF VOR HALB VIER
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"49",4A,4B,4C
+  - time: "15:30"
+    phrase: ES IST HALB VIER
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"49",4A,4B,4C
+  - time: "15:35"
+    phrase: ES IST FUNF NACH HALB VIER
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"49",4A,4B,4C
+  - time: "15:40"
+    phrase: ES IST ZWANZIG VOR VIER
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","49",4A,4B,4C
+  - time: "15:45"
+    phrase: ES IST VIERTEL VOR VIER
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","49",4A,4B,4C
+  - time: "15:50"
+    phrase: ES IST ZEHN VOR VIER
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","49",4A,4B,4C
+  - time: "15:55"
+    phrase: ES IST FUNF VOR VIER
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","49",4A,4B,4C
+  - time: "16:00"
+    phrase: ES IST VIER UHR
+    hex[12]: "00","01","03","04","05","49",4A,4B,4C,6B,6C,6D
+  - time: "16:05"
+    phrase: ES IST FUNF NACH VIER
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"49",4A,4B,4C
+  - time: "16:10"
+    phrase: ES IST ZEHN NACH VIER
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"49",4A,4B,4C
+  - time: "16:15"
+    phrase: ES IST VIERTEL NACH VIER
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"49",4A,4B,4C
+  - time: "16:20"
+    phrase: ES IST ZWANZIG NACH VIER
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"49",4A,4B,4C
+  - time: "16:25"
+    phrase: ES IST FUNF VOR HALB FUNF
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"33","34","35","36"
+  - time: "16:30"
+    phrase: ES IST HALB FUNF
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"33","34","35","36"
+  - time: "16:35"
+    phrase: ES IST FUNF NACH HALB FUNF
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"33","34","35","36"
+  - time: "16:40"
+    phrase: ES IST ZWANZIG VOR FUNF
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","33","34","35","36"
+  - time: "16:45"
+    phrase: ES IST VIERTEL VOR FUNF
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","33","34","35","36"
+  - time: "16:50"
+    phrase: ES IST ZEHN VOR FUNF
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","33","34","35","36"
+  - time: "16:55"
+    phrase: ES IST FUNF VOR FUNF
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","33","34","35","36"
+  - time: "17:00"
+    phrase: ES IST FUNF UHR
+    hex[12]: "00","01","03","04","05","33","34","35","36",6B,6C,6D
+  - time: "17:05"
+    phrase: ES IST FUNF NACH FUNF
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"33","34","35","36"
+  - time: "17:10"
+    phrase: ES IST ZEHN NACH FUNF
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"33","34","35","36"
+  - time: "17:15"
+    phrase: ES IST VIERTEL NACH FUNF
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"33","34","35","36"
+  - time: "17:20"
+    phrase: ES IST ZWANZIG NACH FUNF
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"33","34","35","36"
+  - time: "17:25"
+    phrase: ES IST FUNF VOR HALB SECHS
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "17:30"
+    phrase: ES IST HALB SECHS
+    hex[14]: "00","01","03","04","05",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "17:35"
+    phrase: ES IST FUNF NACH HALB SECHS
+    hex[22]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "17:40"
+    phrase: ES IST ZWANZIG VOR SECHS
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23",4D,4E,4F,"50","51"
+  - time: "17:45"
+    phrase: ES IST VIERTEL VOR SECHS
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23",4D,4E,4F,"50","51"
+  - time: "17:50"
+    phrase: ES IST ZEHN VOR SECHS
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23",4D,4E,4F,"50","51"
+  - time: "17:55"
+    phrase: ES IST FUNF VOR SECHS
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"21","22","23",4D,4E,4F,"50","51"
+  - time: "18:00"
+    phrase: ES IST SECHS UHR
+    hex[13]: "00","01","03","04","05",4D,4E,4F,"50","51",6B,6C,6D
+  - time: "18:05"
+    phrase: ES IST FUNF NACH SECHS
+    hex[18]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "18:10"
+    phrase: ES IST ZEHN NACH SECHS
+    hex[18]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "18:15"
+    phrase: ES IST VIERTEL NACH SECHS
+    hex[21]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "18:20"
+    phrase: ES IST ZWANZIG NACH SECHS
+    hex[21]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,4D,4E,4F,"50","51"
+  - time: "18:25"
+    phrase: ES IST FUNF VOR HALB SIEBEN
+    hex[22]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"58","59",5A,5B,5C,5D
+  - time: "18:30"
+    phrase: ES IST HALB SIEBEN
+    hex[15]: "00","01","03","04","05",2C,2D,2E,2F,"58","59",5A,5B,5C,5D
+  - time: "18:35"
+    phrase: ES IST FUNF NACH HALB SIEBEN
+    hex[23]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"58","59",5A,5B,5C,5D
+  - time: "18:40"
+    phrase: ES IST ZWANZIG VOR SIEBEN
+    hex[21]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","58","59",5A,5B,5C,5D
+  - time: "18:45"
+    phrase: ES IST VIERTEL VOR SIEBEN
+    hex[21]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","58","59",5A,5B,5C,5D
+  - time: "18:50"
+    phrase: ES IST ZEHN VOR SIEBEN
+    hex[18]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","58","59",5A,5B,5C,5D
+  - time: "18:55"
+    phrase: ES IST FUNF VOR SIEBEN
+    hex[18]: "00","01","03","04","05","07","08","09",0A,"21","22","23","58","59",5A,5B,5C,5D
+  - time: "19:00"
+    phrase: ES IST SIEBEN UHR
+    hex[14]: "00","01","03","04","05","58","59",5A,5B,5C,5D,6B,6C,6D
+  - time: "19:05"
+    phrase: ES IST FUNF NACH SIEBEN
+    hex[19]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "19:10"
+    phrase: ES IST ZEHN NACH SIEBEN
+    hex[19]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "19:15"
+    phrase: ES IST VIERTEL NACH SIEBEN
+    hex[22]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "19:20"
+    phrase: ES IST ZWANZIG NACH SIEBEN
+    hex[22]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"58","59",5A,5B,5C,5D
+  - time: "19:25"
+    phrase: ES IST FUNF VOR HALB ACHT
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"54","55","56","57"
+  - time: "19:30"
+    phrase: ES IST HALB ACHT
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"54","55","56","57"
+  - time: "19:35"
+    phrase: ES IST FUNF NACH HALB ACHT
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"54","55","56","57"
+  - time: "19:40"
+    phrase: ES IST ZWANZIG VOR ACHT
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","54","55","56","57"
+  - time: "19:45"
+    phrase: ES IST VIERTEL VOR ACHT
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","54","55","56","57"
+  - time: "19:50"
+    phrase: ES IST ZEHN VOR ACHT
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","54","55","56","57"
+  - time: "19:55"
+    phrase: ES IST FUNF VOR ACHT
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","54","55","56","57"
+  - time: "20:00"
+    phrase: ES IST ACHT UHR
+    hex[12]: "00","01","03","04","05","54","55","56","57",6B,6C,6D
+  - time: "20:05"
+    phrase: ES IST FUNF NACH ACHT
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"54","55","56","57"
+  - time: "20:10"
+    phrase: ES IST ZEHN NACH ACHT
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"54","55","56","57"
+  - time: "20:15"
+    phrase: ES IST VIERTEL NACH ACHT
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"54","55","56","57"
+  - time: "20:20"
+    phrase: ES IST ZWANZIG NACH ACHT
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"54","55","56","57"
+  - time: "20:25"
+    phrase: ES IST FUNF VOR HALB NEUN
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"66","67","68","69"
+  - time: "20:30"
+    phrase: ES IST HALB NEUN
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"66","67","68","69"
+  - time: "20:35"
+    phrase: ES IST FUNF NACH HALB NEUN
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"66","67","68","69"
+  - time: "20:40"
+    phrase: ES IST ZWANZIG VOR NEUN
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","66","67","68","69"
+  - time: "20:45"
+    phrase: ES IST VIERTEL VOR NEUN
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","66","67","68","69"
+  - time: "20:50"
+    phrase: ES IST ZEHN VOR NEUN
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","66","67","68","69"
+  - time: "20:55"
+    phrase: ES IST FUNF VOR NEUN
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","66","67","68","69"
+  - time: "21:00"
+    phrase: ES IST NEUN UHR
+    hex[12]: "00","01","03","04","05","66","67","68","69",6B,6C,6D
+  - time: "21:05"
+    phrase: ES IST FUNF NACH NEUN
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"66","67","68","69"
+  - time: "21:10"
+    phrase: ES IST ZEHN NACH NEUN
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"66","67","68","69"
+  - time: "21:15"
+    phrase: ES IST VIERTEL NACH NEUN
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"66","67","68","69"
+  - time: "21:20"
+    phrase: ES IST ZWANZIG NACH NEUN
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"66","67","68","69"
+  - time: "21:25"
+    phrase: ES IST FUNF VOR HALB ZEHN
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"63","64","65","66"
+  - time: "21:30"
+    phrase: ES IST HALB ZEHN
+    hex[13]: "00","01","03","04","05",2C,2D,2E,2F,"63","64","65","66"
+  - time: "21:35"
+    phrase: ES IST FUNF NACH HALB ZEHN
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"63","64","65","66"
+  - time: "21:40"
+    phrase: ES IST ZWANZIG VOR ZEHN
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","63","64","65","66"
+  - time: "21:45"
+    phrase: ES IST VIERTEL VOR ZEHN
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","63","64","65","66"
+  - time: "21:50"
+    phrase: ES IST ZEHN VOR ZEHN
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","63","64","65","66"
+  - time: "21:55"
+    phrase: ES IST FUNF VOR ZEHN
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"21","22","23","63","64","65","66"
+  - time: "22:00"
+    phrase: ES IST ZEHN UHR
+    hex[12]: "00","01","03","04","05","63","64","65","66",6B,6C,6D
+  - time: "22:05"
+    phrase: ES IST FUNF NACH ZEHN
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"63","64","65","66"
+  - time: "22:10"
+    phrase: ES IST ZEHN NACH ZEHN
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"63","64","65","66"
+  - time: "22:15"
+    phrase: ES IST VIERTEL NACH ZEHN
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"63","64","65","66"
+  - time: "22:20"
+    phrase: ES IST ZWANZIG NACH ZEHN
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"63","64","65","66"
+  - time: "22:25"
+    phrase: ES IST FUNF VOR HALB ELF
+    hex[19]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,"31","32","33"
+  - time: "22:30"
+    phrase: ES IST HALB ELF
+    hex[12]: "00","01","03","04","05",2C,2D,2E,2F,"31","32","33"
+  - time: "22:35"
+    phrase: ES IST FUNF NACH HALB ELF
+    hex[20]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,"31","32","33"
+  - time: "22:40"
+    phrase: ES IST ZWANZIG VOR ELF
+    hex[18]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23","31","32","33"
+  - time: "22:45"
+    phrase: ES IST VIERTEL VOR ELF
+    hex[18]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23","31","32","33"
+  - time: "22:50"
+    phrase: ES IST ZEHN VOR ELF
+    hex[15]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23","31","32","33"
+  - time: "22:55"
+    phrase: ES IST FUNF VOR ELF
+    hex[15]: "00","01","03","04","05","07","08","09",0A,"21","22","23","31","32","33"
+  - time: "23:00"
+    phrase: ES IST ELF UHR
+    hex[11]: "00","01","03","04","05","31","32","33",6B,6C,6D
+  - time: "23:05"
+    phrase: ES IST FUNF NACH ELF
+    hex[16]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,"31","32","33"
+  - time: "23:10"
+    phrase: ES IST ZEHN NACH ELF
+    hex[16]: "00","01","03","04","05",0B,0C,0D,0E,"28","29",2A,2B,"31","32","33"
+  - time: "23:15"
+    phrase: ES IST VIERTEL NACH ELF
+    hex[19]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","28","29",2A,2B,"31","32","33"
+  - time: "23:20"
+    phrase: ES IST ZWANZIG NACH ELF
+    hex[19]: "00","01","03","04","05",0F,"10","11","12","13","14","15","28","29",2A,2B,"31","32","33"
+  - time: "23:25"
+    phrase: ES IST FUNF VOR HALB ZWOLF
+    hex[21]: "00","01","03","04","05","07","08","09",0A,"21","22","23",2C,2D,2E,2F,5E,5F,"60","61","62"
+  - time: "23:30"
+    phrase: ES IST HALB ZWOLF
+    hex[14]: "00","01","03","04","05",2C,2D,2E,2F,5E,5F,"60","61","62"
+  - time: "23:35"
+    phrase: ES IST FUNF NACH HALB ZWOLF
+    hex[22]: "00","01","03","04","05","07","08","09",0A,"28","29",2A,2B,2C,2D,2E,2F,5E,5F,"60","61","62"
+  - time: "23:40"
+    phrase: ES IST ZWANZIG VOR ZWOLF
+    hex[20]: "00","01","03","04","05",0F,"10","11","12","13","14","15","21","22","23",5E,5F,"60","61","62"
+  - time: "23:45"
+    phrase: ES IST VIERTEL VOR ZWOLF
+    hex[20]: "00","01","03","04","05",1A,1B,1C,1D,1E,1F,"20","21","22","23",5E,5F,"60","61","62"
+  - time: "23:50"
+    phrase: ES IST ZEHN VOR ZWOLF
+    hex[17]: "00","01","03","04","05",0B,0C,0D,0E,"21","22","23",5E,5F,"60","61","62"
+  - time: "23:55"
+    phrase: ES IST FUNF VOR ZWOLF
+    hex[17]: "00","01","03","04","05","07","08","09",0A,"21","22","23",5E,5F,"60","61","62"

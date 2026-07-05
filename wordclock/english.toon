@@ -1,0 +1,1443 @@
+rows[10]: ITLISASAMPM,ACQUARTERDC,TWENTYXFIVE,HALFSTENFTO,PASTERUNINE,ONESIXTHREE,FOURFIVETWO,EIGHTELEVEN,SEVENTWELVE,TENSEOCLOCK
+presets[288]:
+  - phrase: IT IS TWELVE OCLOCK AM
+    indices[18]: 0,1,3,4,7,8,93,94,95,96,97,98,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST TWELVE AM
+    indices[20]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TEN PAST TWELVE AM
+    indices[19]: 0,1,3,4,7,8,38,39,40,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS A QUARTER PAST TWELVE AM
+    indices[24]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TWENTY PAST TWELVE AM
+    indices[22]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TWENTY FIVE PAST TWELVE AM
+    indices[26]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS HALF PAST TWELVE AM
+    indices[20]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TWENTY FIVE TO ONE AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,55,56,57
+  - phrase: IT IS TWENTY TO ONE AM
+    indices[17]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,55,56,57
+  - phrase: IT IS A QUARTER TO ONE AM
+    indices[19]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,55,56,57
+  - phrase: IT IS TEN TO ONE AM
+    indices[14]: 0,1,3,4,7,8,38,39,40,42,43,55,56,57
+  - phrase: IT IS FIVE TO ONE AM
+    indices[15]: 0,1,3,4,7,8,29,30,31,32,42,43,55,56,57
+  - phrase: IT IS ONE OCLOCK AM
+    indices[15]: 0,1,3,4,7,8,55,56,57,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST ONE AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,55,56,57
+  - phrase: IT IS TEN PAST ONE AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,44,45,46,47,55,56,57
+  - phrase: IT IS A QUARTER PAST ONE AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,55,56,57
+  - phrase: IT IS TWENTY PAST ONE AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,55,56,57
+  - phrase: IT IS TWENTY FIVE PAST ONE AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,55,56,57
+  - phrase: IT IS HALF PAST ONE AM
+    indices[17]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,55,56,57
+  - phrase: IT IS TWENTY FIVE TO TWO AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,74,75,76
+  - phrase: IT IS TWENTY TO TWO AM
+    indices[17]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,74,75,76
+  - phrase: IT IS A QUARTER TO TWO AM
+    indices[19]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,74,75,76
+  - phrase: IT IS TEN TO TWO AM
+    indices[14]: 0,1,3,4,7,8,38,39,40,42,43,74,75,76
+  - phrase: IT IS FIVE TO TWO AM
+    indices[15]: 0,1,3,4,7,8,29,30,31,32,42,43,74,75,76
+  - phrase: IT IS TWO OCLOCK AM
+    indices[15]: 0,1,3,4,7,8,74,75,76,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST TWO AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,74,75,76
+  - phrase: IT IS TEN PAST TWO AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,44,45,46,47,74,75,76
+  - phrase: IT IS A QUARTER PAST TWO AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,74,75,76
+  - phrase: IT IS TWENTY PAST TWO AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,74,75,76
+  - phrase: IT IS TWENTY FIVE PAST TWO AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,74,75,76
+  - phrase: IT IS HALF PAST TWO AM
+    indices[17]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,74,75,76
+  - phrase: IT IS TWENTY FIVE TO THREE AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,61,62,63,64,65
+  - phrase: IT IS TWENTY TO THREE AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,61,62,63,64,65
+  - phrase: IT IS A QUARTER TO THREE AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,61,62,63,64,65
+  - phrase: IT IS TEN TO THREE AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,42,43,61,62,63,64,65
+  - phrase: IT IS FIVE TO THREE AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,42,43,61,62,63,64,65
+  - phrase: IT IS THREE OCLOCK AM
+    indices[17]: 0,1,3,4,7,8,61,62,63,64,65,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST THREE AM
+    indices[19]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TEN PAST THREE AM
+    indices[18]: 0,1,3,4,7,8,38,39,40,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS A QUARTER PAST THREE AM
+    indices[23]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TWENTY PAST THREE AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TWENTY FIVE PAST THREE AM
+    indices[25]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS HALF PAST THREE AM
+    indices[19]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TWENTY FIVE TO FOUR AM
+    indices[22]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,66,67,68,69
+  - phrase: IT IS TWENTY TO FOUR AM
+    indices[18]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,66,67,68,69
+  - phrase: IT IS A QUARTER TO FOUR AM
+    indices[20]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,66,67,68,69
+  - phrase: IT IS TEN TO FOUR AM
+    indices[15]: 0,1,3,4,7,8,38,39,40,42,43,66,67,68,69
+  - phrase: IT IS FIVE TO FOUR AM
+    indices[16]: 0,1,3,4,7,8,29,30,31,32,42,43,66,67,68,69
+  - phrase: IT IS FOUR OCLOCK AM
+    indices[16]: 0,1,3,4,7,8,66,67,68,69,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST FOUR AM
+    indices[18]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,66,67,68,69
+  - phrase: IT IS TEN PAST FOUR AM
+    indices[17]: 0,1,3,4,7,8,38,39,40,44,45,46,47,66,67,68,69
+  - phrase: IT IS A QUARTER PAST FOUR AM
+    indices[22]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,66,67,68,69
+  - phrase: IT IS TWENTY PAST FOUR AM
+    indices[20]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,66,67,68,69
+  - phrase: IT IS TWENTY FIVE PAST FOUR AM
+    indices[24]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,66,67,68,69
+  - phrase: IT IS HALF PAST FOUR AM
+    indices[18]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,66,67,68,69
+  - phrase: IT IS TWENTY FIVE TO FIVE AM
+    indices[22]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,70,71,72,73
+  - phrase: IT IS TWENTY TO FIVE AM
+    indices[18]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,70,71,72,73
+  - phrase: IT IS A QUARTER TO FIVE AM
+    indices[20]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,70,71,72,73
+  - phrase: IT IS TEN TO FIVE AM
+    indices[15]: 0,1,3,4,7,8,38,39,40,42,43,70,71,72,73
+  - phrase: IT IS FIVE TO FIVE AM
+    indices[16]: 0,1,3,4,7,8,29,30,31,32,42,43,70,71,72,73
+  - phrase: IT IS FIVE OCLOCK AM
+    indices[16]: 0,1,3,4,7,8,70,71,72,73,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST FIVE AM
+    indices[18]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,70,71,72,73
+  - phrase: IT IS TEN PAST FIVE AM
+    indices[17]: 0,1,3,4,7,8,38,39,40,44,45,46,47,70,71,72,73
+  - phrase: IT IS A QUARTER PAST FIVE AM
+    indices[22]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,70,71,72,73
+  - phrase: IT IS TWENTY PAST FIVE AM
+    indices[20]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,70,71,72,73
+  - phrase: IT IS TWENTY FIVE PAST FIVE AM
+    indices[24]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,70,71,72,73
+  - phrase: IT IS HALF PAST FIVE AM
+    indices[18]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,70,71,72,73
+  - phrase: IT IS TWENTY FIVE TO SIX AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,58,59,60
+  - phrase: IT IS TWENTY TO SIX AM
+    indices[17]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,58,59,60
+  - phrase: IT IS A QUARTER TO SIX AM
+    indices[19]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,58,59,60
+  - phrase: IT IS TEN TO SIX AM
+    indices[14]: 0,1,3,4,7,8,38,39,40,42,43,58,59,60
+  - phrase: IT IS FIVE TO SIX AM
+    indices[15]: 0,1,3,4,7,8,29,30,31,32,42,43,58,59,60
+  - phrase: IT IS SIX OCLOCK AM
+    indices[15]: 0,1,3,4,7,8,58,59,60,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST SIX AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,58,59,60
+  - phrase: IT IS TEN PAST SIX AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,44,45,46,47,58,59,60
+  - phrase: IT IS A QUARTER PAST SIX AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,58,59,60
+  - phrase: IT IS TWENTY PAST SIX AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,58,59,60
+  - phrase: IT IS TWENTY FIVE PAST SIX AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,58,59,60
+  - phrase: IT IS HALF PAST SIX AM
+    indices[17]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,58,59,60
+  - phrase: IT IS TWENTY FIVE TO SEVEN AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,88,89,90,91,92
+  - phrase: IT IS TWENTY TO SEVEN AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,88,89,90,91,92
+  - phrase: IT IS A QUARTER TO SEVEN AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,88,89,90,91,92
+  - phrase: IT IS TEN TO SEVEN AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,42,43,88,89,90,91,92
+  - phrase: IT IS FIVE TO SEVEN AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,42,43,88,89,90,91,92
+  - phrase: IT IS SEVEN OCLOCK AM
+    indices[17]: 0,1,3,4,7,8,88,89,90,91,92,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST SEVEN AM
+    indices[19]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TEN PAST SEVEN AM
+    indices[18]: 0,1,3,4,7,8,38,39,40,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS A QUARTER PAST SEVEN AM
+    indices[23]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TWENTY PAST SEVEN AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TWENTY FIVE PAST SEVEN AM
+    indices[25]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS HALF PAST SEVEN AM
+    indices[19]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TWENTY FIVE TO EIGHT AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,77,78,79,80,81
+  - phrase: IT IS TWENTY TO EIGHT AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,77,78,79,80,81
+  - phrase: IT IS A QUARTER TO EIGHT AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,77,78,79,80,81
+  - phrase: IT IS TEN TO EIGHT AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,42,43,77,78,79,80,81
+  - phrase: IT IS FIVE TO EIGHT AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,42,43,77,78,79,80,81
+  - phrase: IT IS EIGHT OCLOCK AM
+    indices[17]: 0,1,3,4,7,8,77,78,79,80,81,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST EIGHT AM
+    indices[19]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TEN PAST EIGHT AM
+    indices[18]: 0,1,3,4,7,8,38,39,40,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS A QUARTER PAST EIGHT AM
+    indices[23]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TWENTY PAST EIGHT AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TWENTY FIVE PAST EIGHT AM
+    indices[25]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS HALF PAST EIGHT AM
+    indices[19]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TWENTY FIVE TO NINE AM
+    indices[22]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,51,52,53,54
+  - phrase: IT IS TWENTY TO NINE AM
+    indices[18]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,51,52,53,54
+  - phrase: IT IS A QUARTER TO NINE AM
+    indices[20]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,51,52,53,54
+  - phrase: IT IS TEN TO NINE AM
+    indices[15]: 0,1,3,4,7,8,38,39,40,42,43,51,52,53,54
+  - phrase: IT IS FIVE TO NINE AM
+    indices[16]: 0,1,3,4,7,8,29,30,31,32,42,43,51,52,53,54
+  - phrase: IT IS NINE OCLOCK AM
+    indices[16]: 0,1,3,4,7,8,51,52,53,54,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST NINE AM
+    indices[18]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,51,52,53,54
+  - phrase: IT IS TEN PAST NINE AM
+    indices[17]: 0,1,3,4,7,8,38,39,40,44,45,46,47,51,52,53,54
+  - phrase: IT IS A QUARTER PAST NINE AM
+    indices[22]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,51,52,53,54
+  - phrase: IT IS TWENTY PAST NINE AM
+    indices[20]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,51,52,53,54
+  - phrase: IT IS TWENTY FIVE PAST NINE AM
+    indices[24]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,51,52,53,54
+  - phrase: IT IS HALF PAST NINE AM
+    indices[18]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,51,52,53,54
+  - phrase: IT IS TWENTY FIVE TO TEN AM
+    indices[21]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,99,100,101
+  - phrase: IT IS TWENTY TO TEN AM
+    indices[17]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,99,100,101
+  - phrase: IT IS A QUARTER TO TEN AM
+    indices[19]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,99,100,101
+  - phrase: IT IS TEN TO TEN AM
+    indices[14]: 0,1,3,4,7,8,38,39,40,42,43,99,100,101
+  - phrase: IT IS FIVE TO TEN AM
+    indices[15]: 0,1,3,4,7,8,29,30,31,32,42,43,99,100,101
+  - phrase: IT IS TEN OCLOCK AM
+    indices[15]: 0,1,3,4,7,8,99,100,101,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST TEN AM
+    indices[17]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,99,100,101
+  - phrase: IT IS TEN PAST TEN AM
+    indices[16]: 0,1,3,4,7,8,38,39,40,44,45,46,47,99,100,101
+  - phrase: IT IS A QUARTER PAST TEN AM
+    indices[21]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,99,100,101
+  - phrase: IT IS TWENTY PAST TEN AM
+    indices[19]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,99,100,101
+  - phrase: IT IS TWENTY FIVE PAST TEN AM
+    indices[23]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,99,100,101
+  - phrase: IT IS HALF PAST TEN AM
+    indices[17]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,99,100,101
+  - phrase: IT IS TWENTY FIVE TO ELEVEN AM
+    indices[24]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,82,83,84,85,86,87
+  - phrase: IT IS TWENTY TO ELEVEN AM
+    indices[20]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,82,83,84,85,86,87
+  - phrase: IT IS A QUARTER TO ELEVEN AM
+    indices[22]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,82,83,84,85,86,87
+  - phrase: IT IS TEN TO ELEVEN AM
+    indices[17]: 0,1,3,4,7,8,38,39,40,42,43,82,83,84,85,86,87
+  - phrase: IT IS FIVE TO ELEVEN AM
+    indices[18]: 0,1,3,4,7,8,29,30,31,32,42,43,82,83,84,85,86,87
+  - phrase: IT IS ELEVEN OCLOCK AM
+    indices[18]: 0,1,3,4,7,8,82,83,84,85,86,87,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST ELEVEN AM
+    indices[20]: 0,1,3,4,7,8,29,30,31,32,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TEN PAST ELEVEN AM
+    indices[19]: 0,1,3,4,7,8,38,39,40,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS A QUARTER PAST ELEVEN AM
+    indices[24]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TWENTY PAST ELEVEN AM
+    indices[22]: 0,1,3,4,7,8,22,23,24,25,26,27,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TWENTY FIVE PAST ELEVEN AM
+    indices[26]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS HALF PAST ELEVEN AM
+    indices[20]: 0,1,3,4,7,8,33,34,35,36,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TWENTY FIVE TO TWELVE AM
+    indices[24]: 0,1,3,4,7,8,22,23,24,25,26,27,29,30,31,32,42,43,93,94,95,96,97,98
+  - phrase: IT IS TWENTY TO TWELVE AM
+    indices[20]: 0,1,3,4,7,8,22,23,24,25,26,27,42,43,93,94,95,96,97,98
+  - phrase: IT IS A QUARTER TO TWELVE AM
+    indices[22]: 0,1,3,4,7,8,11,13,14,15,16,17,18,19,42,43,93,94,95,96,97,98
+  - phrase: IT IS TEN TO TWELVE AM
+    indices[17]: 0,1,3,4,7,8,38,39,40,42,43,93,94,95,96,97,98
+  - phrase: IT IS FIVE TO TWELVE AM
+    indices[18]: 0,1,3,4,7,8,29,30,31,32,42,43,93,94,95,96,97,98
+  - phrase: IT IS TWELVE OCLOCK PM
+    indices[18]: 0,1,3,4,9,10,93,94,95,96,97,98,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST TWELVE PM
+    indices[20]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TEN PAST TWELVE PM
+    indices[19]: 0,1,3,4,9,10,38,39,40,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS A QUARTER PAST TWELVE PM
+    indices[24]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TWENTY PAST TWELVE PM
+    indices[22]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TWENTY FIVE PAST TWELVE PM
+    indices[26]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS HALF PAST TWELVE PM
+    indices[20]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,93,94,95,96,97,98
+  - phrase: IT IS TWENTY FIVE TO ONE PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,55,56,57
+  - phrase: IT IS TWENTY TO ONE PM
+    indices[17]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,55,56,57
+  - phrase: IT IS A QUARTER TO ONE PM
+    indices[19]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,55,56,57
+  - phrase: IT IS TEN TO ONE PM
+    indices[14]: 0,1,3,4,9,10,38,39,40,42,43,55,56,57
+  - phrase: IT IS FIVE TO ONE PM
+    indices[15]: 0,1,3,4,9,10,29,30,31,32,42,43,55,56,57
+  - phrase: IT IS ONE OCLOCK PM
+    indices[15]: 0,1,3,4,9,10,55,56,57,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST ONE PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,55,56,57
+  - phrase: IT IS TEN PAST ONE PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,44,45,46,47,55,56,57
+  - phrase: IT IS A QUARTER PAST ONE PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,55,56,57
+  - phrase: IT IS TWENTY PAST ONE PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,55,56,57
+  - phrase: IT IS TWENTY FIVE PAST ONE PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,55,56,57
+  - phrase: IT IS HALF PAST ONE PM
+    indices[17]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,55,56,57
+  - phrase: IT IS TWENTY FIVE TO TWO PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,74,75,76
+  - phrase: IT IS TWENTY TO TWO PM
+    indices[17]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,74,75,76
+  - phrase: IT IS A QUARTER TO TWO PM
+    indices[19]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,74,75,76
+  - phrase: IT IS TEN TO TWO PM
+    indices[14]: 0,1,3,4,9,10,38,39,40,42,43,74,75,76
+  - phrase: IT IS FIVE TO TWO PM
+    indices[15]: 0,1,3,4,9,10,29,30,31,32,42,43,74,75,76
+  - phrase: IT IS TWO OCLOCK PM
+    indices[15]: 0,1,3,4,9,10,74,75,76,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST TWO PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,74,75,76
+  - phrase: IT IS TEN PAST TWO PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,44,45,46,47,74,75,76
+  - phrase: IT IS A QUARTER PAST TWO PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,74,75,76
+  - phrase: IT IS TWENTY PAST TWO PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,74,75,76
+  - phrase: IT IS TWENTY FIVE PAST TWO PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,74,75,76
+  - phrase: IT IS HALF PAST TWO PM
+    indices[17]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,74,75,76
+  - phrase: IT IS TWENTY FIVE TO THREE PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,61,62,63,64,65
+  - phrase: IT IS TWENTY TO THREE PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,61,62,63,64,65
+  - phrase: IT IS A QUARTER TO THREE PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,61,62,63,64,65
+  - phrase: IT IS TEN TO THREE PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,42,43,61,62,63,64,65
+  - phrase: IT IS FIVE TO THREE PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,42,43,61,62,63,64,65
+  - phrase: IT IS THREE OCLOCK PM
+    indices[17]: 0,1,3,4,9,10,61,62,63,64,65,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST THREE PM
+    indices[19]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TEN PAST THREE PM
+    indices[18]: 0,1,3,4,9,10,38,39,40,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS A QUARTER PAST THREE PM
+    indices[23]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TWENTY PAST THREE PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TWENTY FIVE PAST THREE PM
+    indices[25]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS HALF PAST THREE PM
+    indices[19]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,61,62,63,64,65
+  - phrase: IT IS TWENTY FIVE TO FOUR PM
+    indices[22]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,66,67,68,69
+  - phrase: IT IS TWENTY TO FOUR PM
+    indices[18]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,66,67,68,69
+  - phrase: IT IS A QUARTER TO FOUR PM
+    indices[20]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,66,67,68,69
+  - phrase: IT IS TEN TO FOUR PM
+    indices[15]: 0,1,3,4,9,10,38,39,40,42,43,66,67,68,69
+  - phrase: IT IS FIVE TO FOUR PM
+    indices[16]: 0,1,3,4,9,10,29,30,31,32,42,43,66,67,68,69
+  - phrase: IT IS FOUR OCLOCK PM
+    indices[16]: 0,1,3,4,9,10,66,67,68,69,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST FOUR PM
+    indices[18]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,66,67,68,69
+  - phrase: IT IS TEN PAST FOUR PM
+    indices[17]: 0,1,3,4,9,10,38,39,40,44,45,46,47,66,67,68,69
+  - phrase: IT IS A QUARTER PAST FOUR PM
+    indices[22]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,66,67,68,69
+  - phrase: IT IS TWENTY PAST FOUR PM
+    indices[20]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,66,67,68,69
+  - phrase: IT IS TWENTY FIVE PAST FOUR PM
+    indices[24]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,66,67,68,69
+  - phrase: IT IS HALF PAST FOUR PM
+    indices[18]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,66,67,68,69
+  - phrase: IT IS TWENTY FIVE TO FIVE PM
+    indices[22]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,70,71,72,73
+  - phrase: IT IS TWENTY TO FIVE PM
+    indices[18]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,70,71,72,73
+  - phrase: IT IS A QUARTER TO FIVE PM
+    indices[20]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,70,71,72,73
+  - phrase: IT IS TEN TO FIVE PM
+    indices[15]: 0,1,3,4,9,10,38,39,40,42,43,70,71,72,73
+  - phrase: IT IS FIVE TO FIVE PM
+    indices[16]: 0,1,3,4,9,10,29,30,31,32,42,43,70,71,72,73
+  - phrase: IT IS FIVE OCLOCK PM
+    indices[16]: 0,1,3,4,9,10,70,71,72,73,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST FIVE PM
+    indices[18]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,70,71,72,73
+  - phrase: IT IS TEN PAST FIVE PM
+    indices[17]: 0,1,3,4,9,10,38,39,40,44,45,46,47,70,71,72,73
+  - phrase: IT IS A QUARTER PAST FIVE PM
+    indices[22]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,70,71,72,73
+  - phrase: IT IS TWENTY PAST FIVE PM
+    indices[20]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,70,71,72,73
+  - phrase: IT IS TWENTY FIVE PAST FIVE PM
+    indices[24]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,70,71,72,73
+  - phrase: IT IS HALF PAST FIVE PM
+    indices[18]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,70,71,72,73
+  - phrase: IT IS TWENTY FIVE TO SIX PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,58,59,60
+  - phrase: IT IS TWENTY TO SIX PM
+    indices[17]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,58,59,60
+  - phrase: IT IS A QUARTER TO SIX PM
+    indices[19]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,58,59,60
+  - phrase: IT IS TEN TO SIX PM
+    indices[14]: 0,1,3,4,9,10,38,39,40,42,43,58,59,60
+  - phrase: IT IS FIVE TO SIX PM
+    indices[15]: 0,1,3,4,9,10,29,30,31,32,42,43,58,59,60
+  - phrase: IT IS SIX OCLOCK PM
+    indices[15]: 0,1,3,4,9,10,58,59,60,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST SIX PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,58,59,60
+  - phrase: IT IS TEN PAST SIX PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,44,45,46,47,58,59,60
+  - phrase: IT IS A QUARTER PAST SIX PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,58,59,60
+  - phrase: IT IS TWENTY PAST SIX PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,58,59,60
+  - phrase: IT IS TWENTY FIVE PAST SIX PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,58,59,60
+  - phrase: IT IS HALF PAST SIX PM
+    indices[17]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,58,59,60
+  - phrase: IT IS TWENTY FIVE TO SEVEN PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,88,89,90,91,92
+  - phrase: IT IS TWENTY TO SEVEN PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,88,89,90,91,92
+  - phrase: IT IS A QUARTER TO SEVEN PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,88,89,90,91,92
+  - phrase: IT IS TEN TO SEVEN PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,42,43,88,89,90,91,92
+  - phrase: IT IS FIVE TO SEVEN PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,42,43,88,89,90,91,92
+  - phrase: IT IS SEVEN OCLOCK PM
+    indices[17]: 0,1,3,4,9,10,88,89,90,91,92,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST SEVEN PM
+    indices[19]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TEN PAST SEVEN PM
+    indices[18]: 0,1,3,4,9,10,38,39,40,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS A QUARTER PAST SEVEN PM
+    indices[23]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TWENTY PAST SEVEN PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TWENTY FIVE PAST SEVEN PM
+    indices[25]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS HALF PAST SEVEN PM
+    indices[19]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,88,89,90,91,92
+  - phrase: IT IS TWENTY FIVE TO EIGHT PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,77,78,79,80,81
+  - phrase: IT IS TWENTY TO EIGHT PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,77,78,79,80,81
+  - phrase: IT IS A QUARTER TO EIGHT PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,77,78,79,80,81
+  - phrase: IT IS TEN TO EIGHT PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,42,43,77,78,79,80,81
+  - phrase: IT IS FIVE TO EIGHT PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,42,43,77,78,79,80,81
+  - phrase: IT IS EIGHT OCLOCK PM
+    indices[17]: 0,1,3,4,9,10,77,78,79,80,81,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST EIGHT PM
+    indices[19]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TEN PAST EIGHT PM
+    indices[18]: 0,1,3,4,9,10,38,39,40,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS A QUARTER PAST EIGHT PM
+    indices[23]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TWENTY PAST EIGHT PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TWENTY FIVE PAST EIGHT PM
+    indices[25]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS HALF PAST EIGHT PM
+    indices[19]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,77,78,79,80,81
+  - phrase: IT IS TWENTY FIVE TO NINE PM
+    indices[22]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,51,52,53,54
+  - phrase: IT IS TWENTY TO NINE PM
+    indices[18]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,51,52,53,54
+  - phrase: IT IS A QUARTER TO NINE PM
+    indices[20]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,51,52,53,54
+  - phrase: IT IS TEN TO NINE PM
+    indices[15]: 0,1,3,4,9,10,38,39,40,42,43,51,52,53,54
+  - phrase: IT IS FIVE TO NINE PM
+    indices[16]: 0,1,3,4,9,10,29,30,31,32,42,43,51,52,53,54
+  - phrase: IT IS NINE OCLOCK PM
+    indices[16]: 0,1,3,4,9,10,51,52,53,54,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST NINE PM
+    indices[18]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,51,52,53,54
+  - phrase: IT IS TEN PAST NINE PM
+    indices[17]: 0,1,3,4,9,10,38,39,40,44,45,46,47,51,52,53,54
+  - phrase: IT IS A QUARTER PAST NINE PM
+    indices[22]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,51,52,53,54
+  - phrase: IT IS TWENTY PAST NINE PM
+    indices[20]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,51,52,53,54
+  - phrase: IT IS TWENTY FIVE PAST NINE PM
+    indices[24]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,51,52,53,54
+  - phrase: IT IS HALF PAST NINE PM
+    indices[18]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,51,52,53,54
+  - phrase: IT IS TWENTY FIVE TO TEN PM
+    indices[21]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,99,100,101
+  - phrase: IT IS TWENTY TO TEN PM
+    indices[17]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,99,100,101
+  - phrase: IT IS A QUARTER TO TEN PM
+    indices[19]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,99,100,101
+  - phrase: IT IS TEN TO TEN PM
+    indices[14]: 0,1,3,4,9,10,38,39,40,42,43,99,100,101
+  - phrase: IT IS FIVE TO TEN PM
+    indices[15]: 0,1,3,4,9,10,29,30,31,32,42,43,99,100,101
+  - phrase: IT IS TEN OCLOCK PM
+    indices[15]: 0,1,3,4,9,10,99,100,101,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST TEN PM
+    indices[17]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,99,100,101
+  - phrase: IT IS TEN PAST TEN PM
+    indices[16]: 0,1,3,4,9,10,38,39,40,44,45,46,47,99,100,101
+  - phrase: IT IS A QUARTER PAST TEN PM
+    indices[21]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,99,100,101
+  - phrase: IT IS TWENTY PAST TEN PM
+    indices[19]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,99,100,101
+  - phrase: IT IS TWENTY FIVE PAST TEN PM
+    indices[23]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,99,100,101
+  - phrase: IT IS HALF PAST TEN PM
+    indices[17]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,99,100,101
+  - phrase: IT IS TWENTY FIVE TO ELEVEN PM
+    indices[24]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,82,83,84,85,86,87
+  - phrase: IT IS TWENTY TO ELEVEN PM
+    indices[20]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,82,83,84,85,86,87
+  - phrase: IT IS A QUARTER TO ELEVEN PM
+    indices[22]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,82,83,84,85,86,87
+  - phrase: IT IS TEN TO ELEVEN PM
+    indices[17]: 0,1,3,4,9,10,38,39,40,42,43,82,83,84,85,86,87
+  - phrase: IT IS FIVE TO ELEVEN PM
+    indices[18]: 0,1,3,4,9,10,29,30,31,32,42,43,82,83,84,85,86,87
+  - phrase: IT IS ELEVEN OCLOCK PM
+    indices[18]: 0,1,3,4,9,10,82,83,84,85,86,87,104,105,106,107,108,109
+  - phrase: IT IS FIVE PAST ELEVEN PM
+    indices[20]: 0,1,3,4,9,10,29,30,31,32,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TEN PAST ELEVEN PM
+    indices[19]: 0,1,3,4,9,10,38,39,40,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS A QUARTER PAST ELEVEN PM
+    indices[24]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TWENTY PAST ELEVEN PM
+    indices[22]: 0,1,3,4,9,10,22,23,24,25,26,27,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TWENTY FIVE PAST ELEVEN PM
+    indices[26]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS HALF PAST ELEVEN PM
+    indices[20]: 0,1,3,4,9,10,33,34,35,36,44,45,46,47,82,83,84,85,86,87
+  - phrase: IT IS TWENTY FIVE TO TWELVE PM
+    indices[24]: 0,1,3,4,9,10,22,23,24,25,26,27,29,30,31,32,42,43,93,94,95,96,97,98
+  - phrase: IT IS TWENTY TO TWELVE PM
+    indices[20]: 0,1,3,4,9,10,22,23,24,25,26,27,42,43,93,94,95,96,97,98
+  - phrase: IT IS A QUARTER TO TWELVE PM
+    indices[22]: 0,1,3,4,9,10,11,13,14,15,16,17,18,19,42,43,93,94,95,96,97,98
+  - phrase: IT IS TEN TO TWELVE PM
+    indices[17]: 0,1,3,4,9,10,38,39,40,42,43,93,94,95,96,97,98
+  - phrase: IT IS FIVE TO TWELVE PM
+    indices[18]: 0,1,3,4,9,10,29,30,31,32,42,43,93,94,95,96,97,98
+entries[288]:
+  - time: "00:00"
+    phrase: IT IS TWELVE OCLOCK AM
+    hex[18]: "00","01","03","04","07","08",5D,5E,5F,"60","61","62","68","69",6A,6B,6C,6D
+  - time: "00:05"
+    phrase: IT IS FIVE PAST TWELVE AM
+    hex[20]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "00:10"
+    phrase: IT IS TEN PAST TWELVE AM
+    hex[19]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "00:15"
+    phrase: IT IS A QUARTER PAST TWELVE AM
+    hex[24]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "00:20"
+    phrase: IT IS TWENTY PAST TWELVE AM
+    hex[22]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "00:25"
+    phrase: IT IS TWENTY FIVE PAST TWELVE AM
+    hex[26]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "00:30"
+    phrase: IT IS HALF PAST TWELVE AM
+    hex[20]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "00:35"
+    phrase: IT IS TWENTY FIVE TO ONE AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"37","38","39"
+  - time: "00:40"
+    phrase: IT IS TWENTY TO ONE AM
+    hex[17]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"37","38","39"
+  - time: "00:45"
+    phrase: IT IS A QUARTER TO ONE AM
+    hex[19]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"37","38","39"
+  - time: "00:50"
+    phrase: IT IS TEN TO ONE AM
+    hex[14]: "00","01","03","04","07","08","26","27","28",2A,2B,"37","38","39"
+  - time: "00:55"
+    phrase: IT IS FIVE TO ONE AM
+    hex[15]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"37","38","39"
+  - time: "01:00"
+    phrase: IT IS ONE OCLOCK AM
+    hex[15]: "00","01","03","04","07","08","37","38","39","68","69",6A,6B,6C,6D
+  - time: "01:05"
+    phrase: IT IS FIVE PAST ONE AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"37","38","39"
+  - time: "01:10"
+    phrase: IT IS TEN PAST ONE AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"37","38","39"
+  - time: "01:15"
+    phrase: IT IS A QUARTER PAST ONE AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"37","38","39"
+  - time: "01:20"
+    phrase: IT IS TWENTY PAST ONE AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"37","38","39"
+  - time: "01:25"
+    phrase: IT IS TWENTY FIVE PAST ONE AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"37","38","39"
+  - time: "01:30"
+    phrase: IT IS HALF PAST ONE AM
+    hex[17]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"37","38","39"
+  - time: "01:35"
+    phrase: IT IS TWENTY FIVE TO TWO AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,4A,4B,4C
+  - time: "01:40"
+    phrase: IT IS TWENTY TO TWO AM
+    hex[17]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,4A,4B,4C
+  - time: "01:45"
+    phrase: IT IS A QUARTER TO TWO AM
+    hex[19]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,4A,4B,4C
+  - time: "01:50"
+    phrase: IT IS TEN TO TWO AM
+    hex[14]: "00","01","03","04","07","08","26","27","28",2A,2B,4A,4B,4C
+  - time: "01:55"
+    phrase: IT IS FIVE TO TWO AM
+    hex[15]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,4A,4B,4C
+  - time: "02:00"
+    phrase: IT IS TWO OCLOCK AM
+    hex[15]: "00","01","03","04","07","08",4A,4B,4C,"68","69",6A,6B,6C,6D
+  - time: "02:05"
+    phrase: IT IS FIVE PAST TWO AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,4A,4B,4C
+  - time: "02:10"
+    phrase: IT IS TEN PAST TWO AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,4A,4B,4C
+  - time: "02:15"
+    phrase: IT IS A QUARTER PAST TWO AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,4A,4B,4C
+  - time: "02:20"
+    phrase: IT IS TWENTY PAST TWO AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,4A,4B,4C
+  - time: "02:25"
+    phrase: IT IS TWENTY FIVE PAST TWO AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,4A,4B,4C
+  - time: "02:30"
+    phrase: IT IS HALF PAST TWO AM
+    hex[17]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,4A,4B,4C
+  - time: "02:35"
+    phrase: IT IS TWENTY FIVE TO THREE AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,3D,3E,3F,"40","41"
+  - time: "02:40"
+    phrase: IT IS TWENTY TO THREE AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,3D,3E,3F,"40","41"
+  - time: "02:45"
+    phrase: IT IS A QUARTER TO THREE AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,3D,3E,3F,"40","41"
+  - time: "02:50"
+    phrase: IT IS TEN TO THREE AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2A,2B,3D,3E,3F,"40","41"
+  - time: "02:55"
+    phrase: IT IS FIVE TO THREE AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,3D,3E,3F,"40","41"
+  - time: "03:00"
+    phrase: IT IS THREE OCLOCK AM
+    hex[17]: "00","01","03","04","07","08",3D,3E,3F,"40","41","68","69",6A,6B,6C,6D
+  - time: "03:05"
+    phrase: IT IS FIVE PAST THREE AM
+    hex[19]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "03:10"
+    phrase: IT IS TEN PAST THREE AM
+    hex[18]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "03:15"
+    phrase: IT IS A QUARTER PAST THREE AM
+    hex[23]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "03:20"
+    phrase: IT IS TWENTY PAST THREE AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "03:25"
+    phrase: IT IS TWENTY FIVE PAST THREE AM
+    hex[25]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "03:30"
+    phrase: IT IS HALF PAST THREE AM
+    hex[19]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "03:35"
+    phrase: IT IS TWENTY FIVE TO FOUR AM
+    hex[22]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"42","43","44","45"
+  - time: "03:40"
+    phrase: IT IS TWENTY TO FOUR AM
+    hex[18]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"42","43","44","45"
+  - time: "03:45"
+    phrase: IT IS A QUARTER TO FOUR AM
+    hex[20]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"42","43","44","45"
+  - time: "03:50"
+    phrase: IT IS TEN TO FOUR AM
+    hex[15]: "00","01","03","04","07","08","26","27","28",2A,2B,"42","43","44","45"
+  - time: "03:55"
+    phrase: IT IS FIVE TO FOUR AM
+    hex[16]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"42","43","44","45"
+  - time: "04:00"
+    phrase: IT IS FOUR OCLOCK AM
+    hex[16]: "00","01","03","04","07","08","42","43","44","45","68","69",6A,6B,6C,6D
+  - time: "04:05"
+    phrase: IT IS FIVE PAST FOUR AM
+    hex[18]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"42","43","44","45"
+  - time: "04:10"
+    phrase: IT IS TEN PAST FOUR AM
+    hex[17]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"42","43","44","45"
+  - time: "04:15"
+    phrase: IT IS A QUARTER PAST FOUR AM
+    hex[22]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"42","43","44","45"
+  - time: "04:20"
+    phrase: IT IS TWENTY PAST FOUR AM
+    hex[20]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"42","43","44","45"
+  - time: "04:25"
+    phrase: IT IS TWENTY FIVE PAST FOUR AM
+    hex[24]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"42","43","44","45"
+  - time: "04:30"
+    phrase: IT IS HALF PAST FOUR AM
+    hex[18]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"42","43","44","45"
+  - time: "04:35"
+    phrase: IT IS TWENTY FIVE TO FIVE AM
+    hex[22]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"46","47","48","49"
+  - time: "04:40"
+    phrase: IT IS TWENTY TO FIVE AM
+    hex[18]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"46","47","48","49"
+  - time: "04:45"
+    phrase: IT IS A QUARTER TO FIVE AM
+    hex[20]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"46","47","48","49"
+  - time: "04:50"
+    phrase: IT IS TEN TO FIVE AM
+    hex[15]: "00","01","03","04","07","08","26","27","28",2A,2B,"46","47","48","49"
+  - time: "04:55"
+    phrase: IT IS FIVE TO FIVE AM
+    hex[16]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"46","47","48","49"
+  - time: "05:00"
+    phrase: IT IS FIVE OCLOCK AM
+    hex[16]: "00","01","03","04","07","08","46","47","48","49","68","69",6A,6B,6C,6D
+  - time: "05:05"
+    phrase: IT IS FIVE PAST FIVE AM
+    hex[18]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"46","47","48","49"
+  - time: "05:10"
+    phrase: IT IS TEN PAST FIVE AM
+    hex[17]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"46","47","48","49"
+  - time: "05:15"
+    phrase: IT IS A QUARTER PAST FIVE AM
+    hex[22]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"46","47","48","49"
+  - time: "05:20"
+    phrase: IT IS TWENTY PAST FIVE AM
+    hex[20]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"46","47","48","49"
+  - time: "05:25"
+    phrase: IT IS TWENTY FIVE PAST FIVE AM
+    hex[24]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"46","47","48","49"
+  - time: "05:30"
+    phrase: IT IS HALF PAST FIVE AM
+    hex[18]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"46","47","48","49"
+  - time: "05:35"
+    phrase: IT IS TWENTY FIVE TO SIX AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,3A,3B,3C
+  - time: "05:40"
+    phrase: IT IS TWENTY TO SIX AM
+    hex[17]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,3A,3B,3C
+  - time: "05:45"
+    phrase: IT IS A QUARTER TO SIX AM
+    hex[19]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,3A,3B,3C
+  - time: "05:50"
+    phrase: IT IS TEN TO SIX AM
+    hex[14]: "00","01","03","04","07","08","26","27","28",2A,2B,3A,3B,3C
+  - time: "05:55"
+    phrase: IT IS FIVE TO SIX AM
+    hex[15]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,3A,3B,3C
+  - time: "06:00"
+    phrase: IT IS SIX OCLOCK AM
+    hex[15]: "00","01","03","04","07","08",3A,3B,3C,"68","69",6A,6B,6C,6D
+  - time: "06:05"
+    phrase: IT IS FIVE PAST SIX AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,3A,3B,3C
+  - time: "06:10"
+    phrase: IT IS TEN PAST SIX AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,3A,3B,3C
+  - time: "06:15"
+    phrase: IT IS A QUARTER PAST SIX AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,3A,3B,3C
+  - time: "06:20"
+    phrase: IT IS TWENTY PAST SIX AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,3A,3B,3C
+  - time: "06:25"
+    phrase: IT IS TWENTY FIVE PAST SIX AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,3A,3B,3C
+  - time: "06:30"
+    phrase: IT IS HALF PAST SIX AM
+    hex[17]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,3A,3B,3C
+  - time: "06:35"
+    phrase: IT IS TWENTY FIVE TO SEVEN AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"58","59",5A,5B,5C
+  - time: "06:40"
+    phrase: IT IS TWENTY TO SEVEN AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"58","59",5A,5B,5C
+  - time: "06:45"
+    phrase: IT IS A QUARTER TO SEVEN AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"58","59",5A,5B,5C
+  - time: "06:50"
+    phrase: IT IS TEN TO SEVEN AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2A,2B,"58","59",5A,5B,5C
+  - time: "06:55"
+    phrase: IT IS FIVE TO SEVEN AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"58","59",5A,5B,5C
+  - time: "07:00"
+    phrase: IT IS SEVEN OCLOCK AM
+    hex[17]: "00","01","03","04","07","08","58","59",5A,5B,5C,"68","69",6A,6B,6C,6D
+  - time: "07:05"
+    phrase: IT IS FIVE PAST SEVEN AM
+    hex[19]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "07:10"
+    phrase: IT IS TEN PAST SEVEN AM
+    hex[18]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "07:15"
+    phrase: IT IS A QUARTER PAST SEVEN AM
+    hex[23]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "07:20"
+    phrase: IT IS TWENTY PAST SEVEN AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "07:25"
+    phrase: IT IS TWENTY FIVE PAST SEVEN AM
+    hex[25]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "07:30"
+    phrase: IT IS HALF PAST SEVEN AM
+    hex[19]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "07:35"
+    phrase: IT IS TWENTY FIVE TO EIGHT AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,4D,4E,4F,"50","51"
+  - time: "07:40"
+    phrase: IT IS TWENTY TO EIGHT AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,4D,4E,4F,"50","51"
+  - time: "07:45"
+    phrase: IT IS A QUARTER TO EIGHT AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,4D,4E,4F,"50","51"
+  - time: "07:50"
+    phrase: IT IS TEN TO EIGHT AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2A,2B,4D,4E,4F,"50","51"
+  - time: "07:55"
+    phrase: IT IS FIVE TO EIGHT AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,4D,4E,4F,"50","51"
+  - time: "08:00"
+    phrase: IT IS EIGHT OCLOCK AM
+    hex[17]: "00","01","03","04","07","08",4D,4E,4F,"50","51","68","69",6A,6B,6C,6D
+  - time: "08:05"
+    phrase: IT IS FIVE PAST EIGHT AM
+    hex[19]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "08:10"
+    phrase: IT IS TEN PAST EIGHT AM
+    hex[18]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "08:15"
+    phrase: IT IS A QUARTER PAST EIGHT AM
+    hex[23]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "08:20"
+    phrase: IT IS TWENTY PAST EIGHT AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "08:25"
+    phrase: IT IS TWENTY FIVE PAST EIGHT AM
+    hex[25]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "08:30"
+    phrase: IT IS HALF PAST EIGHT AM
+    hex[19]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "08:35"
+    phrase: IT IS TWENTY FIVE TO NINE AM
+    hex[22]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"33","34","35","36"
+  - time: "08:40"
+    phrase: IT IS TWENTY TO NINE AM
+    hex[18]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"33","34","35","36"
+  - time: "08:45"
+    phrase: IT IS A QUARTER TO NINE AM
+    hex[20]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"33","34","35","36"
+  - time: "08:50"
+    phrase: IT IS TEN TO NINE AM
+    hex[15]: "00","01","03","04","07","08","26","27","28",2A,2B,"33","34","35","36"
+  - time: "08:55"
+    phrase: IT IS FIVE TO NINE AM
+    hex[16]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"33","34","35","36"
+  - time: "09:00"
+    phrase: IT IS NINE OCLOCK AM
+    hex[16]: "00","01","03","04","07","08","33","34","35","36","68","69",6A,6B,6C,6D
+  - time: "09:05"
+    phrase: IT IS FIVE PAST NINE AM
+    hex[18]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"33","34","35","36"
+  - time: "09:10"
+    phrase: IT IS TEN PAST NINE AM
+    hex[17]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"33","34","35","36"
+  - time: "09:15"
+    phrase: IT IS A QUARTER PAST NINE AM
+    hex[22]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"33","34","35","36"
+  - time: "09:20"
+    phrase: IT IS TWENTY PAST NINE AM
+    hex[20]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"33","34","35","36"
+  - time: "09:25"
+    phrase: IT IS TWENTY FIVE PAST NINE AM
+    hex[24]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"33","34","35","36"
+  - time: "09:30"
+    phrase: IT IS HALF PAST NINE AM
+    hex[18]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"33","34","35","36"
+  - time: "09:35"
+    phrase: IT IS TWENTY FIVE TO TEN AM
+    hex[21]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"63","64","65"
+  - time: "09:40"
+    phrase: IT IS TWENTY TO TEN AM
+    hex[17]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"63","64","65"
+  - time: "09:45"
+    phrase: IT IS A QUARTER TO TEN AM
+    hex[19]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"63","64","65"
+  - time: "09:50"
+    phrase: IT IS TEN TO TEN AM
+    hex[14]: "00","01","03","04","07","08","26","27","28",2A,2B,"63","64","65"
+  - time: "09:55"
+    phrase: IT IS FIVE TO TEN AM
+    hex[15]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"63","64","65"
+  - time: "10:00"
+    phrase: IT IS TEN OCLOCK AM
+    hex[15]: "00","01","03","04","07","08","63","64","65","68","69",6A,6B,6C,6D
+  - time: "10:05"
+    phrase: IT IS FIVE PAST TEN AM
+    hex[17]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"63","64","65"
+  - time: "10:10"
+    phrase: IT IS TEN PAST TEN AM
+    hex[16]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"63","64","65"
+  - time: "10:15"
+    phrase: IT IS A QUARTER PAST TEN AM
+    hex[21]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"63","64","65"
+  - time: "10:20"
+    phrase: IT IS TWENTY PAST TEN AM
+    hex[19]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"63","64","65"
+  - time: "10:25"
+    phrase: IT IS TWENTY FIVE PAST TEN AM
+    hex[23]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"63","64","65"
+  - time: "10:30"
+    phrase: IT IS HALF PAST TEN AM
+    hex[17]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"63","64","65"
+  - time: "10:35"
+    phrase: IT IS TWENTY FIVE TO ELEVEN AM
+    hex[24]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"52","53","54","55","56","57"
+  - time: "10:40"
+    phrase: IT IS TWENTY TO ELEVEN AM
+    hex[20]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,"52","53","54","55","56","57"
+  - time: "10:45"
+    phrase: IT IS A QUARTER TO ELEVEN AM
+    hex[22]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,"52","53","54","55","56","57"
+  - time: "10:50"
+    phrase: IT IS TEN TO ELEVEN AM
+    hex[17]: "00","01","03","04","07","08","26","27","28",2A,2B,"52","53","54","55","56","57"
+  - time: "10:55"
+    phrase: IT IS FIVE TO ELEVEN AM
+    hex[18]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,"52","53","54","55","56","57"
+  - time: "11:00"
+    phrase: IT IS ELEVEN OCLOCK AM
+    hex[18]: "00","01","03","04","07","08","52","53","54","55","56","57","68","69",6A,6B,6C,6D
+  - time: "11:05"
+    phrase: IT IS FIVE PAST ELEVEN AM
+    hex[20]: "00","01","03","04","07","08",1D,1E,1F,"20",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "11:10"
+    phrase: IT IS TEN PAST ELEVEN AM
+    hex[19]: "00","01","03","04","07","08","26","27","28",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "11:15"
+    phrase: IT IS A QUARTER PAST ELEVEN AM
+    hex[24]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "11:20"
+    phrase: IT IS TWENTY PAST ELEVEN AM
+    hex[22]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "11:25"
+    phrase: IT IS TWENTY FIVE PAST ELEVEN AM
+    hex[26]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "11:30"
+    phrase: IT IS HALF PAST ELEVEN AM
+    hex[20]: "00","01","03","04","07","08","21","22","23","24",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "11:35"
+    phrase: IT IS TWENTY FIVE TO TWELVE AM
+    hex[24]: "00","01","03","04","07","08","16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "11:40"
+    phrase: IT IS TWENTY TO TWELVE AM
+    hex[20]: "00","01","03","04","07","08","16","17","18","19",1A,1B,2A,2B,5D,5E,5F,"60","61","62"
+  - time: "11:45"
+    phrase: IT IS A QUARTER TO TWELVE AM
+    hex[22]: "00","01","03","04","07","08",0B,0D,0E,0F,"10","11","12","13",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "11:50"
+    phrase: IT IS TEN TO TWELVE AM
+    hex[17]: "00","01","03","04","07","08","26","27","28",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "11:55"
+    phrase: IT IS FIVE TO TWELVE AM
+    hex[18]: "00","01","03","04","07","08",1D,1E,1F,"20",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "12:00"
+    phrase: IT IS TWELVE OCLOCK PM
+    hex[18]: "00","01","03","04","09",0A,5D,5E,5F,"60","61","62","68","69",6A,6B,6C,6D
+  - time: "12:05"
+    phrase: IT IS FIVE PAST TWELVE PM
+    hex[20]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "12:10"
+    phrase: IT IS TEN PAST TWELVE PM
+    hex[19]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "12:15"
+    phrase: IT IS A QUARTER PAST TWELVE PM
+    hex[24]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "12:20"
+    phrase: IT IS TWENTY PAST TWELVE PM
+    hex[22]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "12:25"
+    phrase: IT IS TWENTY FIVE PAST TWELVE PM
+    hex[26]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "12:30"
+    phrase: IT IS HALF PAST TWELVE PM
+    hex[20]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,5D,5E,5F,"60","61","62"
+  - time: "12:35"
+    phrase: IT IS TWENTY FIVE TO ONE PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"37","38","39"
+  - time: "12:40"
+    phrase: IT IS TWENTY TO ONE PM
+    hex[17]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"37","38","39"
+  - time: "12:45"
+    phrase: IT IS A QUARTER TO ONE PM
+    hex[19]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"37","38","39"
+  - time: "12:50"
+    phrase: IT IS TEN TO ONE PM
+    hex[14]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"37","38","39"
+  - time: "12:55"
+    phrase: IT IS FIVE TO ONE PM
+    hex[15]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"37","38","39"
+  - time: "13:00"
+    phrase: IT IS ONE OCLOCK PM
+    hex[15]: "00","01","03","04","09",0A,"37","38","39","68","69",6A,6B,6C,6D
+  - time: "13:05"
+    phrase: IT IS FIVE PAST ONE PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"37","38","39"
+  - time: "13:10"
+    phrase: IT IS TEN PAST ONE PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"37","38","39"
+  - time: "13:15"
+    phrase: IT IS A QUARTER PAST ONE PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"37","38","39"
+  - time: "13:20"
+    phrase: IT IS TWENTY PAST ONE PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"37","38","39"
+  - time: "13:25"
+    phrase: IT IS TWENTY FIVE PAST ONE PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"37","38","39"
+  - time: "13:30"
+    phrase: IT IS HALF PAST ONE PM
+    hex[17]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"37","38","39"
+  - time: "13:35"
+    phrase: IT IS TWENTY FIVE TO TWO PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,4A,4B,4C
+  - time: "13:40"
+    phrase: IT IS TWENTY TO TWO PM
+    hex[17]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,4A,4B,4C
+  - time: "13:45"
+    phrase: IT IS A QUARTER TO TWO PM
+    hex[19]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,4A,4B,4C
+  - time: "13:50"
+    phrase: IT IS TEN TO TWO PM
+    hex[14]: "00","01","03","04","09",0A,"26","27","28",2A,2B,4A,4B,4C
+  - time: "13:55"
+    phrase: IT IS FIVE TO TWO PM
+    hex[15]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,4A,4B,4C
+  - time: "14:00"
+    phrase: IT IS TWO OCLOCK PM
+    hex[15]: "00","01","03","04","09",0A,4A,4B,4C,"68","69",6A,6B,6C,6D
+  - time: "14:05"
+    phrase: IT IS FIVE PAST TWO PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,4A,4B,4C
+  - time: "14:10"
+    phrase: IT IS TEN PAST TWO PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,4A,4B,4C
+  - time: "14:15"
+    phrase: IT IS A QUARTER PAST TWO PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,4A,4B,4C
+  - time: "14:20"
+    phrase: IT IS TWENTY PAST TWO PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,4A,4B,4C
+  - time: "14:25"
+    phrase: IT IS TWENTY FIVE PAST TWO PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,4A,4B,4C
+  - time: "14:30"
+    phrase: IT IS HALF PAST TWO PM
+    hex[17]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,4A,4B,4C
+  - time: "14:35"
+    phrase: IT IS TWENTY FIVE TO THREE PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,3D,3E,3F,"40","41"
+  - time: "14:40"
+    phrase: IT IS TWENTY TO THREE PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,3D,3E,3F,"40","41"
+  - time: "14:45"
+    phrase: IT IS A QUARTER TO THREE PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,3D,3E,3F,"40","41"
+  - time: "14:50"
+    phrase: IT IS TEN TO THREE PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2A,2B,3D,3E,3F,"40","41"
+  - time: "14:55"
+    phrase: IT IS FIVE TO THREE PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,3D,3E,3F,"40","41"
+  - time: "15:00"
+    phrase: IT IS THREE OCLOCK PM
+    hex[17]: "00","01","03","04","09",0A,3D,3E,3F,"40","41","68","69",6A,6B,6C,6D
+  - time: "15:05"
+    phrase: IT IS FIVE PAST THREE PM
+    hex[19]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "15:10"
+    phrase: IT IS TEN PAST THREE PM
+    hex[18]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "15:15"
+    phrase: IT IS A QUARTER PAST THREE PM
+    hex[23]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "15:20"
+    phrase: IT IS TWENTY PAST THREE PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "15:25"
+    phrase: IT IS TWENTY FIVE PAST THREE PM
+    hex[25]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "15:30"
+    phrase: IT IS HALF PAST THREE PM
+    hex[19]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,3D,3E,3F,"40","41"
+  - time: "15:35"
+    phrase: IT IS TWENTY FIVE TO FOUR PM
+    hex[22]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"42","43","44","45"
+  - time: "15:40"
+    phrase: IT IS TWENTY TO FOUR PM
+    hex[18]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"42","43","44","45"
+  - time: "15:45"
+    phrase: IT IS A QUARTER TO FOUR PM
+    hex[20]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"42","43","44","45"
+  - time: "15:50"
+    phrase: IT IS TEN TO FOUR PM
+    hex[15]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"42","43","44","45"
+  - time: "15:55"
+    phrase: IT IS FIVE TO FOUR PM
+    hex[16]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"42","43","44","45"
+  - time: "16:00"
+    phrase: IT IS FOUR OCLOCK PM
+    hex[16]: "00","01","03","04","09",0A,"42","43","44","45","68","69",6A,6B,6C,6D
+  - time: "16:05"
+    phrase: IT IS FIVE PAST FOUR PM
+    hex[18]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"42","43","44","45"
+  - time: "16:10"
+    phrase: IT IS TEN PAST FOUR PM
+    hex[17]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"42","43","44","45"
+  - time: "16:15"
+    phrase: IT IS A QUARTER PAST FOUR PM
+    hex[22]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"42","43","44","45"
+  - time: "16:20"
+    phrase: IT IS TWENTY PAST FOUR PM
+    hex[20]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"42","43","44","45"
+  - time: "16:25"
+    phrase: IT IS TWENTY FIVE PAST FOUR PM
+    hex[24]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"42","43","44","45"
+  - time: "16:30"
+    phrase: IT IS HALF PAST FOUR PM
+    hex[18]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"42","43","44","45"
+  - time: "16:35"
+    phrase: IT IS TWENTY FIVE TO FIVE PM
+    hex[22]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"46","47","48","49"
+  - time: "16:40"
+    phrase: IT IS TWENTY TO FIVE PM
+    hex[18]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"46","47","48","49"
+  - time: "16:45"
+    phrase: IT IS A QUARTER TO FIVE PM
+    hex[20]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"46","47","48","49"
+  - time: "16:50"
+    phrase: IT IS TEN TO FIVE PM
+    hex[15]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"46","47","48","49"
+  - time: "16:55"
+    phrase: IT IS FIVE TO FIVE PM
+    hex[16]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"46","47","48","49"
+  - time: "17:00"
+    phrase: IT IS FIVE OCLOCK PM
+    hex[16]: "00","01","03","04","09",0A,"46","47","48","49","68","69",6A,6B,6C,6D
+  - time: "17:05"
+    phrase: IT IS FIVE PAST FIVE PM
+    hex[18]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"46","47","48","49"
+  - time: "17:10"
+    phrase: IT IS TEN PAST FIVE PM
+    hex[17]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"46","47","48","49"
+  - time: "17:15"
+    phrase: IT IS A QUARTER PAST FIVE PM
+    hex[22]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"46","47","48","49"
+  - time: "17:20"
+    phrase: IT IS TWENTY PAST FIVE PM
+    hex[20]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"46","47","48","49"
+  - time: "17:25"
+    phrase: IT IS TWENTY FIVE PAST FIVE PM
+    hex[24]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"46","47","48","49"
+  - time: "17:30"
+    phrase: IT IS HALF PAST FIVE PM
+    hex[18]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"46","47","48","49"
+  - time: "17:35"
+    phrase: IT IS TWENTY FIVE TO SIX PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,3A,3B,3C
+  - time: "17:40"
+    phrase: IT IS TWENTY TO SIX PM
+    hex[17]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,3A,3B,3C
+  - time: "17:45"
+    phrase: IT IS A QUARTER TO SIX PM
+    hex[19]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,3A,3B,3C
+  - time: "17:50"
+    phrase: IT IS TEN TO SIX PM
+    hex[14]: "00","01","03","04","09",0A,"26","27","28",2A,2B,3A,3B,3C
+  - time: "17:55"
+    phrase: IT IS FIVE TO SIX PM
+    hex[15]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,3A,3B,3C
+  - time: "18:00"
+    phrase: IT IS SIX OCLOCK PM
+    hex[15]: "00","01","03","04","09",0A,3A,3B,3C,"68","69",6A,6B,6C,6D
+  - time: "18:05"
+    phrase: IT IS FIVE PAST SIX PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,3A,3B,3C
+  - time: "18:10"
+    phrase: IT IS TEN PAST SIX PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,3A,3B,3C
+  - time: "18:15"
+    phrase: IT IS A QUARTER PAST SIX PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,3A,3B,3C
+  - time: "18:20"
+    phrase: IT IS TWENTY PAST SIX PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,3A,3B,3C
+  - time: "18:25"
+    phrase: IT IS TWENTY FIVE PAST SIX PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,3A,3B,3C
+  - time: "18:30"
+    phrase: IT IS HALF PAST SIX PM
+    hex[17]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,3A,3B,3C
+  - time: "18:35"
+    phrase: IT IS TWENTY FIVE TO SEVEN PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"58","59",5A,5B,5C
+  - time: "18:40"
+    phrase: IT IS TWENTY TO SEVEN PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"58","59",5A,5B,5C
+  - time: "18:45"
+    phrase: IT IS A QUARTER TO SEVEN PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"58","59",5A,5B,5C
+  - time: "18:50"
+    phrase: IT IS TEN TO SEVEN PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"58","59",5A,5B,5C
+  - time: "18:55"
+    phrase: IT IS FIVE TO SEVEN PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"58","59",5A,5B,5C
+  - time: "19:00"
+    phrase: IT IS SEVEN OCLOCK PM
+    hex[17]: "00","01","03","04","09",0A,"58","59",5A,5B,5C,"68","69",6A,6B,6C,6D
+  - time: "19:05"
+    phrase: IT IS FIVE PAST SEVEN PM
+    hex[19]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "19:10"
+    phrase: IT IS TEN PAST SEVEN PM
+    hex[18]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "19:15"
+    phrase: IT IS A QUARTER PAST SEVEN PM
+    hex[23]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "19:20"
+    phrase: IT IS TWENTY PAST SEVEN PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "19:25"
+    phrase: IT IS TWENTY FIVE PAST SEVEN PM
+    hex[25]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "19:30"
+    phrase: IT IS HALF PAST SEVEN PM
+    hex[19]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"58","59",5A,5B,5C
+  - time: "19:35"
+    phrase: IT IS TWENTY FIVE TO EIGHT PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,4D,4E,4F,"50","51"
+  - time: "19:40"
+    phrase: IT IS TWENTY TO EIGHT PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,4D,4E,4F,"50","51"
+  - time: "19:45"
+    phrase: IT IS A QUARTER TO EIGHT PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,4D,4E,4F,"50","51"
+  - time: "19:50"
+    phrase: IT IS TEN TO EIGHT PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2A,2B,4D,4E,4F,"50","51"
+  - time: "19:55"
+    phrase: IT IS FIVE TO EIGHT PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,4D,4E,4F,"50","51"
+  - time: "20:00"
+    phrase: IT IS EIGHT OCLOCK PM
+    hex[17]: "00","01","03","04","09",0A,4D,4E,4F,"50","51","68","69",6A,6B,6C,6D
+  - time: "20:05"
+    phrase: IT IS FIVE PAST EIGHT PM
+    hex[19]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "20:10"
+    phrase: IT IS TEN PAST EIGHT PM
+    hex[18]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "20:15"
+    phrase: IT IS A QUARTER PAST EIGHT PM
+    hex[23]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "20:20"
+    phrase: IT IS TWENTY PAST EIGHT PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "20:25"
+    phrase: IT IS TWENTY FIVE PAST EIGHT PM
+    hex[25]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "20:30"
+    phrase: IT IS HALF PAST EIGHT PM
+    hex[19]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,4D,4E,4F,"50","51"
+  - time: "20:35"
+    phrase: IT IS TWENTY FIVE TO NINE PM
+    hex[22]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"33","34","35","36"
+  - time: "20:40"
+    phrase: IT IS TWENTY TO NINE PM
+    hex[18]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"33","34","35","36"
+  - time: "20:45"
+    phrase: IT IS A QUARTER TO NINE PM
+    hex[20]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"33","34","35","36"
+  - time: "20:50"
+    phrase: IT IS TEN TO NINE PM
+    hex[15]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"33","34","35","36"
+  - time: "20:55"
+    phrase: IT IS FIVE TO NINE PM
+    hex[16]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"33","34","35","36"
+  - time: "21:00"
+    phrase: IT IS NINE OCLOCK PM
+    hex[16]: "00","01","03","04","09",0A,"33","34","35","36","68","69",6A,6B,6C,6D
+  - time: "21:05"
+    phrase: IT IS FIVE PAST NINE PM
+    hex[18]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"33","34","35","36"
+  - time: "21:10"
+    phrase: IT IS TEN PAST NINE PM
+    hex[17]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"33","34","35","36"
+  - time: "21:15"
+    phrase: IT IS A QUARTER PAST NINE PM
+    hex[22]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"33","34","35","36"
+  - time: "21:20"
+    phrase: IT IS TWENTY PAST NINE PM
+    hex[20]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"33","34","35","36"
+  - time: "21:25"
+    phrase: IT IS TWENTY FIVE PAST NINE PM
+    hex[24]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"33","34","35","36"
+  - time: "21:30"
+    phrase: IT IS HALF PAST NINE PM
+    hex[18]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"33","34","35","36"
+  - time: "21:35"
+    phrase: IT IS TWENTY FIVE TO TEN PM
+    hex[21]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"63","64","65"
+  - time: "21:40"
+    phrase: IT IS TWENTY TO TEN PM
+    hex[17]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"63","64","65"
+  - time: "21:45"
+    phrase: IT IS A QUARTER TO TEN PM
+    hex[19]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"63","64","65"
+  - time: "21:50"
+    phrase: IT IS TEN TO TEN PM
+    hex[14]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"63","64","65"
+  - time: "21:55"
+    phrase: IT IS FIVE TO TEN PM
+    hex[15]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"63","64","65"
+  - time: "22:00"
+    phrase: IT IS TEN OCLOCK PM
+    hex[15]: "00","01","03","04","09",0A,"63","64","65","68","69",6A,6B,6C,6D
+  - time: "22:05"
+    phrase: IT IS FIVE PAST TEN PM
+    hex[17]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"63","64","65"
+  - time: "22:10"
+    phrase: IT IS TEN PAST TEN PM
+    hex[16]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"63","64","65"
+  - time: "22:15"
+    phrase: IT IS A QUARTER PAST TEN PM
+    hex[21]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"63","64","65"
+  - time: "22:20"
+    phrase: IT IS TWENTY PAST TEN PM
+    hex[19]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"63","64","65"
+  - time: "22:25"
+    phrase: IT IS TWENTY FIVE PAST TEN PM
+    hex[23]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"63","64","65"
+  - time: "22:30"
+    phrase: IT IS HALF PAST TEN PM
+    hex[17]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"63","64","65"
+  - time: "22:35"
+    phrase: IT IS TWENTY FIVE TO ELEVEN PM
+    hex[24]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,"52","53","54","55","56","57"
+  - time: "22:40"
+    phrase: IT IS TWENTY TO ELEVEN PM
+    hex[20]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,"52","53","54","55","56","57"
+  - time: "22:45"
+    phrase: IT IS A QUARTER TO ELEVEN PM
+    hex[22]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,"52","53","54","55","56","57"
+  - time: "22:50"
+    phrase: IT IS TEN TO ELEVEN PM
+    hex[17]: "00","01","03","04","09",0A,"26","27","28",2A,2B,"52","53","54","55","56","57"
+  - time: "22:55"
+    phrase: IT IS FIVE TO ELEVEN PM
+    hex[18]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,"52","53","54","55","56","57"
+  - time: "23:00"
+    phrase: IT IS ELEVEN OCLOCK PM
+    hex[18]: "00","01","03","04","09",0A,"52","53","54","55","56","57","68","69",6A,6B,6C,6D
+  - time: "23:05"
+    phrase: IT IS FIVE PAST ELEVEN PM
+    hex[20]: "00","01","03","04","09",0A,1D,1E,1F,"20",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "23:10"
+    phrase: IT IS TEN PAST ELEVEN PM
+    hex[19]: "00","01","03","04","09",0A,"26","27","28",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "23:15"
+    phrase: IT IS A QUARTER PAST ELEVEN PM
+    hex[24]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "23:20"
+    phrase: IT IS TWENTY PAST ELEVEN PM
+    hex[22]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "23:25"
+    phrase: IT IS TWENTY FIVE PAST ELEVEN PM
+    hex[26]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "23:30"
+    phrase: IT IS HALF PAST ELEVEN PM
+    hex[20]: "00","01","03","04","09",0A,"21","22","23","24",2C,2D,2E,2F,"52","53","54","55","56","57"
+  - time: "23:35"
+    phrase: IT IS TWENTY FIVE TO TWELVE PM
+    hex[24]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,1D,1E,1F,"20",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "23:40"
+    phrase: IT IS TWENTY TO TWELVE PM
+    hex[20]: "00","01","03","04","09",0A,"16","17","18","19",1A,1B,2A,2B,5D,5E,5F,"60","61","62"
+  - time: "23:45"
+    phrase: IT IS A QUARTER TO TWELVE PM
+    hex[22]: "00","01","03","04","09",0A,0B,0D,0E,0F,"10","11","12","13",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "23:50"
+    phrase: IT IS TEN TO TWELVE PM
+    hex[17]: "00","01","03","04","09",0A,"26","27","28",2A,2B,5D,5E,5F,"60","61","62"
+  - time: "23:55"
+    phrase: IT IS FIVE TO TWELVE PM
+    hex[18]: "00","01","03","04","09",0A,1D,1E,1F,"20",2A,2B,5D,5E,5F,"60","61","62"
