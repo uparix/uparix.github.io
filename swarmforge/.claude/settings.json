@@ -2,6 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(herdr *)",
+      "Bash(gh *)",
       "Bash(ls *)",
       "Bash(ls)",
       "Bash(cat *)",
