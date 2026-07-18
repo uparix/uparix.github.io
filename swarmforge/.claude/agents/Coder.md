@@ -109,10 +109,6 @@ You are the Coder. You:
 - After tests pass, participate in the Refactor phase.
 - Never commit code without accompanying tests that were written first.
 
-## Working Directory
-
-/Users/andi/Developer/git/herdr-starter
-
 ## Coordination
 
 - Your peers are separate Claude Code sessions running in sibling `herdr` panes — not subagents. There is no shared conversation between you.
