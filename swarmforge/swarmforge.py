@@ -139,7 +139,7 @@ def prompt_cli_tool_selection(
         lines = ["Select coding agent CLI  (↑/↓ move · enter confirm):"]
         for i, name in enumerate(tools):
             pointer = "➡️" if i == cursor else " "
-            mark = "🔘" if i == cursor else "⚪"
+            mark = "⚫" if i == cursor else "🟢"
             lines.append(f"{pointer} {mark} {name}")
         if clear_func:
             clear_func(prev_line_count)
@@ -238,23 +238,21 @@ def build_system_prompt(name: str, path: Path, agents: list) -> str:
     return f"{role_definition}\n\n{peer_briefing(name, agents)}"
 
 
-def build_launch_command(cli_tool: str, prompt_file: Path) -> str:
-    """Build the shell command that starts `cli_tool` in a pane.
+OPENCODE_AGENTS_DIR = REPO_ROOT / ".opencode" / "agents"
 
-    Both tools are driven the same way: the combined role definition +
-    peer briefing lives in `prompt_file`, and each tool's own flag for
-    feeding that content in is used so opencode panes start and behave
-    like claude panes. claude has a dedicated system-prompt flag; opencode
-    has no equivalent, so its content is fed in as the initial prompt via
-    a `$(cat ...)` shell substitution instead of inlining the (potentially
-    large) text directly into the command.
+
+def write_opencode_agent(name: str, system_prompt: str) -> None:
+    """Write `system_prompt` as a project-local opencode agent definition.
+
+    opencode has no `--append-system-prompt` flag. Its equivalent is a
+    named agent file under `.opencode/agents/<name>.md` (YAML frontmatter
+    + prompt body), auto-discovered from the project it's run in and
+    selected with `--agent <name>` — so it carries the same role as a
+    system prompt, rather than just an initial chat message.
     """
-    quoted_path = shlex.quote(str(prompt_file))
-    if cli_tool == "claude":
-        return f"claude --append-system-prompt-file {quoted_path} "
-    if cli_tool == "opencode":
-        return f'opencode --prompt "$(cat {quoted_path})" '
-    raise ValueError(f"Unsupported CLI tool: {cli_tool}")
+    OPENCODE_AGENTS_DIR.mkdir(parents=True, exist_ok=True)
+    frontmatter = f"---\ndescription: SwarmForge {name} agent.\nmode: primary\n---\n"
+    (OPENCODE_AGENTS_DIR / f"{name}.md").write_text(frontmatter + system_prompt)
 
 
 def main() -> None:
@@ -294,9 +292,13 @@ def main() -> None:
     for pane_id, (name, path) in zip(pane_ids, selected):
         herdr("pane", "rename", pane_id, name)
         system_prompt = build_system_prompt(name, path, selected)
-        prompt_file = prompts_dir / f"{name}.txt"
-        prompt_file.write_text(system_prompt)
-        cmd = build_launch_command(cli_tool, prompt_file)
+        if cli_tool == "opencode":
+            write_opencode_agent(name, system_prompt)
+            cmd = f"opencode --agent {shlex.quote(name)} "
+        else:
+            prompt_file = prompts_dir / f"{name}.txt"
+            prompt_file.write_text(system_prompt)
+            cmd = f"claude --append-system-prompt-file {shlex.quote(str(prompt_file))} "
         herdr("pane", "run", pane_id, cmd)
 
     herdr("workspace", "focus", workspace_id)
