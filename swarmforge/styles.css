@@ -19,6 +19,12 @@ h1 {
   font-size: 2.25rem;
 }
 
+.motto {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: #b7c6d3;
+}
+
 .tagline {
   margin: 0 0 2.5rem;
   color: #b7c6d3;
