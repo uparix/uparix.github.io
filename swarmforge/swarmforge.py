@@ -138,9 +138,8 @@ def prompt_cli_tool_selection(
         nonlocal prev_line_count
         lines = ["Select coding agent CLI  (↑/↓ move · enter confirm):"]
         for i, name in enumerate(tools):
-            pointer = "➡️" if i == cursor else " "
             mark = "⚫" if i == cursor else "🟢"
-            lines.append(f"{pointer} {mark} {name}")
+            lines.append(f"{mark} {name}")
         if clear_func:
             clear_func(prev_line_count)
         for line in lines:
