@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  max-width: 640px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 4rem 1.5rem;
 }
@@ -38,6 +38,29 @@ pre {
   border-radius: 8px;
   padding: 1rem 1.25rem;
   overflow-x: auto;
+}
+
+.code-block {
+  position: relative;
+  padding-right: 4.5rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: #35556E;
+  border: 1px solid #4a6c86;
+  border-radius: 6px;
+  color: #eef2f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #4a6c86;
 }
 
 code {

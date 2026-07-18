@@ -13,10 +13,23 @@
 			<pre><code>brew install herdr</code></pre>
 
 			<h2>Install</h2>
-			<pre><code>curl -fsSL https://www.uparix.com/swarmforge/install.sh | sh</code></pre>
+			<pre class="code-block"><button class="copy-btn" onclick="copyInstallCommand(this)">Copy</button><code id="install-command">curl -fsSL https://www.uparix.com/swarmforge/install.sh | sh</code></pre>
 
 			<h2>Usage</h2>
 			<pre><code>python swarmforge.py</code></pre>
 		</div>
+
+		<script>
+			function copyInstallCommand(button) {
+				const command = document.getElementById("install-command").textContent;
+				navigator.clipboard.writeText(command).then(() => {
+					const original = button.textContent;
+					button.textContent = "Copied!";
+					setTimeout(() => {
+						button.textContent = original;
+					}, 1500);
+				});
+			}
+		</script>
 	</body>
 </html>
