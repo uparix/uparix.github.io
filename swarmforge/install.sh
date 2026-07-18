@@ -6,8 +6,8 @@
 set -eu
 
 REPO_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/swarmforge.py"
-INSTALL_DIR="${HERDR_INSTALL_DIR:-$HOME/.local/bin}"
-INSTALL_PATH="$INSTALL_DIR/swarmforge"
+INSTALL_DIR="${HERDR_INSTALL_DIR:-$PWD}"
+INSTALL_PATH="$INSTALL_DIR/swarmforge.py"
 
 command -v python3 >/dev/null 2>&1 || {
     echo "Error: python3 is required but was not found on PATH." >&2
@@ -27,7 +27,7 @@ fi
 
 chmod +x "$INSTALL_PATH"
 
-echo "Installed swarmforge to $INSTALL_PATH"
+echo "Installed swarmforge.py to $INSTALL_PATH"
 
 case ":$PATH:" in
     *":$INSTALL_DIR:"*) ;;
