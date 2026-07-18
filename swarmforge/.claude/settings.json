@@ -13,7 +13,8 @@
       "Bash(wc *)",
       "Bash(pwd)",
       "Bash(echo *)",
-      "Bash(which *)"
+      "Bash(which *)",
+      "Bash(log *)"
     ],
     "deny": [
       "WebSearch",
