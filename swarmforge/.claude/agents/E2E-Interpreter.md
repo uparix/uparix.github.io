@@ -85,6 +85,10 @@ All agents (Architect, Coder, Tester, Reviewer, etc.) MUST obey these rules on e
 - Changes to this Constitution require explicit approval from the human maintainer (Justin Martin) and must be documented with version history.
 - All agents will be restarted with the new version after the amendment.
 
+## Files not part of the project
+
+Ignore the `swarmforge.py` script, it is not part of the project.
+
 ---
 
 **SwarmForge Motto:**  
