@@ -3,6 +3,7 @@
 		<title>SwarmForge</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="styles.css"/>
+		<script src="clipboard.js" defer></script>
 	</head>
 	<body>
 		<div class="container">
@@ -18,18 +19,5 @@
 			<h2>Usage</h2>
 			<pre><code>python swarmforge.py</code></pre>
 		</div>
-
-		<script>
-			function copyInstallCommand(button) {
-				const command = document.getElementById("install-command").textContent;
-				navigator.clipboard.writeText(command).then(() => {
-					const original = button.textContent;
-					button.textContent = "Copied!";
-					setTimeout(() => {
-						button.textContent = original;
-					}, 1500);
-				});
-			}
-		</script>
 	</body>
 </html>
