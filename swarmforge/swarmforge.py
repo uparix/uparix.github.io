@@ -176,7 +176,7 @@ def close_existing_herdr_workspaces() -> None:
 def peer_briefing(self_name: str, agents: list) -> str:
     peers = [name for name, _ in agents if name != self_name]
     return (
-        f" Your peers this run: {', '.join(peers)} — separate Claude Code "
+        f"Your peers this run: {', '.join(peers)} — separate Claude Code "
         f"sessions in sibling `herdr` panes, not subagents of yours. To "
         f"message one: `herdr agent send <Name> \"<message>\"` then `herdr "
         f"pane send-keys <Name> Enter` to submit it. To wait for their reply: "
@@ -186,6 +186,19 @@ def peer_briefing(self_name: str, agents: list) -> str:
         f"ambiguous — use `herdr agent list` to find the right pane id and "
         f"target that instead."
     )
+
+
+def build_system_prompt(name: str, path: Path, agents: list) -> str:
+    """Combine an agent's definition file with its peer briefing.
+
+    Passed whole to `claude --append-system-prompt` so the agent's role is
+    established invisibly, instead of as a visible first user message.
+    `--append-system-prompt` and `--append-system-prompt-file` are mutually
+    exclusive, and the briefing is generated per-agent, so both pieces are
+    concatenated in Python rather than passed as separate flags.
+    """
+    role_definition = path.read_text().rstrip("\n")
+    return f"{role_definition}\n\n{peer_briefing(name, agents)}"
 
 
 def main() -> None:
@@ -221,12 +234,12 @@ def main() -> None:
 
     for pane_id, (name, path) in zip(pane_ids, selected):
         herdr("pane", "rename", pane_id, name)
-        rel_path = path.relative_to(REPO_ROOT)
-        prompt = (
-            f"Read and follow the instructions in @{rel_path} "
-            f"and act as the {name} agent for this session."
-        ) + peer_briefing(name, selected)
-        herdr("pane", "run", pane_id, f"claude {shlex.quote(prompt)}")
+        system_prompt = build_system_prompt(name, path, selected)
+        cmd = (
+            f"claude --append-system-prompt {shlex.quote(system_prompt)} "
+            f"{shlex.quote('Begin.')}"
+        )
+        herdr("pane", "run", pane_id, cmd)
 
     herdr("workspace", "focus", workspace_id)
 
