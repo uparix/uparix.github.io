@@ -26,6 +26,7 @@ except ImportError:  # pragma: no cover - non-POSIX platforms
 REPO_ROOT = Path(__file__).resolve().parent
 AGENTS_DIR = REPO_ROOT / ".claude" / "agents"
 WORKSPACE_LABEL = "swarmforge"
+CLI_TOOLS = ["claude", "opencode"]
 
 BANNER = r"""
 ╔═══════════════════════════════════════════════╗
@@ -124,6 +125,41 @@ def prompt_agent_selection(
             render()
 
 
+def prompt_cli_tool_selection(
+    tools: list = CLI_TOOLS,
+    key_func=_read_key,
+    print_func=print,
+    clear_func=None,
+) -> str:
+    cursor = 0
+    prev_line_count = 0
+
+    def render():
+        nonlocal prev_line_count
+        lines = ["Select coding agent CLI  (↑/↓ move · enter confirm):"]
+        for i, name in enumerate(tools):
+            pointer = "➡️" if i == cursor else " "
+            mark = "🔘" if i == cursor else "⚪"
+            lines.append(f"{pointer} {mark} {name}")
+        if clear_func:
+            clear_func(prev_line_count)
+        for line in lines:
+            print_func(line)
+        prev_line_count = len(lines)
+
+    render()
+    while True:
+        key = key_func()
+        if key == "up":
+            cursor = (cursor - 1) % len(tools)
+            render()
+        elif key == "down":
+            cursor = (cursor + 1) % len(tools)
+            render()
+        elif key == "enter":
+            return tools[cursor]
+
+
 def ensure_herdr_installed() -> None:
     if shutil.which("herdr") is None:
         sys.exit("herdr is not installed. Download it from https://herdr.dev")
@@ -202,6 +238,25 @@ def build_system_prompt(name: str, path: Path, agents: list) -> str:
     return f"{role_definition}\n\n{peer_briefing(name, agents)}"
 
 
+def build_launch_command(cli_tool: str, prompt_file: Path) -> str:
+    """Build the shell command that starts `cli_tool` in a pane.
+
+    Both tools are driven the same way: the combined role definition +
+    peer briefing lives in `prompt_file`, and each tool's own flag for
+    feeding that content in is used so opencode panes start and behave
+    like claude panes. claude has a dedicated system-prompt flag; opencode
+    has no equivalent, so its content is fed in as the initial prompt via
+    a `$(cat ...)` shell substitution instead of inlining the (potentially
+    large) text directly into the command.
+    """
+    quoted_path = shlex.quote(str(prompt_file))
+    if cli_tool == "claude":
+        return f"claude --append-system-prompt-file {quoted_path} "
+    if cli_tool == "opencode":
+        return f'opencode --prompt "$(cat {quoted_path})" '
+    raise ValueError(f"Unsupported CLI tool: {cli_tool}")
+
+
 def main() -> None:
     print_banner()
     ensure_herdr_installed()
@@ -210,6 +265,7 @@ def main() -> None:
     if not agents:
         sys.exit(f"No agent definition files found in {AGENTS_DIR}")
 
+    cli_tool = prompt_cli_tool_selection(clear_func=_clear_lines)
     selected = prompt_agent_selection(agents, clear_func=_clear_lines)
 
     ensure_server_running()
@@ -240,9 +296,7 @@ def main() -> None:
         system_prompt = build_system_prompt(name, path, selected)
         prompt_file = prompts_dir / f"{name}.txt"
         prompt_file.write_text(system_prompt)
-        cmd = (
-            f"claude --append-system-prompt-file {shlex.quote(str(prompt_file))} "
-        )
+        cmd = build_launch_command(cli_tool, prompt_file)
         herdr("pane", "run", pane_id, cmd)
 
     herdr("workspace", "focus", workspace_id)
