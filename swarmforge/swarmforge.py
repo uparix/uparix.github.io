@@ -242,7 +242,6 @@ def main() -> None:
         prompt_file.write_text(system_prompt)
         cmd = (
             f"claude --append-system-prompt-file {shlex.quote(str(prompt_file))} "
-            f"{shlex.quote('Begin.')}"
         )
         herdr("pane", "run", pane_id, cmd)
 
