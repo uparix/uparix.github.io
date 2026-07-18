@@ -8,9 +8,11 @@ set -eu
 REPO_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/swarmforge.py"
 AGENTS_API_URL="https://api.github.com/repos/uparix/uparix.github.io/contents/swarmforge/.claude/agents"
 AGENTS_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/agents"
+SETTINGS_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/settings.json"
 INSTALL_DIR="${HERDR_INSTALL_DIR:-$PWD}"
 INSTALL_PATH="$INSTALL_DIR/swarmforge.py"
 AGENTS_DIR="$PWD/.claude/agents"
+SETTINGS_PATH="$PWD/.claude/settings.json"
 
 command -v python3 >/dev/null 2>&1 || {
     echo "Error: python3 is required but was not found on PATH." >&2
@@ -53,6 +55,12 @@ for entry in entries:
         echo "Installed $name to $AGENTS_DIR/$name"
     done
     rm -f "$AGENTS_JSON"
+fi
+
+if [ ! -f "$SETTINGS_PATH" ]; then
+    mkdir -p "$(dirname "$SETTINGS_PATH")"
+    fetch "$SETTINGS_RAW_URL" "$SETTINGS_PATH"
+    echo "Installed settings.json to $SETTINGS_PATH"
 fi
 
 if ! command -v herdr >/dev/null 2>&1; then

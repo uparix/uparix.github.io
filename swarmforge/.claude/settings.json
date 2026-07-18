@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(herdr *)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(pwd)",
+      "Bash(echo *)",
+      "Bash(which *)"
+    ],
+    "deny": [
+      "WebSearch",
+      "WebFetch"
+    ]
+  }
+}
