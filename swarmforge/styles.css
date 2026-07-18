@@ -77,9 +77,9 @@ code {
 
 a {
   color: #eef2f5;
-  text-decoration-color: #4a6c86;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration-color: #eef2f5;
+  text-decoration: underline;
 }
