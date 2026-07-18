@@ -12,6 +12,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -232,11 +233,15 @@ def main() -> None:
         )
         pane_ids.append(split["pane"]["pane_id"])
 
+    prompts_dir = Path(tempfile.mkdtemp(prefix="swarmforge-prompts-"))
+
     for pane_id, (name, path) in zip(pane_ids, selected):
         herdr("pane", "rename", pane_id, name)
         system_prompt = build_system_prompt(name, path, selected)
+        prompt_file = prompts_dir / f"{name}.txt"
+        prompt_file.write_text(system_prompt)
         cmd = (
-            f"claude --append-system-prompt {shlex.quote(system_prompt)} "
+            f"claude --append-system-prompt-file {shlex.quote(str(prompt_file))} "
             f"{shlex.quote('Begin.')}"
         )
         herdr("pane", "run", pane_id, cmd)
