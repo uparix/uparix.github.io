@@ -24,7 +24,8 @@ except ImportError:  # pragma: no cover - non-POSIX platforms
     tty = None
 
 REPO_ROOT = Path(__file__).resolve().parent
-AGENTS_DIR = REPO_ROOT / ".claude" / "agents"
+CLAUDE_AGENTS_DIR = REPO_ROOT / ".claude" / "agents"
+OPENCODE_AGENTS_DIR = REPO_ROOT / ".opencode" / "agents"
 WORKSPACE_LABEL = "swarmforge"
 CLI_TOOLS = ["claude", "opencode"]
 
@@ -237,9 +238,6 @@ def build_system_prompt(name: str, path: Path, agents: list) -> str:
     return f"{role_definition}\n\n{peer_briefing(name, agents)}"
 
 
-OPENCODE_AGENTS_DIR = REPO_ROOT / ".opencode" / "agents"
-
-
 def write_opencode_agent(name: str, system_prompt: str) -> None:
     """Write `system_prompt` as a project-local opencode agent definition.
 
@@ -258,9 +256,9 @@ def main() -> None:
     print_banner()
     ensure_herdr_installed()
 
-    agents = discover_agents(AGENTS_DIR)
+    agents = discover_agents(CLAUDE_AGENTS_DIR)
     if not agents:
-        sys.exit(f"No agent definition files found in {AGENTS_DIR}")
+        sys.exit(f"No agent definition files found in {CLAUDE_AGENTS_DIR}")
 
     cli_tool = prompt_cli_tool_selection(clear_func=_clear_lines)
     selected = prompt_agent_selection(agents, clear_func=_clear_lines)

@@ -8,10 +8,13 @@ set -eu
 REPO_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/swarmforge.py"
 AGENTS_API_URL="https://api.github.com/repos/uparix/uparix.github.io/contents/swarmforge/.claude/agents"
 AGENTS_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/agents"
+RULES_API_URL="https://api.github.com/repos/uparix/uparix.github.io/contents/swarmforge/.claude/rules"
+RULES_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/rules"
 SETTINGS_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/settings.json"
 INSTALL_DIR="${HERDR_INSTALL_DIR:-$PWD}"
 INSTALL_PATH="$INSTALL_DIR/swarmforge.py"
 AGENTS_DIR="$PWD/.claude/agents"
+RULES_DIR="$PWD/.claude/rules"
 SETTINGS_PATH="$PWD/.claude/settings.json"
 
 command -v python3 >/dev/null 2>&1 || {
@@ -55,6 +58,24 @@ for entry in entries:
         echo "Installed $name to $AGENTS_DIR/$name"
     done
     rm -f "$AGENTS_JSON"
+fi
+
+if [ ! -d "$RULES_DIR" ]; then
+    mkdir -p "$RULES_DIR"
+    RULES_JSON="$(mktemp)"
+    fetch "$RULES_API_URL" "$RULES_JSON"
+    python3 -c '
+import json, sys
+with open(sys.argv[1]) as f:
+    entries = json.load(f)
+for entry in entries:
+    if entry["name"].endswith(".md"):
+        print(entry["name"])
+' "$RULES_JSON" | while IFS= read -r name; do
+        fetch "$RULES_RAW_BASE/$name" "$RULES_DIR/$name"
+        echo "Installed $name to $RULES_DIR/$name"
+    done
+    rm -f "$RULES_JSON"
 fi
 
 if [ ! -f "$SETTINGS_PATH" ]; then
