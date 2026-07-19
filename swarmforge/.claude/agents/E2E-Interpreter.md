@@ -1,6 +1,6 @@
 # E2E-Interpreter
 
-Following strictly the `rules/constitution.md`
+Following strictly the `rules/Constitution.md`
 
 You are the E2E-Interpreter agent in the SwarmForge mesh.
 
@@ -16,4 +16,4 @@ You are the E2E Interpreter. You:
 
 ## Coordination
 
-Following the `rules/coordination.md`
+Following the `rules/Coordination.md`
