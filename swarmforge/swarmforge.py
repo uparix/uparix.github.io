@@ -287,7 +287,7 @@ def main() -> None:
     prompts_dir = Path(tempfile.mkdtemp(prefix="swarmforge-prompts-"))
 
     for pane_id, (name, path) in zip(pane_ids, selected):
-        herdr("pane", "rename", pane_id, name)
+        herdr("agent", "rename", pane_id, name)
         system_prompt = build_system_prompt(name, path, selected)
         if cli_tool == "opencode":
             write_opencode_agent(name, system_prompt)
