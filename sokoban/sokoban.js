@@ -1,5 +1,5 @@
 import { encode, decode } from "@toon-format/toon";
-import { generateLevels } from "./levelgen.js";
+import { generateLevels } from "levelgen.js";
 
 // --- Board geometry -------------------------------------------------
 const COLS = 18;
