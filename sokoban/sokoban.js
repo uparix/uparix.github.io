@@ -208,7 +208,7 @@ function celebrate() {
 }
 
 // --- Generated levels -------------------------------------------------
-const GENERATED_COUNT = 20;
+const GENERATED_COUNT = 40;
 
 const readSeed = () => {
   const value = Number.parseInt(seedInput.value.trim(), 10);
