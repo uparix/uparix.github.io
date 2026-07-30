@@ -109,6 +109,7 @@ function goToLevel(index) {
   setStatus(`Level ${levelIndex + 1} — use the arrow keys to move.`);
   render();
   renderMoves();
+
 }
 
 // --- Game logic -----------------------------------------------------

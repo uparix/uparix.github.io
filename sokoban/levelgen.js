@@ -265,7 +265,7 @@ function reverseSearch(room, goals, targetDepth, stateCap) {
         const d = DIRS[k];
         const behind = b - d; // where the box is pulled back to
         const away = b - 2 * d; // where the keeper ends up
-        if (cells[behind] !== FLOOR || boxAt[behind] || seenA[behind] !== area) continue;
+        if (cells[behind] !== FLOOR || boxAt[behind] || seenA[behind] !== stampA) continue;
         if (cells[away] !== FLOOR || boxAt[away]) continue;
 
         const boxes = node.boxes.slice();
