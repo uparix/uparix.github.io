@@ -5,12 +5,31 @@ body {
   text-align: center;
   margin: 1.5rem;
 }
-canvas {
+/* Scoped to the board: the confetti overlay is also a canvas, and must stay
+   transparent so it draws on top of the page instead of covering it. */
+#board {
   background: #edf5ff;
   image-rendering: pixelated;
 }
 .controls {
   margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+#generated-controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+#generated-controls[hidden] {
+  display: none;
+}
+#seed {
+  width: 7rem;
 }
 #status {
   min-height: 1.2em;

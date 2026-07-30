@@ -1,4 +1,5 @@
 import { encode, decode } from "@toon-format/toon";
+import { generateLevels } from "./levelgen.js";
 
 // --- Board geometry -------------------------------------------------
 const COLS = 18;
@@ -41,6 +42,11 @@ canvas.height = ORIGIN_Y * 2 + ROWS * TILE;
 const ctx = canvas.getContext("2d");
 const statusEl = document.getElementById("status");
 const levelSelect = document.getElementById("level");
+const generatedSelect = document.getElementById("generated-level");
+const modeSelect = document.getElementById("mode");
+const seedInput = document.getElementById("seed");
+const builtinControls = document.getElementById("builtin-controls");
+const generatedControls = document.getElementById("generated-controls");
 const movesList = document.getElementById("moves-list");
 const sheet = new Image();
 
@@ -53,6 +59,19 @@ let playerCol = 0;
 let playerRow = 0;
 let levelIndex = 0;
 let moveCount = 0;
+let solved = false; // set by the move that finishes the level: fires the confetti once, then locks the keys
+
+// --- Level source ----------------------------------------------------
+// The game plays either the built-in levels or the current generated set;
+// goToLevel() and afterMove() read these instead of LEVELS/MAX_MOVES directly.
+const randomSeed = () => (Math.random() * 0x100000000) >>> 0;
+
+let mode = "builtin";
+let generated = []; // levels from the generator, easiest first
+let seed = randomSeed();
+let activeLevels = LEVELS;
+let activeMaxMoves = MAX_MOVES;
+const activeSelect = () => (mode === "generated" ? generatedSelect : levelSelect);
 
 // --- Move recording / replay ---------------------------------------
 let recordedMoves = []; // sequence of [dx, dy] for the current level
@@ -81,10 +100,11 @@ function decodeLevel(description) {
 }
 
 function goToLevel(index) {
-  levelIndex = Math.min(Math.max(0, index), LEVELS.length - 1);
-  levelSelect.selectedIndex = levelIndex;
-  decodeLevel(LEVELS[levelIndex]);
+  levelIndex = Math.min(Math.max(0, index), activeLevels.length - 1);
+  activeSelect().selectedIndex = levelIndex;
+  decodeLevel(activeLevels[levelIndex]);
   moveCount = 0;
+  solved = false;
   if (!isReplaying) recordedMoves = [];
   setStatus(`Level ${levelIndex + 1} — use the arrow keys to move.`);
   render();
@@ -134,13 +154,18 @@ function tryMove(dx, dy) {
 
 function afterMove() {
   const ballsLeft = board.flat().filter((t) => t === BALL).length;
-  const maxMoves = MAX_MOVES[levelIndex];
-  if (ballsLeft === 0) {
-    setStatus(`Completed in ${moveCount} steps!`);
+  const maxMoves = activeMaxMoves[levelIndex];
+  const completed = ballsLeft === 0;
+  if (completed) {
+    setStatus(`Completed in ${moveCount} moves!`);
   } else {
     setStatus(`Moves: ${moveCount},  Moves Left: ${maxMoves - moveCount}`);
   }
   render();
+  if (completed && !solved) {
+    solved = true;
+    celebrate();
+  }
   if (moveCount === maxMoves) goToLevel(levelIndex);
 }
 
@@ -162,6 +187,83 @@ function render() {
 
 const setStatus = (text) => (statusEl.textContent = text);
 
+// Burst of confetti from the player's square. confetti() wants the origin as a
+// fraction of the viewport, so walk board -> canvas pixels -> page -> fraction.
+// rect vs canvas.width covers the case where CSS scales the canvas down.
+function celebrate() {
+  const rect = canvas.getBoundingClientRect();
+  const x = rect.left + ((ORIGIN_X + playerCol * TILE + TILE / 2) * rect.width) / canvas.width;
+  const y = rect.top + ((ORIGIN_Y + playerRow * TILE + TILE / 2) * rect.height) / canvas.height;
+  // Everything scaled 1.5x from the stock 100 / 70 / 45 / 1 burst: wider cone,
+  // further throw and bigger pieces, with the count raised to match so the
+  // larger burst does not read as thinner.
+  confetti({
+    particleCount: 150,
+    spread: 105,
+    startVelocity: 68,
+    scalar: 1.5,
+    origin: { x: x / window.innerWidth, y: y / window.innerHeight },
+  });
+}
+
+// --- Generated levels -------------------------------------------------
+const GENERATED_COUNT = 40;
+
+const readSeed = () => {
+  const value = Number.parseInt(seedInput.value.trim(), 10);
+  return Number.isFinite(value) ? value >>> 0 : randomSeed();
+};
+
+async function buildGenerated(nextSeed) {
+  seed = nextSeed;
+  seedInput.value = String(seed);
+  generatedSelect.disabled = true;
+  generated = await generateLevels(seed, GENERATED_COUNT, { cols: COLS, rows: ROWS }, (done, total) =>
+    setStatus(`Generating levels… ${done} / ${total}`)
+  );
+  generatedSelect.innerHTML = "";
+  generated.forEach((level, i) => {
+    const option = document.createElement("option");
+    option.textContent = `Level ${i + 1} — ${level.boxes} balls, ${level.moves} moves`;
+    generatedSelect.appendChild(option);
+  });
+  generatedSelect.disabled = false;
+}
+
+function setMode(next, index = 0) {
+  stopReplay();
+  mode = next;
+  modeSelect.value = next;
+  const isGenerated = next === "generated";
+  builtinControls.hidden = isGenerated;
+  generatedControls.hidden = !isGenerated;
+  activeLevels = isGenerated ? generated.map((level) => level.description) : LEVELS;
+  activeMaxMoves = isGenerated ? generated.map((level) => level.maxMoves) : MAX_MOVES;
+  goToLevel(index);
+}
+
+// Rebuilds only when the seed actually changed, so the same seed always yields
+// the same twenty levels.
+let generating = false;
+
+async function showGenerated(nextSeed, index = 0) {
+  if (generating) return; // generation takes a moment; ignore impatient clicks
+  if (nextSeed !== seed || generated.length === 0) {
+    generating = true;
+    try {
+      await buildGenerated(nextSeed);
+    } finally {
+      generating = false;
+    }
+  }
+  if (generated.length === 0) {
+    modeSelect.value = mode;
+    setStatus("Could not generate levels from that seed — try another one.");
+    return;
+  }
+  setMode("generated", index);
+}
+
 // --- Moves panel / export -------------------------------------------
 function renderMoves() {
   movesList.innerHTML = "";
@@ -181,6 +283,8 @@ function downloadMoves() {
   // encode() produces TOON (Token-Oriented Object Notation): a compact, tabular
   // format that lists the columns once and one row per move.
   const text = encode({
+    mode,
+    seed,
     level: levelIndex + 1,
     moves: recordedMoves.map(([dx, dy]) => ({ dx, dy })),
   });
@@ -193,14 +297,18 @@ function downloadMoves() {
   URL.revokeObjectURL(url);
 }
 
-function loadMoves(text) {
-  const { level, moves } = decode(text);
+async function loadMoves(text) {
+  const saved = decode(text);
+  const { level, moves } = saved;
   if (!moves || moves.length === 0) {
     setStatus("No moves found in that file.");
     return;
   }
   stopReplay();
-  goToLevel(level - 1); // resets the board and clears recordedMoves
+  // Files saved before generated levels existed carry no mode and are built-in.
+  // Either branch resets the board and clears recordedMoves.
+  if (saved.mode === "generated") await showGenerated(Number(saved.seed) >>> 0, level - 1);
+  else setMode("builtin", level - 1);
   recordedMoves = moves.map(({ dx, dy }) => [dx, dy]);
   renderMoves();
   startReplay();
@@ -252,7 +360,7 @@ document.addEventListener("keydown", (event) => {
   const move = KEY_MOVES[event.key];
   if (move) {
     event.preventDefault();
-    if (isReplaying) return; // ignore manual input during a replay
+    if (isReplaying || solved) return; // ignore manual input during a replay, or once the level is finished
     tryMove(move[0], move[1]);
   }
 });
@@ -265,6 +373,21 @@ LEVELS.forEach((_, i) => {
 levelSelect.addEventListener("change", () => {
   stopReplay();
   goToLevel(levelSelect.selectedIndex);
+});
+generatedSelect.addEventListener("change", () => {
+  stopReplay();
+  goToLevel(generatedSelect.selectedIndex);
+});
+
+seedInput.value = String(seed);
+modeSelect.addEventListener("change", () => {
+  if (modeSelect.value === "generated") showGenerated(readSeed());
+  else setMode("builtin");
+});
+document.getElementById("generate").addEventListener("click", () => showGenerated(readSeed()));
+document.getElementById("new-seed").addEventListener("click", () => {
+  seedInput.value = String(randomSeed());
+  showGenerated(readSeed());
 });
 document.getElementById("restart").addEventListener("click", () => {
   stopReplay();
