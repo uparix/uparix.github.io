@@ -12,6 +12,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -177,6 +178,32 @@ def herdr(*args: str) -> None:
         raise RuntimeError(f"herdr {' '.join(args)} failed: {result.stderr.strip()}")
 
 
+def start_agent(slug: str, cli_tool: str, pane_id: str, agent_args: list) -> None:
+    """Start `cli_tool` in `pane_id`, retrying briefly on `agent_pane_busy`.
+
+    A pane fresh out of `workspace create`/`pane split` can take a moment
+    before herdr recognizes its shell as available — `agent start` fails
+    instantly with `agent_pane_busy` during that window rather than waiting
+    it out, so poll past it here instead of surfacing a spurious crash.
+    """
+    deadline = time.monotonic() + 10
+    while True:
+        try:
+            herdr(
+                "agent", "start", slug,
+                "--kind", cli_tool,
+                "--pane", pane_id,
+                "--",
+                *agent_args,
+            )
+            return
+        except RuntimeError as exc:
+            if "agent_pane_busy" in str(exc) and time.monotonic() < deadline:
+                time.sleep(0.3)
+                continue
+            raise
+
+
 def herdr_agent_slug(name: str) -> str:
     """Sanitize a display name into herdr's required agent-name format.
 
@@ -241,15 +268,28 @@ def peer_briefing(self_name: str, agents: list) -> str:
 def build_system_prompt(name: str, path: Path, agents: list) -> str:
     """Combine an agent's definition file with its peer briefing.
 
-    Passed whole to `claude --append-system-prompt` so the agent's role is
-    established invisibly, instead of as a visible first user message.
-    `--append-system-prompt-file` would avoid passing the (possibly large)
-    text as a CLI argument, but as of claude 2.1.268 it's silently dropped
-    in interactive sessions — confirmed via a live herdr pane — so the
-    inline flag is used instead.
+    Passed whole to `claude --append-system-prompt-file` so the agent's role
+    is established invisibly, instead of as a visible first user message.
     """
     role_definition = path.read_text().rstrip("\n")
     return f"{role_definition}\n\n{peer_briefing(name, agents)}"
+
+
+def write_system_prompt_file(name: str, system_prompt: str) -> Path:
+    """Write `system_prompt` to a temp file for `claude --append-system-prompt-file`.
+
+    `herdr agent start` works by typing a constructed command line into the
+    target pane's shell, which requires escaping the argument for an unknown
+    shell dialect. A multi-line value (every role definition is a whole
+    markdown file) can't always be escaped that way, so `herdr` refuses with
+    "agent arguments cannot be encoded safely for the target shell". Passing
+    a file path instead sidesteps the problem entirely since the argument
+    itself has no newlines to escape.
+    """
+    fd, path = tempfile.mkstemp(prefix=f"swarmforge-{name}-", suffix=".md")
+    with os.fdopen(fd, "w") as f:
+        f.write(system_prompt)
+    return Path(path)
 
 
 def write_opencode_agent(name: str, system_prompt: str) -> None:
@@ -304,15 +344,10 @@ def main() -> None:
             write_opencode_agent(name, system_prompt)
             agent_args = ["--agent", name]
         else:
-            agent_args = ["--append-system-prompt", system_prompt]
+            prompt_file = write_system_prompt_file(name, system_prompt)
+            agent_args = ["--append-system-prompt-file", str(prompt_file)]
         try:
-            herdr(
-                "agent", "start", herdr_agent_slug(name),
-                "--kind", cli_tool,
-                "--pane", pane_id,
-                "--",
-                *agent_args,
-            )
+            start_agent(herdr_agent_slug(name), cli_tool, pane_id, agent_args)
         except RuntimeError as exc:
             if "agent_not_ready" in str(exc):
                 sys.exit(
