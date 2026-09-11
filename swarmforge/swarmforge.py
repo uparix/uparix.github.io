@@ -12,7 +12,6 @@ import re
 import shutil
 import subprocess
 import sys
-import tempfile
 import time
 from pathlib import Path
 
@@ -244,9 +243,10 @@ def build_system_prompt(name: str, path: Path, agents: list) -> str:
 
     Passed whole to `claude --append-system-prompt` so the agent's role is
     established invisibly, instead of as a visible first user message.
-    `--append-system-prompt` and `--append-system-prompt-file` are mutually
-    exclusive, and the briefing is generated per-agent, so both pieces are
-    concatenated in Python rather than passed as separate flags.
+    `--append-system-prompt-file` would avoid passing the (possibly large)
+    text as a CLI argument, but as of claude 2.1.268 it's silently dropped
+    in interactive sessions — confirmed via a live herdr pane — so the
+    inline flag is used instead.
     """
     role_definition = path.read_text().rstrip("\n")
     return f"{role_definition}\n\n{peer_briefing(name, agents)}"
@@ -298,17 +298,13 @@ def main() -> None:
         )
         pane_ids.append(split["pane"]["pane_id"])
 
-    prompts_dir = Path(tempfile.mkdtemp(prefix="swarmforge-prompts-"))
-
     for pane_id, (name, path) in zip(pane_ids, selected):
         system_prompt = build_system_prompt(name, path, selected)
         if cli_tool == "opencode":
             write_opencode_agent(name, system_prompt)
             agent_args = ["--agent", name]
         else:
-            prompt_file = prompts_dir / f"{name}.txt"
-            prompt_file.write_text(system_prompt)
-            agent_args = ["--append-system-prompt-file", str(prompt_file)]
+            agent_args = ["--append-system-prompt", system_prompt]
         try:
             herdr(
                 "agent", "start", herdr_agent_slug(name),
