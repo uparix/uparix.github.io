@@ -8,7 +8,7 @@ a briefing on how to reach its peers directly via `herdr agent`.
 
 import json
 import os
-import shlex
+import re
 import shutil
 import subprocess
 import sys
@@ -178,6 +178,20 @@ def herdr(*args: str) -> None:
         raise RuntimeError(f"herdr {' '.join(args)} failed: {result.stderr.strip()}")
 
 
+def herdr_agent_slug(name: str) -> str:
+    """Sanitize a display name into herdr's required agent-name format.
+
+    herdr's `agent start` NAME must match `[a-z][a-z0-9_-]{0,31}`, but
+    agent definition file stems (e.g. "Architect", "E2E-Interpreter")
+    are mixed-case, so the herdr-facing identity is derived separately
+    from the display name used everywhere else in this script.
+    """
+    slug = re.sub(r"[^a-z0-9_-]", "-", name.lower()).strip("-_")
+    if not slug or not slug[0].isalpha():
+        slug = f"a-{slug}" if slug else "agent"
+    return slug[:32]
+
+
 def server_running() -> bool:
     result = subprocess.run(["herdr", "status"], capture_output=True, text=True)
     return result.returncode == 0 and "status: running" in result.stdout
@@ -287,16 +301,34 @@ def main() -> None:
     prompts_dir = Path(tempfile.mkdtemp(prefix="swarmforge-prompts-"))
 
     for pane_id, (name, path) in zip(pane_ids, selected):
-        herdr("agent", "rename", pane_id, name)
         system_prompt = build_system_prompt(name, path, selected)
         if cli_tool == "opencode":
             write_opencode_agent(name, system_prompt)
-            cmd = f"opencode --agent {shlex.quote(name)} "
+            agent_args = ["--agent", name]
         else:
             prompt_file = prompts_dir / f"{name}.txt"
             prompt_file.write_text(system_prompt)
-            cmd = f"claude --append-system-prompt-file {shlex.quote(str(prompt_file))} "
-        herdr("pane", "run", pane_id, cmd)
+            agent_args = ["--append-system-prompt-file", str(prompt_file)]
+        try:
+            herdr(
+                "agent", "start", herdr_agent_slug(name),
+                "--kind", cli_tool,
+                "--pane", pane_id,
+                "--",
+                *agent_args,
+            )
+        except RuntimeError as exc:
+            if "agent_not_ready" in str(exc):
+                sys.exit(
+                    f"{cli_tool} is stuck at a startup prompt in pane {pane_id} "
+                    f"(likely the one-time \"trust this folder\" dialog for "
+                    f"{REPO_ROOT}) and didn't become ready in time.\n"
+                    f"Run `herdr pane read {pane_id}` to see it, accept it with "
+                    f"`herdr pane send-keys {pane_id} Enter`, then re-run this "
+                    f"script — trust is remembered per directory, so this is a "
+                    f"one-time step."
+                )
+            raise
 
     herdr("workspace", "focus", workspace_id)
 
