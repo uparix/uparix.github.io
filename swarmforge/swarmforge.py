@@ -329,12 +329,25 @@ def write_opencode_agent(name: str, system_prompt: str) -> None:
     opencode has no `--append-system-prompt` flag. Its equivalent is a
     named agent file under `.opencode/agents/<name>.md` (YAML frontmatter
     + prompt body), auto-discovered from the project it's run in and
-    selected with `--agent <name>` — so it carries the same role as a
+    selected via `opencode_pane_env` — so it carries the same role as a
     system prompt, rather than just an initial chat message.
     """
     OPENCODE_AGENTS_DIR.mkdir(parents=True, exist_ok=True)
     frontmatter = f"---\ndescription: SwarmForge {name} agent.\nmode: primary\n---\n"
     (OPENCODE_AGENTS_DIR / f"{name}.md").write_text(frontmatter + system_prompt)
+
+
+def opencode_pane_env(cli_tool: str, name: str) -> list:
+    """herdr `--env` args that make opencode in a pane start as agent `name`.
+
+    opencode's TUI has no `--agent` flag, so the agent is picked via
+    `default_agent` in OPENCODE_CONFIG_CONTENT. That only takes effect
+    with `--standalone` — the shared background service ignores the
+    client's environment.
+    """
+    if cli_tool != "opencode":
+        return []
+    return ["--env", "OPENCODE_CONFIG_CONTENT=" + json.dumps({"default_agent": name})]
 
 
 def main() -> None:
@@ -359,16 +372,18 @@ def main() -> None:
         "--cwd", str(REPO_ROOT),
         "--label", WORKSPACE_LABEL,
         "--no-focus",
+        *opencode_pane_env(cli_tool, selected[0][0]),
     )
     workspace_id = created["workspace"]["workspace_id"]
     pane_ids = [created["root_pane"]["pane_id"]]
 
-    for _ in selected[1:]:
+    for name, _ in selected[1:]:
         split = herdr_json(
             "pane", "split", pane_ids[-1],
             "--direction", "right",
             "--cwd", str(REPO_ROOT),
             "--no-focus",
+            *opencode_pane_env(cli_tool, name),
         )
         pane_ids.append(split["pane"]["pane_id"])
 
@@ -376,7 +391,7 @@ def main() -> None:
         system_prompt = build_system_prompt(name, path, selected)
         if cli_tool == "opencode":
             write_opencode_agent(name, system_prompt)
-            agent_args = ["--agent", name]
+            agent_args = ["--standalone"]
         else:
             prompt_file = write_system_prompt_file(name, system_prompt)
             agent_args = ["--append-system-prompt-file", str(prompt_file)]
