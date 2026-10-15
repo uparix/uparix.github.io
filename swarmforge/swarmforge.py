@@ -3,7 +3,8 @@
 
 Each pane starts `claude` with an initial prompt that points it at the
 matching agent definition in .claude/agents/ via an @-file reference, plus
-a briefing on how to reach its peers directly via `herdr agent`.
+a briefing on how to reach its peers over herdr's socket API via
+`herdr agent prompt`.
 """
 
 import json
@@ -251,17 +252,23 @@ def close_existing_herdr_workspaces() -> None:
 
 
 def peer_briefing(self_name: str, agents: list) -> str:
-    peers = [name for name, _ in agents if name != self_name]
+    self_slug = herdr_agent_slug(self_name)
+    peers = [
+        f"{name} (`{herdr_agent_slug(name)}`)"
+        for name, _ in agents
+        if name != self_name
+    ]
     return (
-        f"Your peers this run: {', '.join(peers)} — separate Claude Code "
-        f"sessions in sibling `herdr` panes, not subagents of yours. To "
-        f"message one: `herdr agent send <Name> \"<message>\"` then `herdr "
-        f"pane send-keys <Name> Enter` to submit it. To wait for their reply: "
-        f"`herdr agent wait <Name> --status idle --timeout 120000`, then read "
-        f"it with `herdr pane read <Name> --source recent --lines 60`. If "
-        f"multiple herdr workspaces are running at once, plain names may be "
-        f"ambiguous — use `herdr agent list` to find the right pane id and "
-        f"target that instead."
+        f"You are registered in herdr as `{self_slug}`. Your peers this run: "
+        f"{', '.join(peers)} — separate sessions in sibling `herdr` panes, "
+        f"not subagents of yours. Talk to them only over herdr's socket API: "
+        f"`herdr agent prompt <peer> \"[from: {self_slug}] <message>\"` "
+        f"submits the message in one call (no separate Enter needed). Peers "
+        f"reply the same way, so their answer arrives as a new prompt "
+        f"starting with `[from: <peer>]` — answer such messages with `herdr "
+        f"agent prompt` back to the sender. Add `--wait --timeout 600000` "
+        f"only when you must block until the peer finishes; use `herdr agent "
+        f"read <peer> --source recent-unwrapped --lines 60` only to diagnose."
     )
 
 
