@@ -350,6 +350,15 @@ def opencode_pane_env(cli_tool: str, name: str) -> list:
     return ["--env", "OPENCODE_CONFIG_CONTENT=" + json.dumps({"default_agent": name})]
 
 
+def cli_tool_from_args(args: list) -> str:
+    """Return the CLI tool named on the command line, or ask for one."""
+    if not args:
+        return prompt_cli_tool_selection(clear_func=_clear_lines)
+    if len(args) > 1 or args[0] not in CLI_TOOLS:
+        sys.exit(f"usage: swarmforge.py [{'|'.join(CLI_TOOLS)}]")
+    return args[0]
+
+
 def main() -> None:
     print_banner()
     ensure_herdr_installed()
@@ -358,7 +367,7 @@ def main() -> None:
     if not agents:
         sys.exit(f"No agent definition files found in {CLAUDE_AGENTS_DIR}")
 
-    cli_tool = prompt_cli_tool_selection(clear_func=_clear_lines)
+    cli_tool = cli_tool_from_args(sys.argv[1:])
     selected = prompt_agent_selection(agents, clear_func=_clear_lines)
 
     if cli_tool == "claude":
