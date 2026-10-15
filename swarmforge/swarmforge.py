@@ -299,6 +299,30 @@ def write_system_prompt_file(name: str, system_prompt: str) -> Path:
     return Path(path)
 
 
+def trust_claude_folder(folder: Path) -> None:
+    """Pre-accept claude's "Do you trust this folder?" dialog for `folder`.
+
+    claude asks once per directory and records the answer in its global
+    config as `projects[<path>].hasTrustDialogAccepted`. The dialog blocks
+    the first pane before herdr sees the agent as ready, so `agent start`
+    fails with `agent_not_ready` — setting the flag up front skips it.
+    The config is replaced atomically since running claude sessions also
+    rewrite it.
+    """
+    config_dir = os.environ.get("CLAUDE_CONFIG_DIR")
+    config_path = Path(config_dir) / ".claude.json" if config_dir else Path.home() / ".claude.json"
+    config = json.loads(config_path.read_text()) if config_path.exists() else {}
+    project = config.setdefault("projects", {}).setdefault(str(folder), {})
+    if project.get("hasTrustDialogAccepted"):
+        return
+    project["hasTrustDialogAccepted"] = True
+    fd, tmp_path = tempfile.mkstemp(prefix=".claude.json-", dir=config_path.parent)
+    with os.fdopen(fd, "w") as f:
+        json.dump(config, f, indent=2)
+    os.replace(tmp_path, config_path)
+    print(f"Marked {folder} as trusted for claude.")
+
+
 def write_opencode_agent(name: str, system_prompt: str) -> None:
     """Write `system_prompt` as a project-local opencode agent definition.
 
@@ -323,6 +347,9 @@ def main() -> None:
 
     cli_tool = prompt_cli_tool_selection(clear_func=_clear_lines)
     selected = prompt_agent_selection(agents, clear_func=_clear_lines)
+
+    if cli_tool == "claude":
+        trust_claude_folder(REPO_ROOT)
 
     ensure_server_running()
     close_existing_herdr_workspaces()
