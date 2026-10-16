@@ -1,5 +1,7 @@
 #!/bin/sh
-# Installs swarmforge.py as `launch-herdr-agents` on your PATH.
+# Installs swarmforge.py into the current directory (or $HERDR_INSTALL_DIR),
+# plus the agent definitions, rules and settings under .claude/ next to it
+# unless they already exist.
 #
 #   curl -fsSL https://www.uparix.com/swarmforge/install.sh | sh
 
@@ -13,9 +15,9 @@ RULES_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/s
 SETTINGS_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/settings.json"
 INSTALL_DIR="${HERDR_INSTALL_DIR:-$PWD}"
 INSTALL_PATH="$INSTALL_DIR/swarmforge.py"
-AGENTS_DIR="$PWD/.claude/agents"
-RULES_DIR="$PWD/.claude/rules"
-SETTINGS_PATH="$PWD/.claude/settings.json"
+AGENTS_DIR="$INSTALL_DIR/.claude/agents"
+RULES_DIR="$INSTALL_DIR/.claude/rules"
+SETTINGS_PATH="$INSTALL_DIR/.claude/settings.json"
 
 command -v python3 >/dev/null 2>&1 || {
     echo "Error: python3 is required but was not found on PATH." >&2
