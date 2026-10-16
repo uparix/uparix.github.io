@@ -1,6 +1,6 @@
 ## Coordination
 
-Your peers are separate sessions in sibling `herdr` panes, not subagents, and you share no conversation with them. Each peer has a herdr agent name: `architect`, `coder` or `e2e-interpreter`. To see which peers are running, use `herdr agent list`.
+Your peers are separate sessions in sibling `herdr` panes, not subagents, and you share no conversation with them. Your system prompt lists each peer's herdr agent name. To see which peers are running, use `herdr agent list`.
 
 - **Send:** `herdr agent prompt <name> "[from: <you>] <message>"`. This one socket call submits the message, so don't type into a peer's pane with `pane send-text`/`send-keys`.
 - **Reply:** when a message starting with `[from: <name>]` arrives, answer it with `herdr agent prompt <name> ...`. Don't rely on the sender reading your pane.

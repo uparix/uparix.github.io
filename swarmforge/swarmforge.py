@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Open a herdr workspace with one pane per claude agent.
+"""Open a herdr workspace with one pane per agent.
 
-Each pane starts `claude` with an initial prompt that points it at the
-matching agent definition in .claude/agents/ via an @-file reference, plus
+Each pane starts the chosen coding CLI (claude or opencode) with the
+matching agent definition from .claude/agents/ as its system prompt, plus
 a briefing on how to reach its peers over herdr's socket API via
 `herdr agent prompt`.
 """
 
+from __future__ import annotations
+
+import hashlib
 import json
 import os
 import re
@@ -15,7 +18,9 @@ import subprocess
 import sys
 import tempfile
 import time
+from collections.abc import Sequence
 from pathlib import Path
+from typing import NamedTuple
 
 try:
     import termios
@@ -27,8 +32,22 @@ except ImportError:  # pragma: no cover - non-POSIX platforms
 REPO_ROOT = Path(__file__).resolve().parent
 CLAUDE_AGENTS_DIR = REPO_ROOT / ".claude" / "agents"
 OPENCODE_AGENTS_DIR = REPO_ROOT / ".opencode" / "agents"
-WORKSPACE_LABEL = "swarmforge"
+OPENCODE_AGENT_PREFIX = "swarmforge-"
+PROMPT_DIR = Path(tempfile.gettempdir()) / "swarmforge"
+# Short, stable id for this project, so swarms launched from different
+# projects on the same herdr server keep their workspaces and agent names
+# apart — herdr agent names must be unique among all live agents.
+PROJECT_TAG = hashlib.sha1(str(REPO_ROOT).encode()).hexdigest()[:6]
+WORKSPACE_LABEL = f"swarmforge-{REPO_ROOT.name}-{PROJECT_TAG}"
+HERDR_NAME_MAX_LEN = 32
 CLI_TOOLS = ["claude", "opencode"]
+
+AGENT_START_TIMEOUT_S = 10
+AGENT_START_RETRY_S = 0.3
+SERVER_START_TIMEOUT_S = 10
+SERVER_POLL_S = 0.2
+
+ESCAPE_KEYS = {"\x1b[A": "up", "\x1b[B": "down"}
 
 BANNER = r"""
 ╔═══════════════════════════════════════════════╗
@@ -37,49 +56,58 @@ BANNER = r"""
 ╚═══════════════════════════════════════════════╝
 """
 
+
+class Agent(NamedTuple):
+    name: str
+    path: Path
+    slug: str
+
+
 def print_banner(print_func=print) -> None:
     print_func(BANNER)
 
 
-def discover_agents(agents_dir: Path) -> list:
+def discover_agents(agents_dir: Path) -> list[Agent]:
     return sorted(
-        ((path.stem, path) for path in agents_dir.glob("*.md")),
-        key=lambda item: item[0],
+        (Agent(path.stem, path, herdr_agent_slug(path.stem)) for path in agents_dir.glob("*.md")),
+        key=lambda agent: agent.name,
     )
 
 
-def _menu_lines(agents: list, selected: set, cursor: int) -> list:
-    lines = ["Select agents to launch  (↑/↓ move · space toggle · enter confirm):"]
-    for i, (name, _) in enumerate(agents):
+def _menu_lines(title: str, labels: list[str], cursor: int, checked: set[int] | None) -> list[str]:
+    lines = [title]
+    for i, label in enumerate(labels):
         pointer = "➡️" if i == cursor else " "
-        mark = "✅" if name in selected else "❌"
-        lines.append(f"{pointer} {mark} {name}")
+        mark = "" if checked is None else ("✅ " if i in checked else "❌ ")
+        lines.append(f"{pointer} {mark}{label}")
     return lines
 
 
 def _read_key(stream=None) -> str:
+    """Read one keypress from the terminal in raw mode.
+
+    Reads up to 3 bytes at once instead of one at a time, so an arrow key's
+    escape sequence arrives whole and a lone Esc returns right away rather
+    than blocking until two more characters are typed.
+    """
     stream = stream or sys.stdin
     fd = stream.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
         tty.setraw(fd)
-        ch = stream.read(1)
-        if ch == "\x03":
-            raise KeyboardInterrupt
-        if ch == "\x1b":
-            rest = stream.read(2)
-            if rest == "[A":
-                return "up"
-            if rest == "[B":
-                return "down"
-            return ""
-        if ch == " ":
-            return "space"
-        if ch in ("\r", "\n"):
-            return "enter"
-        return ch
+        data = os.read(fd, 3).decode(errors="ignore")
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    if data == "\x03":
+        raise KeyboardInterrupt
+    if data.startswith("\x1b"):
+        return ESCAPE_KEYS.get(data, "")
+    ch = data[:1]
+    if ch == " ":
+        return "space"
+    if ch in ("\r", "\n"):
+        return "enter"
+    return ch
 
 
 def _clear_lines(count: int) -> None:
@@ -88,19 +116,26 @@ def _clear_lines(count: int) -> None:
         sys.stdout.flush()
 
 
-def prompt_agent_selection(
-    agents: list,
-    key_func=_read_key,
-    print_func=print,
-    clear_func=None,
-) -> list:
-    selected = {name for name, _ in agents}
+def _run_menu(
+    title: str,
+    labels: list[str],
+    checked: set[int] | None,
+    key_func,
+    print_func,
+    clear_func,
+) -> int:
+    """Show an arrow-key menu of `labels` and return the cursor index on enter.
+
+    With `checked` (a set of label indices), the menu is multi-select:
+    space toggles the item under the cursor, `checked` is updated in place,
+    and enter is refused while nothing is checked.
+    """
     cursor = 0
     prev_line_count = 0
 
     def render():
         nonlocal prev_line_count
-        lines = _menu_lines(agents, selected, cursor)
+        lines = _menu_lines(title, labels, cursor, checked)
         if clear_func:
             clear_func(prev_line_count)
         for line in lines:
@@ -110,55 +145,48 @@ def prompt_agent_selection(
     render()
     while True:
         key = key_func()
-        if key == "up":
-            cursor = (cursor - 1) % len(agents)
-            render()
-        elif key == "down":
-            cursor = (cursor + 1) % len(agents)
-            render()
-        elif key == "space":
-            name = agents[cursor][0]
-            selected.symmetric_difference_update({name})
-            render()
+        if key in ("up", "down"):
+            cursor = (cursor + (1 if key == "down" else -1)) % len(labels)
+        elif key == "space" and checked is not None:
+            checked.symmetric_difference_update({cursor})
         elif key == "enter":
-            if selected:
-                return [pair for pair in agents if pair[0] in selected]
-            print_func("At least one agent must be selected.")
-            render()
+            if checked is None or checked:
+                return cursor
+            print_func("Select at least one item.")
+        else:
+            continue
+        render()
+
+
+def prompt_agent_selection(
+    agents: list[Agent],
+    key_func=_read_key,
+    print_func=print,
+    clear_func=None,
+) -> list[Agent]:
+    checked = set(range(len(agents)))
+    _run_menu(
+        "Select agents to launch  (↑/↓ move · space toggle · enter confirm):",
+        [agent.name for agent in agents],
+        checked,
+        key_func, print_func, clear_func,
+    )
+    return [agent for i, agent in enumerate(agents) if i in checked]
 
 
 def prompt_cli_tool_selection(
-    tools: list = CLI_TOOLS,
+    tools: list[str] = CLI_TOOLS,
     key_func=_read_key,
     print_func=print,
     clear_func=None,
 ) -> str:
-    cursor = 0
-    prev_line_count = 0
-
-    def render():
-        nonlocal prev_line_count
-        lines = ["Select coding agent CLI  (↑/↓ move · enter confirm):"]
-        for i, name in enumerate(tools):
-            mark = "🟢" if i == cursor else "🔴"
-            lines.append(f"{mark} {name}")
-        if clear_func:
-            clear_func(prev_line_count)
-        for line in lines:
-            print_func(line)
-        prev_line_count = len(lines)
-
-    render()
-    while True:
-        key = key_func()
-        if key == "up":
-            cursor = (cursor - 1) % len(tools)
-            render()
-        elif key == "down":
-            cursor = (cursor + 1) % len(tools)
-            render()
-        elif key == "enter":
-            return tools[cursor]
+    cursor = _run_menu(
+        "Select coding agent CLI  (↑/↓ move · enter confirm):",
+        tools,
+        None,
+        key_func, print_func, clear_func,
+    )
+    return tools[cursor]
 
 
 def ensure_herdr_installed() -> None:
@@ -166,20 +194,19 @@ def ensure_herdr_installed() -> None:
         sys.exit("herdr is not installed. Download it from https://herdr.dev")
 
 
+def herdr(*args: str) -> str:
+    """Run a herdr command and return its stdout, raising if it fails."""
+    result = subprocess.run(["herdr", *args], capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError(f"herdr {' '.join(args)} failed: {result.stderr.strip()}")
+    return result.stdout
+
+
 def herdr_json(*args: str) -> dict:
-    result = subprocess.run(["herdr", *args], capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError(f"herdr {' '.join(args)} failed: {result.stderr.strip()}")
-    return json.loads(result.stdout)["result"]
+    return json.loads(herdr(*args))["result"]
 
 
-def herdr(*args: str) -> None:
-    result = subprocess.run(["herdr", *args], capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError(f"herdr {' '.join(args)} failed: {result.stderr.strip()}")
-
-
-def start_agent(slug: str, cli_tool: str, pane_id: str, agent_args: list) -> None:
+def start_agent(slug: str, cli_tool: str, pane_id: str, agent_args: list[str]) -> None:
     """Start `cli_tool` in `pane_id`, retrying briefly on `agent_pane_busy`.
 
     A pane fresh out of `workspace create`/`pane split` can take a moment
@@ -187,7 +214,7 @@ def start_agent(slug: str, cli_tool: str, pane_id: str, agent_args: list) -> Non
     instantly with `agent_pane_busy` during that window rather than waiting
     it out, so poll past it here instead of surfacing a spurious crash.
     """
-    deadline = time.monotonic() + 10
+    deadline = time.monotonic() + AGENT_START_TIMEOUT_S
     while True:
         try:
             herdr(
@@ -200,7 +227,7 @@ def start_agent(slug: str, cli_tool: str, pane_id: str, agent_args: list) -> Non
             return
         except RuntimeError as exc:
             if "agent_pane_busy" in str(exc) and time.monotonic() < deadline:
-                time.sleep(0.3)
+                time.sleep(AGENT_START_RETRY_S)
                 continue
             raise
 
@@ -211,12 +238,33 @@ def herdr_agent_slug(name: str) -> str:
     herdr's `agent start` NAME must match `[a-z][a-z0-9_-]{0,31}`, but
     agent definition file stems (e.g. "Architect", "E2E-Interpreter")
     are mixed-case, so the herdr-facing identity is derived separately
-    from the display name used everywhere else in this script.
+    from the display name used everywhere else in this script. It ends
+    in PROJECT_TAG (e.g. "architect-1a2b3c") because names must also be
+    unique across every swarm on the herdr server.
     """
     slug = re.sub(r"[^a-z0-9_-]", "-", name.lower()).strip("-_")
     if not slug or not slug[0].isalpha():
         slug = f"a-{slug}" if slug else "agent"
-    return slug[:32]
+    suffix = f"-{PROJECT_TAG}"
+    return slug[:HERDR_NAME_MAX_LEN - len(suffix)] + suffix
+
+
+def ensure_unique_slugs(agents: list[Agent]) -> None:
+    """Exit if two agent files map to the same herdr agent name.
+
+    Sanitizing can merge distinct file names ("E2E Interpreter.md" and
+    "E2E-Interpreter.md" both become "e2e-interpreter"). herdr would
+    refuse the second `agent start`, and the two would share one system
+    prompt file, so stop before anything is started.
+    """
+    seen = {}
+    for agent in agents:
+        if agent.slug in seen:
+            sys.exit(
+                f"{seen[agent.slug].path.name} and {agent.path.name} both map to "
+                f"the herdr agent name `{agent.slug}`. Rename one of them."
+            )
+        seen[agent.slug] = agent
 
 
 def server_running() -> bool:
@@ -233,36 +281,36 @@ def ensure_server_running() -> None:
         stderr=subprocess.DEVNULL,
         start_new_session=True,
     )
-    for _ in range(50):
+    deadline = time.monotonic() + SERVER_START_TIMEOUT_S
+    while time.monotonic() < deadline:
         if server_running():
             return
-        time.sleep(0.2)
+        time.sleep(SERVER_POLL_S)
     sys.exit("Timed out waiting for herdr server to start.")
 
 
 def close_existing_herdr_workspaces() -> None:
-    """Close any workspace left running from a previous launch of this script.
+    """Close the workspace left running by a previous launch in this project.
 
-    Matches on a label prefix rather than exact equality so stale workspaces
-    from earlier label conventions (e.g. "herdr-agents") are cleaned up too.
+    Matches the exact per-project label, so swarms of other projects and
+    the user's own workspaces are left alone.
     """
     for workspace in herdr_json("workspace", "list")["workspaces"]:
-        if workspace["label"].startswith(WORKSPACE_LABEL):
+        if workspace["label"] == WORKSPACE_LABEL:
             herdr("workspace", "close", workspace["workspace_id"])
 
 
-def peer_briefing(self_name: str, agents: list) -> str:
-    self_slug = herdr_agent_slug(self_name)
+def peer_briefing(self_agent: Agent, agents: list[Agent]) -> str:
     peers = [
-        f"{name} (`{herdr_agent_slug(name)}`)"
-        for name, _ in agents
-        if name != self_name
+        f"{agent.name} (`{agent.slug}`)"
+        for agent in agents
+        if agent.name != self_agent.name
     ]
     return (
-        f"You are registered in herdr as `{self_slug}`. Your peers this run: "
+        f"You are registered in herdr as `{self_agent.slug}`. Your peers this run: "
         f"{', '.join(peers)} — separate sessions in sibling `herdr` panes, "
         f"not subagents of yours. Talk to them only over herdr's socket API: "
-        f"`herdr agent prompt <peer> \"[from: {self_slug}] <message>\"` "
+        f"`herdr agent prompt <peer> \"[from: {self_agent.slug}] <message>\"` "
         f"submits the message in one call (no separate Enter needed). Peers "
         f"reply the same way, so their answer arrives as a new prompt "
         f"starting with `[from: <peer>]` — answer such messages with `herdr "
@@ -272,18 +320,18 @@ def peer_briefing(self_name: str, agents: list) -> str:
     )
 
 
-def build_system_prompt(name: str, path: Path, agents: list) -> str:
+def build_system_prompt(agent: Agent, agents: list[Agent]) -> str:
     """Combine an agent's definition file with its peer briefing.
 
     Passed whole to `claude --append-system-prompt-file` so the agent's role
     is established invisibly, instead of as a visible first user message.
     """
-    role_definition = path.read_text().rstrip("\n")
-    return f"{role_definition}\n\n{peer_briefing(name, agents)}"
+    role_definition = agent.path.read_text().rstrip("\n")
+    return f"{role_definition}\n\n{peer_briefing(agent, agents)}"
 
 
-def write_system_prompt_file(name: str, system_prompt: str) -> Path:
-    """Write `system_prompt` to a temp file for `claude --append-system-prompt-file`.
+def write_system_prompt_file(agent: Agent, system_prompt: str) -> Path:
+    """Write `system_prompt` to a file for `claude --append-system-prompt-file`.
 
     `herdr agent start` works by typing a constructed command line into the
     target pane's shell, which requires escaping the argument for an unknown
@@ -292,11 +340,15 @@ def write_system_prompt_file(name: str, system_prompt: str) -> Path:
     "agent arguments cannot be encoded safely for the target shell". Passing
     a file path instead sidesteps the problem entirely since the argument
     itself has no newlines to escape.
+
+    The path is fixed per agent, so each run overwrites the previous run's
+    file instead of leaving a new temp file behind — cleanup on exit isn't
+    possible since this script ends by exec'ing into herdr.
     """
-    fd, path = tempfile.mkstemp(prefix=f"swarmforge-{name}-", suffix=".md")
-    with os.fdopen(fd, "w") as f:
-        f.write(system_prompt)
-    return Path(path)
+    PROMPT_DIR.mkdir(parents=True, exist_ok=True)
+    path = PROMPT_DIR / f"{agent.slug}.md"
+    path.write_text(system_prompt)
+    return path
 
 
 def trust_claude_folder(folder: Path) -> None:
@@ -323,21 +375,30 @@ def trust_claude_folder(folder: Path) -> None:
     print(f"Marked {folder} as trusted for claude.")
 
 
-def write_opencode_agent(name: str, system_prompt: str) -> None:
-    """Write `system_prompt` as a project-local opencode agent definition.
+def write_opencode_agent(agent: Agent, system_prompt: str) -> str:
+    """Write `system_prompt` as a project-local opencode agent; return its name.
 
     opencode has no `--append-system-prompt` flag. Its equivalent is a
     named agent file under `.opencode/agents/<name>.md` (YAML frontmatter
     + prompt body), auto-discovered from the project it's run in and
     selected via `opencode_pane_env` — so it carries the same role as a
     system prompt, rather than just an initial chat message.
+
+    The OPENCODE_AGENT_PREFIX keeps these files from overwriting the
+    project's own opencode agents, and a `.gitignore` (created only if the
+    folder has none) keeps them out of the project's git status.
     """
     OPENCODE_AGENTS_DIR.mkdir(parents=True, exist_ok=True)
-    frontmatter = f"---\ndescription: SwarmForge {name} agent.\nmode: primary\n---\n"
-    (OPENCODE_AGENTS_DIR / f"{name}.md").write_text(frontmatter + system_prompt)
+    gitignore = OPENCODE_AGENTS_DIR / ".gitignore"
+    if not gitignore.exists():
+        gitignore.write_text(f"{OPENCODE_AGENT_PREFIX}*.md\n.gitignore\n")
+    opencode_name = OPENCODE_AGENT_PREFIX + agent.name
+    frontmatter = f"---\ndescription: SwarmForge {agent.name} agent.\nmode: primary\n---\n"
+    (OPENCODE_AGENTS_DIR / f"{opencode_name}.md").write_text(frontmatter + system_prompt)
+    return opencode_name
 
 
-def opencode_pane_env(cli_tool: str, name: str) -> list:
+def opencode_pane_env(name: str) -> list[str]:
     """herdr `--env` args that make opencode in a pane start as agent `name`.
 
     opencode's TUI has no `--agent` flag, so the agent is picked via
@@ -345,12 +406,64 @@ def opencode_pane_env(cli_tool: str, name: str) -> list:
     with `--standalone` — the shared background service ignores the
     client's environment.
     """
-    if cli_tool != "opencode":
-        return []
     return ["--env", "OPENCODE_CONFIG_CONTENT=" + json.dumps({"default_agent": name})]
 
 
-def cli_tool_from_args(args: list) -> str:
+def prepare_cli(cli_tool: str, agent: Agent, agents: list[Agent]) -> tuple[list[str], list[str]]:
+    """Hand `agent`'s system prompt to `cli_tool` the way that tool expects.
+
+    Returns `(pane_env_args, agent_args)`: the herdr `--env` args for the
+    agent's pane, and the args `cli_tool` itself is started with.
+    """
+    system_prompt = build_system_prompt(agent, agents)
+    if cli_tool == "opencode":
+        opencode_name = write_opencode_agent(agent, system_prompt)
+        return opencode_pane_env(opencode_name), ["--standalone"]
+    prompt_file = write_system_prompt_file(agent, system_prompt)
+    return [], ["--append-system-prompt-file", str(prompt_file)]
+
+
+def create_panes(pane_envs: Sequence[list[str]]) -> tuple[str, list[str]]:
+    """Create the swarmforge workspace with one pane per entry in `pane_envs`.
+
+    Panes are laid out left to right. Returns `(workspace_id, pane_ids)`.
+    """
+    created = herdr_json(
+        "workspace", "create",
+        "--cwd", str(REPO_ROOT),
+        "--label", WORKSPACE_LABEL,
+        "--no-focus",
+        *pane_envs[0],
+    )
+    pane_ids = [created["root_pane"]["pane_id"]]
+    for env_args in pane_envs[1:]:
+        split = herdr_json(
+            "pane", "split", pane_ids[-1],
+            "--direction", "right",
+            "--cwd", str(REPO_ROOT),
+            "--no-focus",
+            *env_args,
+        )
+        pane_ids.append(split["pane"]["pane_id"])
+    return created["workspace"]["workspace_id"], pane_ids
+
+
+def launch_agent(agent: Agent, cli_tool: str, pane_id: str, agent_args: list[str]) -> None:
+    """Start `agent` in `pane_id`, exiting with a hint if it gets stuck."""
+    try:
+        start_agent(agent.slug, cli_tool, pane_id, agent_args)
+    except RuntimeError as exc:
+        if "agent_not_ready" not in str(exc):
+            raise
+        sys.exit(
+            f"{agent.name} didn't become ready in pane {pane_id}: {cli_tool} "
+            f"is probably waiting at a startup prompt.\n"
+            f"Run `herdr pane read {pane_id}` to see it, answer it with "
+            f"`herdr pane send-keys {pane_id} <key>`, then re-run this script."
+        )
+
+
+def cli_tool_from_args(args: list[str]) -> str:
     """Return the CLI tool named on the command line, or ask for one."""
     if not args:
         return prompt_cli_tool_selection(clear_func=_clear_lines)
@@ -366,58 +479,21 @@ def main() -> None:
     agents = discover_agents(CLAUDE_AGENTS_DIR)
     if not agents:
         sys.exit(f"No agent definition files found in {CLAUDE_AGENTS_DIR}")
+    ensure_unique_slugs(agents)
 
     cli_tool = cli_tool_from_args(sys.argv[1:])
     selected = prompt_agent_selection(agents, clear_func=_clear_lines)
 
     if cli_tool == "claude":
         trust_claude_folder(REPO_ROOT)
+    pane_envs, agent_args = zip(*(prepare_cli(cli_tool, agent, selected) for agent in selected))
 
     ensure_server_running()
     close_existing_herdr_workspaces()
 
-    created = herdr_json(
-        "workspace", "create",
-        "--cwd", str(REPO_ROOT),
-        "--label", WORKSPACE_LABEL,
-        "--no-focus",
-        *opencode_pane_env(cli_tool, selected[0][0]),
-    )
-    workspace_id = created["workspace"]["workspace_id"]
-    pane_ids = [created["root_pane"]["pane_id"]]
-
-    for name, _ in selected[1:]:
-        split = herdr_json(
-            "pane", "split", pane_ids[-1],
-            "--direction", "right",
-            "--cwd", str(REPO_ROOT),
-            "--no-focus",
-            *opencode_pane_env(cli_tool, name),
-        )
-        pane_ids.append(split["pane"]["pane_id"])
-
-    for pane_id, (name, path) in zip(pane_ids, selected):
-        system_prompt = build_system_prompt(name, path, selected)
-        if cli_tool == "opencode":
-            write_opencode_agent(name, system_prompt)
-            agent_args = ["--standalone"]
-        else:
-            prompt_file = write_system_prompt_file(name, system_prompt)
-            agent_args = ["--append-system-prompt-file", str(prompt_file)]
-        try:
-            start_agent(herdr_agent_slug(name), cli_tool, pane_id, agent_args)
-        except RuntimeError as exc:
-            if "agent_not_ready" in str(exc):
-                sys.exit(
-                    f"{cli_tool} is stuck at a startup prompt in pane {pane_id} "
-                    f"(likely the one-time \"trust this folder\" dialog for "
-                    f"{REPO_ROOT}) and didn't become ready in time.\n"
-                    f"Run `herdr pane read {pane_id}` to see it, accept it with "
-                    f"`herdr pane send-keys {pane_id} Enter`, then re-run this "
-                    f"script — trust is remembered per directory, so this is a "
-                    f"one-time step."
-                )
-            raise
+    workspace_id, pane_ids = create_panes(pane_envs)
+    for agent, pane_id, args in zip(selected, pane_ids, agent_args):
+        launch_agent(agent, cli_tool, pane_id, args)
 
     herdr("workspace", "focus", workspace_id)
 
