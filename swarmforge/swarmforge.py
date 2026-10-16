@@ -10,6 +10,7 @@ a briefing on how to reach its peers over herdr's socket API via
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
 import os
 import re
@@ -17,6 +18,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 from collections.abc import Sequence
 from pathlib import Path
@@ -49,6 +51,9 @@ SERVER_POLL_S = 0.2
 
 ESCAPE_KEYS = {"\x1b[A": "up", "\x1b[B": "down"}
 
+SPINNER_FRAMES = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
+SPINNER_INTERVAL_S = 0.08
+
 BANNER = r"""
 ╔═══════════════════════════════════════════════╗
 ║           SwarmForge v1.0 Starting            ║
@@ -61,6 +66,48 @@ class Agent(NamedTuple):
     name: str
     path: Path
     slug: str
+
+
+class Spinner:
+    """Show `⠹ <step>…` on one line while the `with` block runs.
+
+    `update()` changes the step text; a background thread animates the
+    frame. The line is cleared and the cursor shown again on exit, also
+    on errors and Ctrl-C. When `stream` isn't a terminal, each step is
+    printed on its own line instead of animated.
+    """
+
+    def __init__(self, stream=None):
+        self.stream = stream or sys.stdout
+        self.text = ""
+        self.animate = self.stream.isatty()
+        self._stop = threading.Event()
+        self._thread = threading.Thread(target=self._spin, daemon=True)
+
+    def __enter__(self) -> Spinner:
+        if self.animate:
+            self.stream.write("\x1b[?25l")
+            self._thread.start()
+        return self
+
+    def __exit__(self, *exc_info) -> None:
+        if self.animate:
+            self._stop.set()
+            self._thread.join()
+            self.stream.write("\r\x1b[K\x1b[?25h")
+            self.stream.flush()
+
+    def update(self, text: str) -> None:
+        self.text = text
+        if not self.animate:
+            print(f"{text}…", file=self.stream)
+
+    def _spin(self) -> None:
+        for frame in itertools.cycle(SPINNER_FRAMES):
+            self.stream.write(f"\r\x1b[K{frame} {self.text}…")
+            self.stream.flush()
+            if self._stop.wait(SPINNER_INTERVAL_S):
+                return
 
 
 def print_banner(print_func=print) -> None:
@@ -486,16 +533,24 @@ def main() -> None:
 
     if cli_tool == "claude":
         trust_claude_folder(REPO_ROOT)
-    pane_envs, agent_args = zip(*(prepare_cli(cli_tool, agent, selected) for agent in selected))
 
-    ensure_server_running()
-    close_existing_herdr_workspaces()
+    with Spinner() as spinner:
+        spinner.update("Preparing agents")
+        pane_envs, agent_args = zip(*(prepare_cli(cli_tool, agent, selected) for agent in selected))
 
-    workspace_id, pane_ids = create_panes(pane_envs)
-    for agent, pane_id, args in zip(selected, pane_ids, agent_args):
-        launch_agent(agent, cli_tool, pane_id, args)
+        spinner.update("Starting herdr server")
+        ensure_server_running()
 
-    herdr("workspace", "focus", workspace_id)
+        spinner.update("Creating workspace")
+        close_existing_herdr_workspaces()
+        workspace_id, pane_ids = create_panes(pane_envs)
+
+        for n, (agent, pane_id, args) in enumerate(zip(selected, pane_ids, agent_args), start=1):
+            spinner.update(f"Starting {agent.name} ({n}/{len(selected)})")
+            launch_agent(agent, cli_tool, pane_id, args)
+
+        spinner.update("Opening herdr")
+        herdr("workspace", "focus", workspace_id)
 
     os.execvp("herdr", ["herdr"])
 
