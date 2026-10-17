@@ -12,8 +12,11 @@
 			<p class="tagline">Open a <a href="https://herdr.dev"><code>herdr</code></a> workspace with one pane per <a href="https://claude.ai"><code>claude</code></a> or <a href="https://opencode.ai"><code>opencode</code></a> agent, each able to message its peers across panes.</p>
 
 			<h2>Prerequisite</h2>
+			TMUX Terminal Multiplexer
 			<pre><code>brew install herdr</code></pre>
-
+			Security Sandbox (optional)
+			<pre><code>brew install nono
+nono pull nolabs-ai/[claude|opencode]</code></pre>
 			<h2>Install</h2>
 			<pre class="code-block"><button class="copy-btn" onclick="copyInstallCommand(this)">Copy</button><code id="install-command">curl -fsSL https://www.uparix.com/swarmforge/install.sh | sh</code></pre>
 
