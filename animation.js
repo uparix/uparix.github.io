@@ -17,8 +17,6 @@ var context = canvas.getContext('2d');
 
 //get DPI
 let dpi = window.devicePixelRatio || 1;
-context.scale(dpi, dpi);
-console.log(dpi);
 
 function fix_dpi() {
 //get CSS height
@@ -65,7 +63,7 @@ canvas.setAttribute('width', style_width * dpi);
             break;
         }
             
-        this.move = function()
+        this.move = function(i)
         {
             
             context.beginPath();
@@ -96,7 +94,7 @@ canvas.setAttribute('width', style_width * dpi);
                 this.speedy *= -1;
             }
 
-            for (var j = 0; j < particle_count; j++)
+            for (var j = i + 1; j < particle_count; j++)
             {
                 var particleActuelle = particles[j],
                     yd = particleActuelle.y - this.y,
@@ -119,9 +117,10 @@ canvas.setAttribute('width', style_width * dpi);
             }
         };
     };
+    fix_dpi();
+    window.addEventListener('resize', fix_dpi);
     for (var i = 0; i < particle_count; i++)
     {
-        fix_dpi();
         var particle = new Particle();
         particles.push(particle);
     }
@@ -129,11 +128,10 @@ canvas.setAttribute('width', style_width * dpi);
 
     function animate()
     {
-        fix_dpi();
         context.clearRect(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < particle_count; i++)
         {
-            particles[i].move();
+            particles[i].move(i);
         }
         requestAnimFrame(animate);
     }
