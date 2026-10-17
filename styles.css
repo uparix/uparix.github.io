@@ -16,3 +16,29 @@ body {
   height: 100%;
   margin: 0 auto;
 }
+
+.not-found {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  padding: 0 16px;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+.not-found h1 {
+  margin: 0;
+  font-size: clamp(4rem, 20vw, 8rem);
+}
+
+.not-found p {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.not-found a {
+  color: #fff;
+}
