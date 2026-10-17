@@ -1,2 +1,6 @@
 exclude:
   - server
+  - README.md
+  - LICENSE
+  - CNAME
+  - CLAUDE.md
