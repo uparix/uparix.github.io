@@ -1,6 +1,6 @@
 #!/bin/sh
 # Installs swarmforge.py into the current directory (or $HERDR_INSTALL_DIR),
-# plus the agent definitions, rules and settings under .claude/ next to it
+# plus the agent definitions, rules, skills and settings under .claude/ next to it
 # unless they already exist.
 #
 #   curl -fsSL https://www.uparix.com/swarmforge/install.sh | sh
@@ -12,11 +12,14 @@ AGENTS_API_URL="https://api.github.com/repos/uparix/uparix.github.io/contents/sw
 AGENTS_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/agents"
 RULES_API_URL="https://api.github.com/repos/uparix/uparix.github.io/contents/swarmforge/.claude/rules"
 RULES_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/rules"
+SKILLS_TREE_URL="https://api.github.com/repos/uparix/uparix.github.io/git/trees/main?recursive=1"
+SKILLS_RAW_BASE="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/skills"
 SETTINGS_RAW_URL="https://raw.githubusercontent.com/uparix/uparix.github.io/main/swarmforge/.claude/settings.json"
 INSTALL_DIR="${HERDR_INSTALL_DIR:-$PWD}"
 INSTALL_PATH="$INSTALL_DIR/swarmforge.py"
 AGENTS_DIR="$INSTALL_DIR/.claude/agents"
 RULES_DIR="$INSTALL_DIR/.claude/rules"
+SKILLS_DIR="$INSTALL_DIR/.claude/skills"
 SETTINGS_PATH="$INSTALL_DIR/.claude/settings.json"
 
 command -v python3 >/dev/null 2>&1 || {
@@ -78,6 +81,26 @@ for entry in entries:
         echo "Installed $name to $RULES_DIR/$name"
     done
     rm -f "$RULES_JSON"
+fi
+
+if [ ! -d "$SKILLS_DIR" ]; then
+    mkdir -p "$SKILLS_DIR"
+    SKILLS_JSON="$(mktemp)"
+    fetch "$SKILLS_TREE_URL" "$SKILLS_JSON"
+    python3 -c '
+import json, sys
+prefix = "swarmforge/.claude/skills/"
+with open(sys.argv[1]) as f:
+    tree = json.load(f)["tree"]
+for entry in tree:
+    if entry["type"] == "blob" and entry["path"].startswith(prefix):
+        print(entry["path"][len(prefix):])
+' "$SKILLS_JSON" | while IFS= read -r path; do
+        mkdir -p "$(dirname "$SKILLS_DIR/$path")"
+        fetch "$SKILLS_RAW_BASE/$path" "$SKILLS_DIR/$path"
+        echo "Installed $path to $SKILLS_DIR/$path"
+    done
+    rm -f "$SKILLS_JSON"
 fi
 
 if [ ! -f "$SETTINGS_PATH" ]; then
